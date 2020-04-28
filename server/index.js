@@ -32,7 +32,7 @@ app.post('/user/login', userCtrl.login)
 app.post('/user/register', userCtrl.register)
 app.delete('/user/logout', userCtrl.logout)
 app.get('/user/me', userCtrl.getLoggedInUser)
-app.get('/user/proplayers', userCtrl.getUsersProPlayers)
+app.get('/user/proPlayers', userCtrl.getUsersProPlayers)
 
 
 
