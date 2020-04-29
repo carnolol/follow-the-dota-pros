@@ -1,4 +1,20 @@
 const bcrypt = require('bcryptjs')
+const pictures = [
+    'https://api.opendota.com/apps/dota2/images/items/moon_shard_lg.png?t=1587186172645',
+    'https://api.opendota.com/apps/dota2/images/items/hand_of_midas_lg.png?t=1587186172645',
+    'https://api.opendota.com/apps/dota2/images/items/rapier_lg.png?t=1587186172645',
+    'https://api.opendota.com/apps/dota2/images/items/dagon_5_lg.png?t=1587186172645',
+    'https://api.opendota.com/apps/dota2/images/items/heart_lg.png?t=1587186172645',
+    'https://api.opendota.com/apps/dota2/images/items/recipe_lg.png?t=1587186172645',
+    'https://api.opendota.com/apps/dota2/images/items/tango_lg.png?t=1587186172645',
+    'https://api.opendota.com/apps/dota2/images/items/branches_lg.png?t=1587186172645',
+    'https://api.opendota.com/apps/dota2/images/items/travel_boots_lg.png?t=1587186172645',
+    'https://api.opendota.com/apps/dota2/images/items/bloodthorn_lg.png?t=1587186172645'
+]
+
+const random = Math.floor(Math.random() * pictures.length)
+const randomPicture = pictures[random]
+// console.log(randomPicture)
 
 module.exports = {
     login: async (req, res) => {
@@ -26,10 +42,12 @@ module.exports = {
         }
         const salt = bcrypt.genSaltSync(9)
         const hash = bcrypt.hashSync(password, salt)
-        // const profile_pic = 
-        const newUser = await db.register_new_user([username, hash])
+        const profile_pic = randomPicture
+        const newUser = await db.register_new_user([username, hash, profile_pic])
+
         req.session.user = newUser[0]
         res.status(200).send(req.session.user)
+        // working
     },
     logout: async (req, res) => {
         req.session.destroy()
@@ -45,5 +63,6 @@ module.exports = {
 
     getUsersProPlayers: async (req, res) => {
         const db = req.app.get('db')
+        // need to figure out db query to do this
     }
 }

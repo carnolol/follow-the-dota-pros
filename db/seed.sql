@@ -30,10 +30,10 @@ dota_user INT,
 FOREIGN KEY (dota_user) REFERENCES dota_users(dota_users_id)
 )
 
--- CREATE TABLE pro_players_join(
--- pro_player_account_id INT REFERENCES pro_players(pro_player_id),
--- dota_users_account_id INT REFERENCES dota_users(dota_users_id)
--- )
+CREATE TABLE pro_players_join(
+pro_player_account_id INT REFERENCES pro_players(pro_player_id),
+dota_users_account_id INT REFERENCES dota_users(dota_users_id)
+)
 
 -- INSERT INTO pro_players
 -- (name, picture, steam_account_id)

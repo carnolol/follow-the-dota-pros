@@ -4,7 +4,7 @@ module.exports = {
         const { author_id, title, content } = req.body
         const newPost = await db.add_post([author_id, title, content])
         res.status(200).send(newPost)
-        //* working but doest... update the author_id... not sure what i need to do
+        // working 
     },
     editPost: async (req, res) => {
         // not working not sure why
@@ -30,9 +30,11 @@ module.exports = {
     getOnePost: async (req, res) => {
         const db = req.app.get('db')
         const {dota_posts_id} = req.params
-        const onePost = db.get_one_post([dota_posts_id])
-        res.status(200).send(onePost)
-        // doesnt work because adding a post doesnt update the author_id
+        const onePost = await db.get_one_post([dota_posts_id])
+        // console.log('get one post working?')
+        // console.log(onePost)
+        res.status(200).send(onePost[0])
+        // WORKING
     },
     deletePost: async (req, res) => {
         const db = req.app.get('db')
