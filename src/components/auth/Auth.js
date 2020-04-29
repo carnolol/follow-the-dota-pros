@@ -23,14 +23,17 @@ function Auth(props) {
     }
     return (
         <div className='main-auth-div'>
-            <input placeholder ='email'
-                onChange={(e) => setEmail(e.target.value)}/>
+            <div className='child-auth-div'>
+                <input placeholder ='email'
+            onChange={(e) => setEmail(e.target.value)}/>
             <input placeholder ='username'
-                onChange={e => setUsername(e.target.value)}/>
+            onChange={e => setUsername(e.target.value)}/>
             <input placeholder ='password'
-                onChange={e => setPassword(e.target.value)}/>
-                <button>Login</button>
-                <button onClick={() => handleRegisterUser()}>Register</button>
+            onChange={e => setPassword(e.target.value)}/>
+            <button className='auth-buttons'>Login</button>
+            <button className='auth-buttons'
+            onClick={() => handleRegisterUser()}>Register</button>
+            </div>
         </div>
     )
 }
