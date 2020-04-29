@@ -1,6 +1,7 @@
 UPDATE dota_posts
-SET content = $1
-WHERE dota_posts_id = $2
+SET title = $1,
+content = $2
+WHERE dota_posts_id = $3
 
 
 

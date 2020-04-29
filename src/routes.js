@@ -4,7 +4,7 @@ import Auth from './components/auth/Auth'
 import Landing from './components/Landing/Landing'
 import UserInfo from './components/UserInfo/UserInfo'
 import RecentMatches from './components/RecentMatches/RecentMatches'
-import Score from './components/Score'
+import Score from './components/Score/Score'
 
 
 export default <Switch>

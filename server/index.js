@@ -36,3 +36,16 @@ app.get('/user/proPlayers', userCtrl.getUsersProPlayers)
 
 
 
+app.get('/dota-pros/posts', postCtrl.getPostsBasedOnMatch)
+app.get('/dota-pros/all-posts', postCtrl.getAllPosts)
+app.get('/dota-pros/posts/:dota_posts_id', postCtrl.getOnePost)
+
+app.post('/dota-pros/posts', postCtrl.addNewPost)
+
+app.put('/dota-pros/posts/:dota_posts_id', postCtrl.editPost)
+
+app.delete('/dota-pros/posts/:dota_posts_id', postCtrl.deletePost)
+
+
+
+
