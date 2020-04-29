@@ -1,9 +1,12 @@
 import React from 'react'
+import {Link } from 'react-router-dom'
 
 function UserInfo() {
     return (
         <div>
-          UserInfo.js  
+          <h1>
+              UserInfo.js
+          </h1> 
         </div>
     )
 }
