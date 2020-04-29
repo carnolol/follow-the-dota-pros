@@ -1,9 +1,11 @@
 import React from 'react'
 
-export default function UserInfo() {
+function UserInfo() {
     return (
         <div>
-            
+          UserInfo.js  
         </div>
     )
 }
+
+export default UserInfo

@@ -1,9 +1,11 @@
 import React from 'react'
 
-export default function ProPlayerPool() {
+function ProPlayerPool() {
     return (
         <div>
-            
+            ProPlayerPool.JS
         </div>
     )
 }
+
+export default ProPlayerPool

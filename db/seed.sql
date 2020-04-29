@@ -16,6 +16,7 @@ username VARCHAR(50),
 password VARCHAR(500),
 bio VARCHAR(500),
 age INT, 
+email VARCHAR(250),
 profile_pic VARCHAR(2500)
 
 )

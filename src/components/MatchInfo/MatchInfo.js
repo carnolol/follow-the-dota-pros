@@ -1,9 +1,11 @@
 import React from 'react'
 
-export default function MatchInfo() {
+function MatchInfo() {
     return (
         <div>
-            
+            MatchInfo.js    
         </div>
     )
 }
+
+export default MatchInfo

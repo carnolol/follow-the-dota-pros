@@ -1,9 +1,11 @@
 import React from 'react'
 
-export default function RecentMatches() {
+function RecentMatches() {
     return (
         <div>
-            
+            Recent Matches.js
         </div>
     )
 }
+
+export default RecentMatches

@@ -7,11 +7,12 @@ module.exports = {
         // working 
     },
     editPost: async (req, res) => {
-        // not working not sure why
+        // WORKING
         const db = req.app.get('db')
-        const { dota_post_id } = req.params
+        const { dota_posts_id } = req.params
         const { title, content } = req.body
-        await db.edit_post([title, content, dota_post_id])
+        // console.log('ID:', dota_posts_id, 'TITLE:', title,'CONTENT:', content)
+        await db.edit_post([title, content, dota_posts_id])
         const editedPost = await db.get_all_posts()
         res.status(200).send(editedPost)
     },

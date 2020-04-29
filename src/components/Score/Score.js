@@ -1,9 +1,11 @@
 import React from 'react'
 
-export default function Score() {
+function Score() {
     return (
         <div>
-            
+            Score.js
         </div>
     )
 }
+
+export default Score

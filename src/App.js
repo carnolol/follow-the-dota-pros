@@ -9,7 +9,6 @@ function App(props) {
     <div className="App">
      {props.location.pathname === '/login' ? null : <Header/>}
      {routes}
-     app.js
     </div>
   );
 }

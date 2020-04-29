@@ -1,9 +1,24 @@
 import React from 'react'
+import './Header.css'
+import { Link } from 'react-router-dom'
 
-function Header() {
+const logo = 'https://i.ya-webdesign.com/images/dota-2-logo-png-2.png'
+
+function Header(props) {
     return (
-        <div>
-            Header.js
+        <div className='header-main'>
+            <Link to='/Landing'>
+                <img className='header-logo'
+                    alt='dota-logo'
+                    src={logo} />
+            </Link>
+            <h1 className='header-h1'>Dota Pros</h1>
+            <Link to='/my-profile'>
+                <p className='header-username'>Test:{props.username}</p>
+                <img className='profile-header-pic'
+                    alt='prof'
+                    src={props.profile_pic} />
+            </Link>
         </div>
     )
 }
