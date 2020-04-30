@@ -3,13 +3,10 @@ import React from 'react'
 import { connect } from 'react-redux'
 import './Landing.css'
 
-function Landing() {
+function Landing(props) {
     return (
         <div className='main-landing-div'>
-            <h1>
-                LANDING.JS
-            </h1>
-        
+                <h1>landing JS</h1>
         </div>
     )
 }

@@ -6,7 +6,6 @@ import { Link } from 'react-router-dom'
 const logo = 'https://i.ya-webdesign.com/images/dota-2-logo-png-2.png'
 
 function Header(props) {
-    console.log(props)
     return (
         <div className='header-main'>
             <Link to='/'>

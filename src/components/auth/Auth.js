@@ -21,12 +21,20 @@ function Auth(props) {
         axios.post('/user/register', body).then(res => {
             console.log('redux data:', res.data)
             props.makeUser(res.data)
-        }).catch(err => `error w/ handleRegisterUser ${err}`)
+        }).catch(err => alert(`That Username is Taken! ${err}`))
     }
 
     const handleLoginUser = () => {
-        
+        const body = {
+            username: username,
+            password: password
+        }
+        axios.post('/user/login', body).then(res => {
+            console.log('loginUser data??', res.data)
+            props.makeUser(res.data)
+        }).catch(err => alert(`Username or Password is incorrect! ${err}`))
     }
+
     return (
         <div className='main-auth-div'>
             <div className='child-auth-div'>
@@ -35,9 +43,13 @@ function Auth(props) {
                 <input placeholder='username'
                     onChange={e => setUsername(e.target.value)} />
                 <input placeholder='password'
-                    onChange={e => setPassword(e.target.value)} />
-                <button className='auth-buttons'>Login</button>
-                <div>
+                    onChange={e => setPassword(e.target.value)}
+                    type='password' required />
+                    <div>
+                <Link to='/'>
+                    <button className='auth-buttons'
+                        onClick={() => handleLoginUser()}>Login</button>
+                </Link>
                     <Link to='/'>
                         <button className='auth-buttons'
                             onClick={() => handleRegisterUser()}>Register</button>
@@ -47,6 +59,17 @@ function Auth(props) {
         </div>
     )
 }
+
+// {props.isLoggedIn === false ? <Link to='/'>
+//                         <button className='auth-buttons'
+//                             onClick={() => handleRegisterUser()}>Register</button>
+//                     </Link> : <h1>LOLBROKEN</h1>}
+
+
+{/* <Link to='/'>
+    <button className='auth-buttons'
+        onClick={() => handleRegisterUser()}>Register</button>
+</Link> */}
 
 const mapStateToProps = reduxState => reduxState
 

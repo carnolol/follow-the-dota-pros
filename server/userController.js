@@ -9,7 +9,18 @@ const pictures = [
     'https://api.opendota.com/apps/dota2/images/items/tango_lg.png?t=1587186172645',
     'https://api.opendota.com/apps/dota2/images/items/branches_lg.png?t=1587186172645',
     'https://api.opendota.com/apps/dota2/images/items/travel_boots_lg.png?t=1587186172645',
-    'https://api.opendota.com/apps/dota2/images/items/bloodthorn_lg.png?t=1587186172645'
+    'https://api.opendota.com/apps/dota2/images/items/bloodthorn_lg.png?t=1587186172645',
+    'https://api.opendota.com/apps/dota2/images/items/radiance_lg.png?t=1587186172645',
+    'https://api.opendota.com/apps/dota2/images/items/invis_sword_lg.png?t=1587186172645',
+    'https://api.opendota.com/apps/dota2/images/items/orchid_lg.png?t=1587186172645',
+    'https://api.opendota.com/apps/dota2/images/items/desolator_lg.png?t=1587186172645',
+    'https://api.opendota.com/apps/dota2/images/items/desolator_lg.png?t=1587186172645',
+    'https://api.opendota.com/apps/dota2/images/items/sange_and_yasha_lg.png?t=1587186172645',
+    'https://api.opendota.com/apps/dota2/images/items/skadi_lg.png?t=1587186172645',
+    'https://api.opendota.com/apps/dota2/images/items/flask_lg.png?t=1587186172645',
+    'https://api.opendota.com/apps/dota2/images/items/ultimate_scepter_lg.png?t=1587186172645',
+    'https://api.opendota.com/apps/dota2/images/items/greater_crit_lg.png?t=1587186172645',
+    'https://api.opendota.com/apps/dota2/images/items/basher_lg.png?t=1587186172645'
 ]
 
 const random = Math.floor(Math.random() * pictures.length)
@@ -24,11 +35,12 @@ module.exports = {
         if(!existingUser[0]){
             res.status(404).send('Username does not exist')
         }
-        const authenticated = bcrypt.compareSync(password, existingUser[0])
+        const authenticated = bcrypt.compareSync(password, existingUser[0].password)
         if(authenticated){
             delete existingUser[0].password
             req.session.user = existingUser[0]
             res.status(200).send(req.session.user)
+            console.log('login:', req.session.user)
         } else {
             res.status(403).send('Username or Password is incorrect')
         }
