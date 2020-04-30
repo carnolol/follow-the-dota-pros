@@ -25,18 +25,17 @@ const pictures = [
 
 const random = Math.floor(Math.random() * pictures.length)
 const randomPicture = pictures[random]
-// console.log(randomPicture)
 
 module.exports = {
     login: async (req, res) => {
         const db = req.app.get('db')
-        const {username, password} = req.body
+        const { username, password } = req.body
         const existingUser = await db.check_if_user([username])
-        if(!existingUser[0]){
+        if (!existingUser[0]) {
             res.status(404).send('Username does not exist')
         }
         const authenticated = bcrypt.compareSync(password, existingUser[0].password)
-        if(authenticated){
+        if (authenticated) {
             delete existingUser[0].password
             req.session.user = existingUser[0]
             res.status(200).send(req.session.user)
@@ -48,9 +47,9 @@ module.exports = {
     },
     register: async (req, res) => {
         const db = req.app.get('db')
-        const {username, password, email} = req.body
+        const { username, password, email } = req.body
         const existingUser = await db.check_if_user([username])
-        if(existingUser[0]){
+        if (existingUser[0]) {
             return res.status(409).send('That Username is Taken')
         }
         const salt = bcrypt.genSaltSync(9)
@@ -62,10 +61,10 @@ module.exports = {
         res.status(200).send(req.session.user)
         // working
     },
-    editUserInfo: async (req, res) =>{
+    editUserInfo: async (req, res) => {
         const db = req.app.get('db')
-        const {dota_users_id} = req.params
-        const {bio, age} = req.body
+        const { dota_users_id } = req.params
+        const { bio, age } = req.body
         const editedUser = await db.edit_user([bio, age, dota_users_id])
         res.status(200).send(editedUser)
     },
@@ -73,10 +72,10 @@ module.exports = {
         req.session.destroy()
         res.sendStatus(200)
     },
-    getLoggedInUser:(req, res) => {
-        console.log('logged in user?', req.session.user)
-        if(req.session.user){
-            res.status(200).send(req.session.user)
+    getLoggedInUser: async (req, res) => {
+        console.log('GetLoggedInUser', req.session.user)
+        if (req.session.user) {
+           return res.status(200).send(req.session.user)
         } else {
             res.sendStatus(409)
         }

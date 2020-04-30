@@ -1,3 +1,5 @@
+import { act } from "react-dom/test-utils"
+
 const initialState = {
     username: '',
     profile_pic:'',
@@ -11,17 +13,14 @@ const initialState = {
 // }
 
 const MAKE_USER = 'MAKE_USER'
+const LOGOUT_USER = 'LOGOUT_USER'
 
-// export function makeUser(id, username, profilePic){
-//     return {
-//         type: MAKE_USER,
-//         payload:{
-//             id,
-//             username,
-//             profilePic
-//         }
-//     }
-// }
+export function logoutUser(){
+    return{
+        type: LOGOUT_USER,
+        payload: initialState
+    }
+}
 
 export function makeUser(values){
     console.log('redux:', values)
@@ -35,6 +34,8 @@ export default function reducer(state = initialState, action){
     switch(action.type){
         case MAKE_USER:
             return {...state, ...action.payload, isLoggedIn: true}
+        case LOGOUT_USER:
+            return{...state, ...action.payload}
             // return {...state, username: action.payload.username, profile_pic: action.payload.profile_pic, userId: action.payload.dota_users_id,isLoggedIn: true}
         default:
             return initialState
