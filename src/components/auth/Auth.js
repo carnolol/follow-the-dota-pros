@@ -38,18 +38,23 @@ function Auth(props) {
     return (
         <div className='main-auth-div'>
             <div className='child-auth-div'>
+                need to place dota img here
+                <p className='auth-text'>{`Email: (optional)`}</p>
                 <input placeholder='email'
                     onChange={(e) => setEmail(e.target.value)} />
+                    <p className='auth-text'>Username:</p>
                 <input placeholder='username'
                     onChange={e => setUsername(e.target.value)} />
+                    <p className='auth-text'>Password:</p>
                 <input placeholder='password'
                     onChange={e => setPassword(e.target.value)}
-                    type='password' required />
-                    <div>
-                <Link to='/'>
-                    <button className='auth-buttons'
-                        onClick={() => handleLoginUser()}>Login</button>
-                </Link>
+                    type='password' required
+                    maxLength='16' />
+                <div>
+                    <Link to='/'>
+                        <button className='auth-buttons'
+                            onClick={() => handleLoginUser()}>Login</button>
+                    </Link>
                     <Link to='/'>
                         <button className='auth-buttons'
                             onClick={() => handleRegisterUser()}>Register</button>

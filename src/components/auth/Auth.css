@@ -6,15 +6,25 @@
     align-items: center;
     background-image: url('https://steamuserimages-a.akamaihd.net/ugc/927058790430181945/5A2C2B4ED23570B5877B7717221F962D918242CD/');
     background-position: center;
+    /* padding-left: 25px; */
     background-size: cover;
 }
 
 .child-auth-div{
     margin: 20px;
-    height: 60vh;
+    height: 40vh;
     width: 60vw;
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    border-radius: 15px;
+    background-color: rgb(216, 74, 74, .5);
+}
+
+.auth-text{
+    color: white;
 }
 
 .auth-buttons{
