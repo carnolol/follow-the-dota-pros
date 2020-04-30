@@ -30,9 +30,3 @@ const mapStateToProps = reduxState => reduxState
 export default connect(mapStateToProps, null)(Header)
 
 
-{/* <Link to='/myProfile'>
-                <p className='header-username'>Welcome:{props.username}</p>
-                <img className='profile-header-pic'
-                    alt='prof'
-                    src={props.profile_pic} />
-            </Link> */}

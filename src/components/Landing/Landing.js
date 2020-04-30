@@ -1,5 +1,6 @@
-import React, {userState, useEffect} from 'react'
-import axios from 'axios'
+import React from 'react'
+// import axios from 'axios'
+import { connect } from 'react-redux'
 import './Landing.css'
 
 function Landing() {
@@ -13,4 +14,6 @@ function Landing() {
     )
 }
 
-export default Landing
+const mapStateToProps = reduxState => reduxState
+
+export default connect(mapStateToProps, null)(Landing)
