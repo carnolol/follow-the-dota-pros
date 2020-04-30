@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
+import {Link} from 'react-router-dom'
 import { connect } from 'react-redux'
 import './Landing.css'
 
@@ -21,14 +22,16 @@ function Landing(props) {
             <div>
                 <h3>{pro.name}</h3>
                 <br/>
-                <p>Career winnings: ${pro.winnings}</p>
+                <p className='winnings'>Career winnings: ${pro.winnings}</p>
             </div>
         </div>
     })
 
     return (
         <div className='main-landing-div'>
-            {proPlayers}
+            <Link to='/myProfile'>
+                {proPlayers}
+            </Link>
         </div>
     )
 }

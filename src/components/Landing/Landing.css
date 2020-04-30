@@ -12,8 +12,16 @@
     box-shadow: 2px 3px 15px black;
 }
 
+h3{
+    color: black;
+}
+
+.winnings{
+    color: black;
+}
+
 .pro-picture{
-    /* border-radius: 20px; */
+    box-shadow: 2px 0 10px black;
     height:20vh;
     width: 45vw;
 }

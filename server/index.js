@@ -28,11 +28,12 @@ massive({
 })
 
 //* User endpoints
+app.get('/user/proPlayers', userCtrl.getUsersProPlayers)
+app.get('/user/me', userCtrl.getLoggedInUser)
 app.post('/user/login', userCtrl.login)
 app.post('/user/register', userCtrl.register)
+app.put('/user/me/:dota_users_id', userCtrl.editUserInfo)
 app.delete('/user/logout', userCtrl.logout)
-app.get('/user/me', userCtrl.getLoggedInUser)
-app.get('/user/proPlayers', userCtrl.getUsersProPlayers)
 
 
 //* Post Controllers
