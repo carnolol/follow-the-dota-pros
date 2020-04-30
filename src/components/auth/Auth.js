@@ -30,7 +30,6 @@ function Auth(props) {
             password: password
         }
         axios.post('/user/login', body).then(res => {
-            console.log('loginUser data??', res.data)
             props.makeUser(res.data)
         }).catch(err => alert(`Username or Password is incorrect! ${err}`))
     }

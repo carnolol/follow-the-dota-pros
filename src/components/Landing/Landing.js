@@ -8,10 +8,11 @@ function Landing(props) {
 
     useEffect(() => {
         axios.get('/dota-pros/pros').then(res => {
-            console.log('I AM THE DATA:', res.data)
             setPros(res.data)
         }).catch(err => console.log(err))
     }, [])
+
+    //TODO: need to wrap inside a link that when isLoggedIn on redux is true it will take them to recent matches.
     const proPlayers = pros.map(pro => {
         return <div className='pro-container'>
             <img className='pro-picture'
@@ -20,10 +21,11 @@ function Landing(props) {
             <div>
                 <h3>{pro.name}</h3>
                 <br/>
-                <p>Has won ${pro.winnings} in his career!</p>
+                <p>Career winnings: ${pro.winnings}</p>
             </div>
         </div>
     })
+
     return (
         <div className='main-landing-div'>
             {proPlayers}
