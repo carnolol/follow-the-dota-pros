@@ -1,3 +1,19 @@
 .main-landing-div{
     margin-top: 20vh;
 }
+
+.pro-container{
+    overflow: hidden;
+    margin: 5%;
+    display: flex;
+    align-items: center;
+    border: 2px solid royalblue;
+    border-radius: 20px;
+    box-shadow: 0 0 15px solid black;
+}
+
+.pro-picture{
+    /* border-radius: 20px; */
+    height:20vh;
+    width: 50vw;
+}
