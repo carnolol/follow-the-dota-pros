@@ -44,8 +44,8 @@ app.post('/dota-pros/posts', postCtrl.addNewPost)
 app.put('/dota-pros/posts/:dota_posts_id', postCtrl.editPost)
 app.delete('/dota-pros/posts/:dota_posts_id', postCtrl.deletePost)
 
-//* Pro Controlelrs
+//* Pro Controllers
 app.get('/dota-pros/pros', proCtrl.getProPlayers)
-
+app.get('/user/me/pros/:user_id', proCtrl.getUsersProPlayers)
 
 

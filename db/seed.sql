@@ -27,7 +27,8 @@ pro_player_id SERIAL PRIMARY KEY,
 name VARCHAR(250),
 picture TEXT, 
 steam_account_id INT, 
-dota_user INT,
+winnings VARCHAR(150),
+dota_user INT, 
 FOREIGN KEY (dota_user) REFERENCES dota_users(dota_users_id)
 )
 
