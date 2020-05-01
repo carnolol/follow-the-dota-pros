@@ -13,10 +13,10 @@ module.exports = {
     },
     addProPlayer: async (req, res) => {
         const db = req.app.get('db')
-        const {dota_users_account_id} = req.session.user.dota_users_id
+        const {dota_users_id} = req.session.user
         const {pro_player_account_id} = req.params
-        const usersPros = await db.add_pro([dota_users_account_id, pro_player_account_id])
-        console.log('DUACCID:', dota_users_account_id)
+        const usersPros = await db.add_pro([ pro_player_account_id, dota_users_id])
         res.status(200).send(usersPros)
+        //WORKING 
     }
 }
