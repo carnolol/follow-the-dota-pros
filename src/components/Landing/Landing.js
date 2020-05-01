@@ -13,6 +13,10 @@ function Landing(props) {
         }).catch(err => console.log(err))
     }, [])
 
+    const handleAddPro = () => {
+
+    }
+
     //TODO: need to wrap inside a link that when isLoggedIn on redux is true it will take them to recent matches.
     const proPlayers = pros.map(pro => {
         return <div className='pro-container'>

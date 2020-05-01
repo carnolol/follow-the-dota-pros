@@ -25,6 +25,7 @@ function ProPlayerPool(props) {
             <Link to={`/recent-matches/${pro.steam_account_id}`} >
                 <button>{pro.name}'s recent matches</button>
             </Link>
+            <button>Delete</button>
         </div>
     })
     return (
