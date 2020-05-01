@@ -11,6 +11,6 @@ export default <Switch>
     <Route exact path='/' component={Landing}/> 
     <Route path='/login' component={Auth} />
     <Route path='/myProfile' component={UserInfo} />
-    <Route path='/:proPlayerName/recent-matches' component={RecentMatches} />
+    <Route path='/recent-matches/:proPlayerId' component={RecentMatches} />
     <Route path='/:proPlayerName/:matchid/score' component={Score} />
 </Switch>

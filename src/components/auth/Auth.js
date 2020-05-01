@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import axios from 'axios'
 import { connect } from 'react-redux'
-import { Link } from 'react-router-dom'
+// import { Link } from 'react-router-dom'
 import { makeUser } from '../../ducks/userReducer'
 import './Auth.css'
 
