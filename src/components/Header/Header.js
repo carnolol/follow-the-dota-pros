@@ -16,7 +16,7 @@ function Header(props) {
                 console.log('header useEffect:', res.data)
                 props.makeUser(res.data)
             }).catch(err => console.log(`scott is a nerd ${err}`))
-    }, [])
+    }, [props.isLoggedIn])
 
     const handleLogout = () => {
         axios
@@ -31,13 +31,18 @@ function Header(props) {
                     src={logo} />
             </Link>
             <h1 className='header-h1'>Dota Pros</h1>
-            {props.isLoggedIn === true ? <div><Link to='/myProfile'>
-                <p className='header-username'>Welcome:{props.username}</p>
-                <img className='profile-header-pic'
-                    alt='prof'
-                    src={props.profile_pic} />
-            </Link> <button className='logout-button'
-                onClick={() => handleLogout()}>Logout</button></div> : <Link to='/login'><button className='header-button'>Sign in!</button></Link>}
+            {props.isLoggedIn === true ? <div>
+                <Link to='/myProfile'>
+                    <p className='header-username'>{props.username}</p>
+                    <img className='profile-header-pic'
+                        alt='prof'
+                        src={props.profile_pic} />
+                </Link>
+                <button className='logout-button'
+                    onClick={() => handleLogout()}>Logout</button>
+            </div> : <Link to='/login'>
+                    <button className='header-button'>Sign in!</button>
+                </Link>}
         </div>
     )
 }

@@ -1,11 +1,16 @@
-import React from 'react'
+import React, {useState, useEffect} from 'react'
+import axios from 'axios'
+import {connect} from 'react-redux'
+import './RecentMatches.css'
 
-function RecentMatches() {
+function RecentMatches(props) {
     return (
-        <div>
+        <div className='main-recent-matches-div'>
             Recent Matches.js
         </div>
     )
 }
 
-export default RecentMatches
+const mapStateToProps = reduxState => reduxState
+
+export default connect(mapStateToProps, null)(RecentMatches)

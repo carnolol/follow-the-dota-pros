@@ -7,9 +7,12 @@
 }
 
 .landing-h2{
-    border: 2px solid black;
+    background-color: #006494;
     padding: 6px;
+    color: white;
     margin-bottom: 1vh;
+    box-shadow: 0 0 10px black;
+    border-radius: 10px;
 }
 
 .pro-container{

@@ -1,11 +1,20 @@
 .info-main-div{
     margin-top: 18vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .age-container{
     border: 2px solid black;
     height: 12vh;
     width: 25vw;
+}
+
+.user-info-pic{
+    margin-top: 3vh;
+    margin-bottom: 3vh;
 }
 
 .pencil{

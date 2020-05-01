@@ -20,18 +20,20 @@ function Landing(props) {
             <img className='pro-picture'
                 alt='pro'
                 src={pro.picture} />
+
             <div>
                 <h3>{pro.name}</h3>
                 <br/>
                 <p className='winnings'>Career winnings: ${pro.winnings}</p>
             </div>
+            <button>add</button>
         </div>
     })
 
     return (
         <div className='main-landing-div'>
             <h2 className='landing-h2'>Select your players to follow!</h2>
-            <Link to='/myProfile'>
+            <Link to='/:proPlayerName/recent-matches'>
                 {proPlayers}
             </Link>
         </div>

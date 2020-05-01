@@ -35,7 +35,6 @@ export default function reducer(state = initialState, action){
             return {...state, ...action.payload, isLoggedIn: true}
         case LOGOUT_USER:
             return{...state, ...action.payload}
-            // return {...state, username: action.payload.username, profile_pic: action.payload.profile_pic, userId: action.payload.dota_users_id,isLoggedIn: true}
         default:
             return initialState
     }

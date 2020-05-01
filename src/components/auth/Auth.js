@@ -23,6 +23,7 @@ function Auth(props) {
         axios.post('/user/register', body).then(res => {
             console.log('redux data:', res.data)
             props.makeUser(res.data)
+            props.history.push('/')
         }).catch(err => alert(`That Username is Taken! ${err}`))
     }
 
@@ -33,6 +34,7 @@ function Auth(props) {
         }
         axios.post('/user/login', body).then(res => {
             props.makeUser(res.data)
+            props.history.push('/')
         }).catch(err => alert(`Username or Password is incorrect! ${err}`))
     }
 
@@ -54,14 +56,10 @@ function Auth(props) {
                     type='password' required
                     maxLength='16' />
                 <div>
-                    <Link to='/'>
-                        <button className='auth-buttons'
-                            onClick={() => handleLoginUser()}>Login</button>
-                    </Link>
-                    <Link to='/'>
-                        <button className='auth-buttons'
-                            onClick={() => handleRegisterUser()}>Register</button>
-                    </Link>
+                    <button className='auth-buttons'
+                        onClick={() => handleLoginUser()}>Login</button>
+                    <button className='auth-buttons'
+                        onClick={() => handleRegisterUser()}>Register</button>
                 </div>
             </div>
         </div>

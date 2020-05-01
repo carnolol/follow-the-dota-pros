@@ -18,19 +18,17 @@ function UserInfo(props) {
             .get('/user/me')
             .then(res => setUser(res.data))
             .catch(err => alert(`Error in UserInfo w/ .get /user/me ${err}`))
-    },[])
+    },[user.bio])
 
     const handleEditUser = () => {
-        // const body = {
-        //     age: age
-        // }
         axios
             .put(`/user/me/${props.dota_users_id}`, {bio: bio})
-            .then(res => setUser(res.data))
+            .then(res => {
+                setUser(res.data)
+            })
             .catch(err => console.log(err))
     }
-
-    console.log('userinfo user:', user)
+    console.log('myuser: ', user)
     return (
         <div className='info-main-div'>
             <h2>Welcome back {user.username}</h2>
