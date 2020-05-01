@@ -5,6 +5,8 @@ import { Link } from 'react-router-dom'
 import { makeUser } from '../../ducks/userReducer'
 import './Auth.css'
 
+const logo = 'https://pbs.twimg.com/profile_images/1148484652358746112/UdJALHjZ_400x400.png'
+
 function Auth(props) {
     const [username, setUsername] = useState('')
     const [password, setPassword] = useState('')
@@ -37,14 +39,16 @@ function Auth(props) {
     return (
         <div className='main-auth-div'>
             <div className='child-auth-div'>
-                need to place dota img here
+                <img className='auth-logo'
+                    alt='logo'
+                    src={logo} />
                 <p className='auth-text'>{`Email: (optional)`}</p>
                 <input placeholder='email'
                     onChange={(e) => setEmail(e.target.value)} />
-                    <p className='auth-text'>Username:</p>
+                <p className='auth-text'>Username:</p>
                 <input placeholder='username'
                     onChange={e => setUsername(e.target.value)} />
-                    <p className='auth-text'>Password:</p>
+                <p className='auth-text'>Password:</p>
                 <input placeholder='password'
                     onChange={e => setPassword(e.target.value)}
                     type='password' required

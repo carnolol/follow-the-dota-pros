@@ -18,7 +18,7 @@ function UserInfo(props) {
                 setUser(res.data)
             })
             .catch(err => alert(`Error in UserInfo w/ .get /user/me ${err}`))
-    }, [user])
+    }, [])
     const handleEditUser = () =>{
         const body = {
             bio: bio,
@@ -36,7 +36,9 @@ function UserInfo(props) {
         <div className='info-main-div'>
             <h2>Welcome back {props.username}</h2>
             <p>double click to edit profile</p>
-            <p>Age: {user.age}</p>
+            <div className='age-container'>
+                <p>Age: {user.age}</p>
+            </div>
             <p>About me: {user.bio}</p>
             <button onClick={() => handleEditUser()}>Edit Profile</button>
             <br></br>

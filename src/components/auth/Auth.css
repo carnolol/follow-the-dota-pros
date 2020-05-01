@@ -23,6 +23,13 @@
     background-color: rgb(216, 74, 74, .5);
 }
 
+.auth-logo{
+    height: 10vh;
+    width: 20vw;
+    border-radius: 20px;
+    box-shadow: 0 0 9px white;
+}
+
 .auth-text{
     color: white;
 }

@@ -16,6 +16,7 @@ function Landing(props) {
     //TODO: need to wrap inside a link that when isLoggedIn on redux is true it will take them to recent matches.
     const proPlayers = pros.map(pro => {
         return <div className='pro-container'>
+            
             <img className='pro-picture'
                 alt='pro'
                 src={pro.picture} />
@@ -29,6 +30,7 @@ function Landing(props) {
 
     return (
         <div className='main-landing-div'>
+            <h2 className='landing-h2'>Select your players to follow!</h2>
             <Link to='/myProfile'>
                 {proPlayers}
             </Link>

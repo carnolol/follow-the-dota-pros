@@ -1,15 +1,27 @@
 .main-landing-div{
-    margin-top: 20vh;
+    margin-top: 18vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.landing-h2{
+    border: 2px solid black;
+    padding: 6px;
+    margin-bottom: 1vh;
 }
 
 .pro-container{
     overflow: hidden;
-    margin: 5%;
+    margin-top: 2vh;
     display: flex;
     align-items: center;
+    justify-content: center;
     /* border: 2px solid royalblue; */
     border-radius: 20px;
     box-shadow: 2px 3px 15px black;
+    width: 80vw;
 }
 
 h3{
@@ -22,6 +34,6 @@ h3{
 
 .pro-picture{
     box-shadow: 2px 0 10px black;
-    height:20vh;
-    width: 45vw;
+    height:15vh;
+    width: 38vw;
 }

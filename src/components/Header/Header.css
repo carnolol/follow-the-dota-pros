@@ -11,8 +11,10 @@
 }
 
 .header-logo{
-    height: 20vh;
-    width: 35vw;
+    height: 10vh;
+    width: 20vw;
+    border-radius: 20px;
+    box-shadow: 0 0 9px white;
 }
 
 .header-h1{
@@ -32,4 +34,5 @@
 .header-button{
     box-shadow: 5px 5px 10px black;
     border-radius: 10px;
+    padding: 4px;
 }

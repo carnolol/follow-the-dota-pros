@@ -5,11 +5,11 @@ import { connect } from 'react-redux'
 import { makeUser, logoutUser } from '../../ducks/userReducer'
 import { Link } from 'react-router-dom'
 
-const logo = 'https://i.ya-webdesign.com/images/dota-2-logo-png-2.png'
+const logo = 'https://pbs.twimg.com/profile_images/1148484652358746112/UdJALHjZ_400x400.png'
 
 function Header(props) {
 
-    useEffect(() => {
+    useEffect((props) => {
         axios
             .get('/user/me')
             .then(res => {
@@ -37,7 +37,7 @@ function Header(props) {
                     alt='prof'
                     src={props.profile_pic} />
             </Link> <button className='logout-button'
-                onClick={() => handleLogout()}>Logout</button></div> : <Link to='/login'><button className='header-button'>Click to become a member!</button></Link>}
+                onClick={() => handleLogout()}>Logout</button></div> : <Link to='/login'><button className='header-button'>Sign in!</button></Link>}
         </div>
     )
 }
