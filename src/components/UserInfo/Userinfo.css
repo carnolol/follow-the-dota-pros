@@ -1,3 +1,25 @@
 .info-main-div{
     margin-top: 18vh;
 }
+
+.age-container{
+    border: 2px solid black;
+    height: 12vh;
+    width: 25vw;
+}
+
+.pencil{
+    height: 25px;
+    width: 25px;
+}
+
+button{
+    padding: 4px;
+    background-color: crimson;
+}
+
+.bio-container{
+    border: 2px solid crimson;
+    height: 20vh;
+    width: 40vw;
+}

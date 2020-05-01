@@ -5,44 +5,49 @@ import axios from 'axios'
 import ProPlayerPool from '../ProPlayerPool/ProPlayerPool'
 // import { Link } from 'react-router-dom'
 
+const pencil = 'https://cdn1.iconfinder.com/data/icons/editing/60/cell-2-0-480.png'
+
 function UserInfo(props) {
     const [user, setUser] = useState({})
-    const [bio, setBio] = useState('WOWOWOWOWOWO')
-    const [age, setAge] = useState('56')
+    const [bio, setBio] = useState('')
+    const [editBio, setEditBio] = useState(false)
+
 
     useEffect(() => {
         axios
             .get('/user/me')
-            .then(res => {
-                console.log(res.data)
-                setUser(res.data)
-            })
+            .then(res => setUser(res.data))
             .catch(err => alert(`Error in UserInfo w/ .get /user/me ${err}`))
-    }, [])
-    const handleEditUser = () =>{
-        const body = {
-            bio: bio,
-            age: age
-        }
+    },[])
+
+    const handleEditUser = () => {
+        // const body = {
+        //     age: age
+        // }
         axios
-            .put(`/user/me/${props.dota_user_id}`, body).then(res => {
-                setUser(res.data)
-            })
+            .put(`/user/me/${props.dota_users_id}`, {bio: bio})
+            .then(res => setUser(res.data))
             .catch(err => console.log(err))
     }
 
     console.log('userinfo user:', user)
     return (
         <div className='info-main-div'>
-            <h2>Welcome back {props.username}</h2>
-            <p>double click to edit profile</p>
-            <div className='age-container'>
-                <p>Age: {user.age}</p>
+            <h2>Welcome back {user.username}</h2>
+            <img className='user-info-pic'
+                alt='pic'
+                src={user.profile_pic}/>
+            <div className='bio-container'>
+                <p>About me: {user.bio}</p>
+                <img className='pencil'
+                    alt='pencil'
+                    src={pencil}
+                    onClick={() => setEditBio(!editBio)}/>
+                <input onChange={(e) => setBio(e.target.value)}/>
+                <button onClick={() => handleEditUser()}>Submit</button>
             </div>
-            <p>About me: {user.bio}</p>
-            <button onClick={() => handleEditUser()}>Edit Profile</button>
             <br></br>
-            <ProPlayerPool/>
+            <ProPlayerPool />
         </div>
     )
 }

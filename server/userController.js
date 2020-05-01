@@ -64,8 +64,8 @@ module.exports = {
     editUserInfo: async (req, res) => {
         const db = req.app.get('db')
         const { dota_users_id } = req.params
-        const { bio, age } = req.body
-        const editedUser = await db.edit_user([bio, age, dota_users_id])
+        const { bio } = req.body
+        const editedUser = await db.edit_user([bio, dota_users_id])
         res.status(200).send(editedUser)
     },
     logout: (req, res) => {
