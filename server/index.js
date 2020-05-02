@@ -48,5 +48,6 @@ app.delete('/dota-pros/posts/:dota_posts_id', postCtrl.deletePost)
 app.get('/dota-pros/pros', proCtrl.getProPlayers)
 app.get('/user/me/pros/:user_id', proCtrl.getUsersProPlayers)
 app.post('/user/me/:pro_player_account_id', proCtrl.addProPlayer)
+app.delete('/user/me/:id', proCtrl.deletePro)
 
 
