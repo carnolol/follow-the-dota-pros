@@ -15,7 +15,7 @@ function Header(props) {
             .then(res => {
                 console.log('header useEffect:', res.data)
                 props.makeUser(res.data)
-            }).catch(err => console.log(`scott is a nerd ${err}`))
+            }).catch(err => console.log(err))
     }, [props.isLoggedIn])
 
     const handleLogout = () => {

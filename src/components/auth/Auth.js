@@ -45,13 +45,16 @@ function Auth(props) {
                     alt='logo'
                     src={logo} />
                 <p className='auth-text'>{`Email: (optional)`}</p>
-                <input placeholder='email'
+                <input className='auth-input'
+                    placeholder='email'
                     onChange={(e) => setEmail(e.target.value)} />
                 <p className='auth-text'>Username:</p>
-                <input placeholder='username'
+                <input className='auth-input'
+                    placeholder='username'
                     onChange={e => setUsername(e.target.value)} />
                 <p className='auth-text'>Password:</p>
-                <input placeholder='password'
+                <input className='auth-input'
+                    placeholder='password'
                     onChange={e => setPassword(e.target.value)}
                     type='password' required
                     maxLength='16' />
@@ -66,16 +69,6 @@ function Auth(props) {
     )
 }
 
-// {props.isLoggedIn === false ? <Link to='/'>
-//                         <button className='auth-buttons'
-//                             onClick={() => handleRegisterUser()}>Register</button>
-//                     </Link> : <h1>LOLBROKEN</h1>}
-
-
-{/* <Link to='/'>
-    <button className='auth-buttons'
-        onClick={() => handleRegisterUser()}>Register</button>
-</Link> */}
 
 const mapStateToProps = reduxState => reduxState
 

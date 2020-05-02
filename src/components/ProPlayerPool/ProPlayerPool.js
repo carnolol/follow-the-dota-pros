@@ -5,34 +5,28 @@ import { connect } from 'react-redux'
 import {Link} from 'react-router-dom'
 
 const trash = 'https://cdn.iconscout.com/icon/premium/png-512-thumb/delete-1432400-1211078.png'
+const loadingImg = 'https://media.giphy.com/media/3oEjI6SIIHBdRxXI40/200.gif'
 
 function ProPlayerPool(props) {
 
     const [pros, setPros] = useState([])
+    const [loading, setLoading] = useState(true)
     //https://api.opendota.com/api/players/{account_id}/matches
     //props.match.params.proPlayerId
     useEffect(() => {
         axios
             .get(`/user/me/pros/${props.dota_users_id}`)
-            .then(res => setPros(res.data))
-            .catch(err => alert(err))
-    }, [])
+            .then(res =>{ 
+                setPros(res.data)
+                setTimeout(() => setLoading(false), 750)
+                })
+            .catch(err => console.log(err))
+    }, [pros])
 
-    // const handleDeletePro = () => {
-    //     axios
-    //         .get(`/user/me/${pro.pro_player_id}`)
-    //         .then(res => setPros(res.data))
-    //         .catch(err => console.log(err))
-    // }
     const myPros = pros.map(pro => {
         const handleDeletePro = () => {
             axios
-                .get(`/user/me/${pro.pro_player_id}`)
-                .then(res => {
-                    console.log(res.data)
-                    setPros(res.data)
-                })
-                .catch(err => console.log(err))
+                .delete(`/user/me/${pro.id}`)
         }
         return <div className='main-pro-div'>
             <img className='proplayer-pic' 
@@ -54,8 +48,12 @@ function ProPlayerPool(props) {
     return (
         <div>
             <h2>My Players</h2>
-            ProPlayerPool.JS
-            {myPros}
+            {loading === true ? <div>
+                <h1>Spinning up the Database...</h1>
+                <img alt='loading'
+                    src={loadingImg}/>
+            </div> : myPros}
+            {/* {myPros} */}
         </div>
     )
 }

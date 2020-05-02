@@ -17,7 +17,7 @@ function UserInfo(props) {
         axios
             .get('/user/me')
             .then(res => setUser(res.data))
-            .catch(err => alert(`Error in UserInfo w/ .get /user/me ${err}`))
+            .catch(err => console.log(err))
     },[user.bio])
 
     const handleEditUser = () => {
@@ -28,7 +28,6 @@ function UserInfo(props) {
             })
             .catch(err => console.log(err))
     }
-    console.log('myuser: ', user)
     return (
         <div className='info-main-div'>
             <h2>Welcome back {user.username}</h2>

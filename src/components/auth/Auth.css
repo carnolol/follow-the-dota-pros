@@ -13,25 +13,32 @@
     margin: 20px;
     height: 40vh;
     width: 60vw;
-    margin-bottom: 10vh;
+    margin-bottom: 16vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     align-content: center;
     border-radius: 15px;
-    background-color: rgb(216, 74, 74, .5);
+    box-shadow: 0 0 15px black;
+    background-color: rgba(66, 66, 66, 0.45);
 }
 
 .auth-logo{
     height: 10vh;
     width: 20vw;
     border-radius: 20px;
+    margin-bottom: 3vh;
     box-shadow: 0 0 9px white;
 }
 
 .auth-text{
     color: white;
+}
+
+.auth-input{
+    padding: 3px;
+    border-radius: 5px;
 }
 
 .auth-buttons{
