@@ -49,9 +49,11 @@ function ProPlayerPool(props) {
         <div>
             <h2>My Players</h2>
             {loading === true ? <div>
+
                 <h1>Spinning up the Database...</h1>
                 <img alt='loading'
                     src={loadingImg}/>
+                    
             </div> : myPros}
         </div>
     )

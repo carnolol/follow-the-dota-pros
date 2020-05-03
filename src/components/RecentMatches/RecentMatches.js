@@ -4,28 +4,55 @@ import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
 import './RecentMatches.css'
 
+const baseURL = 'https://api.opendota.com'
+
 function RecentMatches(props) {
     const [matches, setMatch] = useState([])
+    const [heros, setHeros] = useState([])
     useEffect(() => {
         axios
             .get(`https://api.opendota.com/api/players/${props.match.params.proPlayerId}/matches?limit=5`)
             .then(res => {
                 setMatch(res.data)
+                axios.get('https://api.opendota.com/api/heroStats').then(res => {
+                    setHeros(res.data)
+                })
             })
     }, [])
-    console.log(props)
+
     const recentMatches = matches.map(match => {
+
+        function matchUpId() {
+            for (let i = 0; i < heros.length; i++) {
+                if (heros[i].id === match.hero_id) {
+                    console.log(heros[i].img)
+                    return <img src={`${baseURL}${heros[i].img}`}/>
+                }
+            }
+        }
+        function time(num) {
+            const minutes = Math.floor(num / 60)
+            const seconds = num % 60
+            return `${minutes}:${seconds}`
+        }
+
         return (
             <Link to={`/${props.match.params.proPlayerId}/${match.match_id}/score`}>
-                <div>
-                    <h1>{match.match_id}</h1>
+                <div className='match-container'>
+                    <img alt='hero picture' 
+                        src={() => matchUpId()}/>
+                    <p>Duration: {time(match.duration)}</p>
+                    <p>Kills: {match.kills}</p>
+                    <p>Deaths: {match.deaths}</p>
+                    <p>Assists: {match.assists}</p>
                 </div>
             </Link>
         )
     })
+
     return (
         <div className='main-recent-matches-div'>
-            {JSON.stringify(matches)}
+            {/* {JSON.stringify(matches)} */}
             {recentMatches}
         </div>
     )
