@@ -12,7 +12,7 @@ function RecentMatches(props) {
     const [heros, setHeros] = useState([])
     useEffect(() => {
         axios
-            .get(`https://api.opendota.com/api/players/${props.match.params.proPlayerId}/matches?limit=5`)
+            .get(`https://api.opendota.com/api/players/${props.match.params.proPlayerId}/matches?limit=10`)
             .then(res => {
                 setMatch(res.data)
                 axios.get('https://api.opendota.com/api/heroStats').then(res => {
@@ -37,17 +37,17 @@ function RecentMatches(props) {
             const seconds = num % 60
             return `${minutes}:${seconds}`
         }
-        console.log(matchUpId())
         return (
             <Link to={`/${props.match.params.proPlayerId}/${match.match_id}/score`}>
                 <div className='match-container'>
-                    <img alt='hero picture' 
-                        src={matchUpId()}/>
-                    <p>Duration: {time(match.duration)}</p>
-                    <p>Kills: {match.kills}</p>
-                    <p>Deaths: {match.deaths}</p>
-                    <p>Assists: {match.assists}</p>
-                    <p>{() => matchUpId()}</p>
+                    <img className='hero-picture'
+                        alt='hero picture'
+                        src={matchUpId()} />
+                        
+                    <p className='match-info'>Duration: {time(match.duration)}</p>
+                    <p className='match-info'>Kills: {match.kills}</p>
+                    <p className='match-info'>Deaths: {match.deaths}</p>
+                    <p className='match-info'>Assists: {match.assists}</p>
                 </div>
             </Link>
         )

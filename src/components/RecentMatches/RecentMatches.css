@@ -4,4 +4,19 @@
 
 .match-container{
     margin-top: 3vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0 0 7px black;
+    background-color: #bdd5ea;
+}
+
+.hero-picture{
+    height: 10vh;
+    width: 25vw;
+}
+
+.match-info{
+   color: black;    
+   text-shadow: 0 0 5px grey; 
 }

@@ -4,7 +4,7 @@
     height: 15vh;
     width: 100vw;
     display: flex;
-    background-color: rgb(34, 93, 160);
+    background-color: #495867;
     justify-content: space-around;
     align-items: center;
     box-shadow: 0 0 15px black;
@@ -34,5 +34,7 @@
 .header-button{
     box-shadow: 5px 5px 10px black;
     border-radius: 10px;
-    padding: 4px;
+    padding: 8px;
+    font-weight: bold;
+    font-size: large;
 }
