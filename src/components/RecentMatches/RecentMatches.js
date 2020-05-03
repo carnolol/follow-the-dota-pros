@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom'
 import './RecentMatches.css'
 
 const baseURL = 'https://api.opendota.com'
+const sniper = 'https://api.opendota.com/apps/dota2/images/heroes/sniper_full.png?'
 
 function RecentMatches(props) {
     const [matches, setMatch] = useState([])
@@ -25,8 +26,9 @@ function RecentMatches(props) {
         function matchUpId() {
             for (let i = 0; i < heros.length; i++) {
                 if (heros[i].id === match.hero_id) {
-                    console.log(heros[i].img)
-                    return <img src={`${baseURL}${heros[i].img}`}/>
+                    console.log('IMG!?', `${baseURL}${heros[i].img}`)
+                    return `${baseURL}${heros[i].img}`
+                    // return <img src={`${baseURL}${heros[i].img}`}/>
                 }
             }
         }
@@ -35,21 +37,21 @@ function RecentMatches(props) {
             const seconds = num % 60
             return `${minutes}:${seconds}`
         }
-
+        console.log(matchUpId())
         return (
             <Link to={`/${props.match.params.proPlayerId}/${match.match_id}/score`}>
                 <div className='match-container'>
                     <img alt='hero picture' 
-                        src={() => matchUpId()}/>
+                        src={matchUpId()}/>
                     <p>Duration: {time(match.duration)}</p>
                     <p>Kills: {match.kills}</p>
                     <p>Deaths: {match.deaths}</p>
                     <p>Assists: {match.assists}</p>
+                    <p>{() => matchUpId()}</p>
                 </div>
             </Link>
         )
     })
-
     return (
         <div className='main-recent-matches-div'>
             {/* {JSON.stringify(matches)} */}
