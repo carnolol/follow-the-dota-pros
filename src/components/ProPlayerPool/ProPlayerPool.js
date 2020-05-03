@@ -53,7 +53,6 @@ function ProPlayerPool(props) {
                 <img alt='loading'
                     src={loadingImg}/>
             </div> : myPros}
-            {/* {myPros} */}
         </div>
     )
 }
