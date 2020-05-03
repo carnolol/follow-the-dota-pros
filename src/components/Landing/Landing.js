@@ -5,6 +5,7 @@ import { connect } from 'react-redux'
 import './Landing.css'
 
 const loadingImg = 'https://media.giphy.com/media/3oEjI6SIIHBdRxXI40/200.gif'
+const add = 'https://img.icons8.com/all/500/add.png'
 
 function Landing(props) {
     const [pros, setPros] = useState([])
@@ -36,12 +37,17 @@ function Landing(props) {
                     src={pro.picture} />
             </Link>
 
-            <div>
+            <div className='name-and-winnings'>
                 <h3>{pro.name}</h3>
                 <br />
-                <p className='winnings'>Career winnings: ${pro.winnings}</p>
+                <p>Career winnings:</p>
+                <p className='winnings'>${pro.winnings}</p>
             </div>
-            <button onClick={() => handleAddPro()}>add</button>
+            <img className='landing-add-player'
+                alt='add button'
+                src={add}    
+                onClick={() => handleAddPro()}/>
+            {/* <button onClick={() => handleAddPro()}>add</button> */}
         </div>
     })
 

@@ -35,8 +35,23 @@ h3{
     color: black;
 }
 
+.name-and-winnings{
+    display: flex;
+    flex-direction: column;
+    padding-left: 5%;
+}
+
 .winnings{
-    color: black;
+    color: rgb(6, 107, 11);
+    font-weight: bold;
+    font-size: 1.5rem;
+}
+
+.landing-add-player{
+    height: 8%;
+    width: 8%;
+    padding-bottom: 25%;
+    margin-right: 2%;
 }
 
 .pro-picture{

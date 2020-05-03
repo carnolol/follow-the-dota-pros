@@ -1,5 +1,6 @@
 .main-recent-matches-div{
-    margin-top: 18vh;
+    padding-top: 18vh;
+    background-color: #DEDEE6;
 }
 
 .match-container{
@@ -8,7 +9,7 @@
     align-items: center;
     justify-content: space-between;
     box-shadow: 0 0 7px black;
-    background-color: #bdd5ea;
+    background-color: rgb(198, 221, 238, .65);
 }
 
 .hero-picture{
