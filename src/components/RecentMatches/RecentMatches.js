@@ -19,23 +19,33 @@ function RecentMatches(props) {
                 setMatch(res.data)
                 axios
                     .get('https://api.opendota.com/api/heroStats').then(res => {
-                    setHeros(res.data)
-                    
-                    axios.get(`/user/me/pros/${props.dota_users_id}`).then(res => setPros(res.data))
+                        setHeros(res.data)
 
-                })
+                        axios.get(`/user/me/pros/${props.dota_users_id}`).then(res => setPros(res.data))
+
+                    })
             })
     }, [])
 
 
+    function getPlayerName() {
+        for (let i = 0; i < pros.length; i++) {
+            console.log('inside loop steam ID:', pros[i].steam_account_id)
+            console.log('NAME:', pros[i].name)
+            console.log('params?:', props.match.params.proPlayerId)
+            //* == because the url is considered a string. 
+            if (pros[i].steam_account_id == props.match.params.proPlayerId) {
+                return pros[i].name
+            }
+        }
+    }
+    console.log(getPlayerName())
     const recentMatches = matches.map(match => {
 
         function matchUpId() {
             for (let i = 0; i < heros.length; i++) {
                 if (heros[i].id === match.hero_id) {
-                    console.log('IMG!?', `${baseURL}${heros[i].img}`)
                     return `${baseURL}${heros[i].img}`
-                    // return <img src={`${baseURL}${heros[i].img}`}/>
                 }
             }
         }
@@ -44,13 +54,21 @@ function RecentMatches(props) {
             const seconds = num % 60
             return `${minutes}:${seconds}`
         }
+
+        // function getPlayerName(){
+        //     for(let i = 0; i < pros.length; i++){
+        //         if(pros[i].steam_account_id === props.match.params.proPlayerId){
+        //             return pros[i].name
+        //         }
+        //     }
+        // }
+        // console.log(getPlayerName())
         return (
             <Link to={`/${props.match.params.proPlayerId}/${match.match_id}/score`}>
                 <div className='match-container'>
                     <img className='hero-picture'
                         alt='hero picture'
                         src={matchUpId()} />
-
                     <p className='match-info'>Duration: {time(match.duration)}</p>
                     <p className='match-info'>Kills: {match.kills}</p>
                     <p className='match-info'>Deaths: {match.deaths}</p>
@@ -61,7 +79,7 @@ function RecentMatches(props) {
     })
     return (
         <div className='main-recent-matches-div'>
-            {/* {JSON.stringify(matches)} */}
+            <h2>{getPlayerName()}'s match history!</h2>
             {recentMatches}
         </div>
     )
