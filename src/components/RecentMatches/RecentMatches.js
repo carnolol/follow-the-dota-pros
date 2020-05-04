@@ -5,7 +5,11 @@ import { Link } from 'react-router-dom'
 import './RecentMatches.css'
 
 const baseURL = 'https://api.opendota.com'
-const sniper = 'https://api.opendota.com/apps/dota2/images/heroes/sniper_full.png?'
+const victory = 'https://i.ytimg.com/vi/d_q4p19ojKs/maxresdefault.jpg'
+const loss = 'https://pngimage.net/wp-content/uploads/2018/06/overwatch-defeat-png-5.png'
+
+//* player slot for radiant players = 0,1,2,3,4
+//* player_slot for dire players = 128,129,130,131,132
 
 function RecentMatches(props) {
     const [matches, setMatch] = useState([])
@@ -42,6 +46,19 @@ function RecentMatches(props) {
     console.log(getPlayerName())
     const recentMatches = matches.map(match => {
 
+        function determineWhoWon(){
+            if(match.player_slot >= 4 && match.
+                radiant_win == true){
+                    return <h3>Victory!</h3>
+                } if (match.player_slot >= 4 && match.radiant_win == false){
+                    return <h3>Defeat!</h3>
+                } if (match.player_slot <= 128 && match.radiant_win == true){
+                    return <h3>Defeat!</h3>
+                } else {
+                    return <h3>Victory!</h3>
+                }
+        }
+
         function matchUpId() {
             for (let i = 0; i < heros.length; i++) {
                 if (heros[i].id === match.hero_id) {
@@ -55,20 +72,14 @@ function RecentMatches(props) {
             return `${minutes}:${seconds}`
         }
 
-        // function getPlayerName(){
-        //     for(let i = 0; i < pros.length; i++){
-        //         if(pros[i].steam_account_id === props.match.params.proPlayerId){
-        //             return pros[i].name
-        //         }
-        //     }
-        // }
-        // console.log(getPlayerName())
         return (
             <Link to={`/${props.match.params.proPlayerId}/${match.match_id}/score`}>
                 <div className='match-container'>
                     <img className='hero-picture'
                         alt='hero picture'
                         src={matchUpId()} />
+                        {determineWhoWon()}
+                    {/* <img src={determineWhoWon()} /> */}
                     <p className='match-info'>Duration: {time(match.duration)}</p>
                     <p className='match-info'>Kills: {match.kills}</p>
                     <p className='match-info'>Deaths: {match.deaths}</p>
