@@ -1,9 +1,10 @@
 .info-main-div{
-    margin-top: 18vh;
+    padding-top: 18vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    background-color: #DEDEE6;
 }
 
 .age-container{

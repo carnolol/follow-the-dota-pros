@@ -31,7 +31,7 @@ function Header(props) {
                     src={logo} />
             </Link>
             <h1 className='header-h1'>Dota Pros</h1>
-            {props.isLoggedIn === true ? <div>
+            {props.isLoggedIn === true ? <div className='login-info'>
                 <Link to='/myProfile'>
                     <p className='header-username'>{props.username}</p>
                     <img className='profile-header-pic'

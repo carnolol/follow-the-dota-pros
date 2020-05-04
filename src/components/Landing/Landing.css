@@ -27,7 +27,9 @@
     /* border: 2px solid royalblue; */
     border-radius: 20px;
     box-shadow: 2px 3px 15px black;
-    width: 80vw;
+    height: 17vh;
+    padding-right: 6vw;
+    width: 90vw;
     background-color: #F7F7FF;
 }
 
@@ -50,12 +52,15 @@ h3{
 .landing-add-player{
     height: 8%;
     width: 8%;
+    border: 2px solid black;
     padding-bottom: 25%;
-    margin-right: 2%;
+    margin-left: 2%;
+    z-index: 2;
 }
 
 .pro-picture{
     box-shadow: 2px 0 10px black;
-    height:17vh;
+    margin-right: .5vw;
+    height:17.5vh;
     width: 38vw;
 }

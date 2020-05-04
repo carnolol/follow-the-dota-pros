@@ -7,6 +7,8 @@ import ProPlayerPool from '../ProPlayerPool/ProPlayerPool'
 
 const pencil = 'https://cdn1.iconfinder.com/data/icons/editing/60/cell-2-0-480.png'
 
+//TODO: edit function does edit the DB but doesn't display on the front end
+
 function UserInfo(props) {
     const [user, setUser] = useState({})
     const [bio, setBio] = useState('')
@@ -14,6 +16,7 @@ function UserInfo(props) {
 
 
     useEffect(() => {
+        console.log('hit?')
         axios
             .get('/user/me')
             .then(res => setUser(res.data))
@@ -24,10 +27,14 @@ function UserInfo(props) {
         axios
             .put(`/user/me/${props.dota_users_id}`, {bio: bio})
             .then(res => {
+                console.log('inside Edit User res.data:',res.data)
                 setUser(res.data)
+
             })
             .catch(err => console.log(err))
     }
+    console.log('USER BIO:',user.bio)
+
     return (
         <div className='info-main-div'>
             <h2>Welcome back {user.username}</h2>

@@ -1,0 +1,9 @@
+.main-comments-div{
+    background-color: #DEDEE6;
+}
+
+.score-scores{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

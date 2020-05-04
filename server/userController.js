@@ -66,7 +66,8 @@ module.exports = {
         const { dota_users_id } = req.params
         const { bio } = req.body
         const editedUser = await db.edit_user([bio, dota_users_id])
-        res.status(200).send(editedUser)
+        req.session.user = editedUser[0]
+        res.status(200).send(req.session.user)
     },
     logout: (req, res) => {
         req.session.destroy()
@@ -79,10 +80,5 @@ module.exports = {
         } else {
             res.sendStatus(409)
         }
-    },
-
-    getUsersProPlayers: async (req, res) => {
-        const db = req.app.get('db')
-        // need to figure out db query to do this
     }
 }

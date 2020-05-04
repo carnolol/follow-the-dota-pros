@@ -5,10 +5,13 @@ import { Link } from 'react-router-dom'
 import './RecentMatches.css'
 
 const baseURL = 'https://api.opendota.com'
-const loadingGif = <img src='https://miro.medium.com/max/1600/1*CsJ05WEGfunYMLGfsT2sXA.gif'/>
+const loadingGif = <img src='https://miro.medium.com/max/1600/1*CsJ05WEGfunYMLGfsT2sXA.gif'
+alt='loading'/>
 
 //* player slot for radiant players = 0,1,2,3,4
 //* player_slot for dire players = 128,129,130,131,132
+
+//TODO: make it so user can click a more button to change the amount of mitches displayed based of the query. 
 
 function RecentMatches(props) {
     const [matches, setMatch] = useState([])
@@ -34,10 +37,10 @@ function RecentMatches(props) {
 
     function getPlayerName() {
         for (let i = 0; i < pros.length; i++) {
-            console.log('inside loop steam ID:', pros[i].steam_account_id)
-            console.log('NAME:', pros[i].name)
-            console.log('params?:', props.match.params.proPlayerId)
-            //* == because the url is considered a string. 
+            // console.log('inside loop steam ID:', pros[i].steam_account_id)
+            // console.log('NAME:', pros[i].name)
+            // console.log('params?:', props.match.params.proPlayerId)
+            //? == because the url is considered a string. 
             if (pros[i].steam_account_id == props.match.params.proPlayerId) {
                 return pros[i].name
             }
@@ -73,10 +76,10 @@ function RecentMatches(props) {
         }
 
         return (
-            <Link to={`/${props.match.params.proPlayerId}/${match.match_id}/score`}>
+            <Link to={`/${props.match.params.proPlayerId}/${match.match_id}/score`}style={{textDecoration: 'none'}} >
                 <div className='match-container'>
                     <img className='hero-picture'
-                        alt='hero picture'
+                        alt='hero'
                         src={matchUpId()} />
                     {determineWhoWon()}
                     <div className='duration-container'>
@@ -86,8 +89,6 @@ function RecentMatches(props) {
                     <div className='kda-container'>
                         <p className='match-info'>KDA</p>
                         <p>{match.kills} / {match.deaths} / {match.assists}</p>
-                        {/* <p className='match-info'>D: {match.deaths}</p>
-                        <p className='match-info'>A {match.assists}</p> */}
                     </div>
                 </div>
             </Link>

@@ -5,7 +5,7 @@ import { connect } from 'react-redux'
 import './Landing.css'
 
 const loadingImg = 'https://miro.medium.com/max/1600/1*CsJ05WEGfunYMLGfsT2sXA.gif'
-const add = 'https://img.icons8.com/all/500/add.png'
+const add = 'https://w7.pngwing.com/pngs/535/334/png-transparent-computer-icons-add-button-logo-number-add-button.png'
 
 
 //TODO: Need to make search function based on pros name
@@ -46,17 +46,20 @@ function Landing(props) {
                 alt='add button'
                 src={add}    
                 onClick={() => handleAddPro()}/>
-            {/* <button onClick={() => handleAddPro()}>add</button> */}
         </div>
     })
 
     return (
         <div className='main-landing-div'>
             <h2 className='landing-h2'>Select your players to follow!</h2>
+            <input placeholder='Search by Name'/>
             {loading === true ? <div>
                 <h1>Getting Pros...</h1>
-                <img src={loadingImg} />
+                <img src={loadingImg} 
+                    alt='need new loading gif'/>
             </div> : proPlayers}
+            <img src={add}
+                alt='e'/>
         </div>
     )
 }

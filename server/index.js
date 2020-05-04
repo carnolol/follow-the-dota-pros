@@ -29,7 +29,6 @@ massive({
 })
 
 //* User endpoints
-app.get('/user/proPlayers', userCtrl.getUsersProPlayers)
 app.get('/user/me', userCtrl.getLoggedInUser)
 app.post('/user/login', userCtrl.login)
 app.post('/user/register', userCtrl.register)
