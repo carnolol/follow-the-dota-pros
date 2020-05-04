@@ -37,7 +37,7 @@ app.delete('/user/logout', userCtrl.logout)
 
 
 //* Post Controllers
-app.get('/dota-pros/posts', postCtrl.getPostsBasedOnMatch)
+app.get('/dota-pros/posts/:match_id', postCtrl.getPostsBasedOnMatch)
 app.get('/dota-pros/all-posts', postCtrl.getAllPosts)
 app.get('/dota-pros/posts/:dota_posts_id', postCtrl.getOnePost)
 app.post('/dota-pros/posts', postCtrl.addNewPost)

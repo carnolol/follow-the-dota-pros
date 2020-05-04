@@ -46,16 +46,15 @@ function RecentMatches(props) {
             }
         }
     }
-    console.log(getPlayerName())
+    // console.log(getPlayerName())
     const recentMatches = matches.map(match => {
 
         function determineWhoWon() {
-            if (match.player_slot >= 4 && match.
-                radiant_win == true) {
+            if (match.player_slot >= 4 && match.radiant_win === true) {
                 return <h4 className='victory'>Victory!</h4>
-            } if (match.player_slot >= 4 && match.radiant_win == false) {
+            } if (match.player_slot >= 4 && match.radiant_win === false) {
                 return <h4 className='defeat' >Defeat!</h4>
-            } if (match.player_slot <= 128 && match.radiant_win == true) {
+            } if (match.player_slot <= 128 && match.radiant_win === true) {
                 return <h4 className='defeat' >Defeat!</h4>
             } else {
                 return <h4 className='victory'>Victory!</h4>

@@ -5,14 +5,18 @@ import Comments from '../comments/Comments'
 import MatchInfo from '../MatchInfo/MatchInfo'
 
 const loadingGif = <img src='https://miro.medium.com/max/1600/1*CsJ05WEGfunYMLGfsT2sXA.gif'
-    alt='loading' 
-    className='loading-gif'/>
+    alt='loading'
+    className='loading-gif' />
+const baseURL = 'https://api.opendota.com'
 
-    //TODO: need to style loadingGif to be in center of screen. 
+//TODO: need to style loadingGif to be in center of screen. 
 
 function Score(props) {
 
     const [match, setMatch] = useState({})
+    const [hero, setHero] = useState([])
+    const [items, setItems] = useState({})
+    const [players, setPlayers] =useState([])
     const [loading, setLoading] = useState(true)
 
     useEffect(() => {
@@ -20,9 +24,27 @@ function Score(props) {
             .get(`https://api.opendota.com/api/matches/${props.match.params.matchId}`)
             .then(res => {
                 setMatch(res.data)
-                setLoading(false)
+                axios.get('https://api.opendota.com/api/heroStats').then(res => {
+                    setHero(res.data)
+                })
+                axios
+                .get('https://api.opendota.com/api/constants/items')
+                .then(res => {
+                    setItems(res.data)
+                    // getPlayer()
+                    setLoading(false)
+                    })
             })
     }, [])
+
+    useEffect(() => {
+        if(match.players){
+                const allPlayers = match.players.map(player => {
+                    return player.account_id
+                }) 
+                setPlayers(allPlayers) 
+            }
+    }, [match.players])
 
     function handleWhatTeamWon() {
         if (match.radiant_win === false) {
@@ -38,6 +60,16 @@ function Score(props) {
         return `${minutes}:${seconds}`
     }
 
+    // const detailedInfo = Object.keys(match).map( info => {
+    // return <p>{info[players]}</p>
+    // })
+    // console.log(detailedInfo)
+
+
+    // function getRadiantInfo(){
+    //     for(let i = 0; i < match.length; i++)
+    //     return match
+    // }
 
     return (
         <div className='main-score-div'>
@@ -45,12 +77,13 @@ function Score(props) {
             {handleWhatTeamWon()}
             <div className='score-scores'>
                 <h1>{match.radiant_score} </h1>
-                    -
-                <h1> {match.dire_score}</h1>
+                -
+            <h1> {match.dire_score}</h1>
             </div>
             <p>{time(match.duration)}</p>
-            <MatchInfo />
-            <Comments />
+            {/* {detailedInfo} */}
+            {loading === true ? null : <MatchInfo />}
+            {loading === true ? null : <Comments />}
         </div>
     )
 }

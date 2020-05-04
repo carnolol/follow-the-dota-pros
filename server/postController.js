@@ -1,8 +1,8 @@
 module.exports = {
     addNewPost: async (req, res) => {
         const db = req.app.get('db')
-        const { author_id, title, content } = req.body
-        const newPost = await db.add_post([author_id, title, content])
+        const { author_id, title, content, match_id } = req.body
+        const newPost = await db.add_post([author_id, title, content, match_id])
         res.status(200).send(newPost)
         // working 
     },
@@ -18,8 +18,9 @@ module.exports = {
     },
     getPostsBasedOnMatch: async (req, res) => {
         const db = req.app.get('db')
-        const posts = await db.get_posts_based_on_match()
-        res.status(200).send(posts)
+        const {match_id} = req.params
+        const posts = await db.get_posts_based_on_match([match_id])
+        res.status(200).send(posts[0])
         //! needs work
     },
     getAllPosts: async (req, res) => {

@@ -7,8 +7,14 @@ content VARCHAR(1000),
 title VARCHAR (100),
 created_at date, 
 author_id INT, 
+match_id BIGINT,
 FOREIGN KEY (author_id) REFERENCES dota_users(dota_users_id)
 )
+
+-- INSERT INTO dota_posts
+-- (content, title, created_at, author_id, match_id)
+-- values
+-- ('linked to match id 5394145163','Title is 5394145163', now(), 21, 5394145163);
 
 CREATE TABLE dota_users(
 dota_users_id serial primary key,
