@@ -13,7 +13,7 @@ const baseURL = 'https://api.opendota.com'
 
 function Score(props) {
 
-    const [match, setMatch] = useState({})
+    const [match, setMatch] = useState([])
     const [hero, setHero] = useState([])
     const [items, setItems] = useState({})
     const [players, setPlayers] =useState([])
@@ -83,7 +83,7 @@ function Score(props) {
             <p>{time(match.duration)}</p>
             {/* {detailedInfo} */}
             {loading === true ? null : <MatchInfo />}
-            {loading === true ? null : <Comments />}
+            {loading === true ? null : <Comments props={props}/>}
         </div>
     )
 }

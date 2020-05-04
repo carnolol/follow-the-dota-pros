@@ -20,8 +20,8 @@ module.exports = {
         const db = req.app.get('db')
         const {match_id} = req.params
         const posts = await db.get_posts_based_on_match([match_id])
-        res.status(200).send(posts[0])
-        //! needs work
+        res.status(200).send(posts)
+        //* working might need to not send back at [0] ?? not sure
     },
     getAllPosts: async (req, res) => {
         const db = req.app.get('db')
