@@ -24,7 +24,39 @@
     width: 25vw;
 }
 
+.match-header{
+    position: relative;
+    top: 0;
+    background-color: crimson;
+    width: 100%;
+}
+
+.victory{
+    color: rgb(16, 119, 16);
+}
+
+.defeat{
+    color: crimson;
+}
+
+.kda-container{
+    display: flex;
+    flex-direction: column;
+    color: black;
+
+    justify-content: space-around;
+}
+
+.duration-container{
+    display: flex;
+    flex-direction: column;
+    color: black;
+}
+
 .match-info{
    color: black;    
-   text-shadow: 0 0 5px grey; 
+   text-shadow: 0 0 5px grey;
+   padding-bottom: 10%; 
+   font-size: 1.1rem;
+
 }

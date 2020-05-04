@@ -5,7 +5,7 @@ import { connect } from 'react-redux'
 import {Link} from 'react-router-dom'
 
 const trash = 'https://cdn.iconscout.com/icon/premium/png-512-thumb/delete-1432400-1211078.png'
-const loadingImg = 'https://media.giphy.com/media/3oEjI6SIIHBdRxXI40/200.gif'
+const loadingImg = 'https://miro.medium.com/max/1600/1*CsJ05WEGfunYMLGfsT2sXA.gif'
 
 function ProPlayerPool(props) {
 
@@ -18,7 +18,7 @@ function ProPlayerPool(props) {
             .get(`/user/me/pros/${props.dota_users_id}`)
             .then(res =>{ 
                 setPros(res.data)
-                setTimeout(() => setLoading(false), 750)
+                setTimeout(() => setLoading(false), 1)
                 })
             .catch(err => console.log(err))
     }, [pros])

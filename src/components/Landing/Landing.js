@@ -4,8 +4,12 @@ import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 import './Landing.css'
 
-const loadingImg = 'https://media.giphy.com/media/3oEjI6SIIHBdRxXI40/200.gif'
+const loadingImg = 'https://miro.medium.com/max/1600/1*CsJ05WEGfunYMLGfsT2sXA.gif'
 const add = 'https://img.icons8.com/all/500/add.png'
+
+
+//TODO: Need to make search function based on pros name
+//TODO: let user filter based on winnings?
 
 function Landing(props) {
     const [pros, setPros] = useState([])
@@ -14,15 +18,10 @@ function Landing(props) {
     useEffect(() => {
         axios.get('/dota-pros/pros').then(res => {
             setPros(res.data)
-            setTimeout(() => setLoading(false), 500)
+            setTimeout(() => setLoading(false), 1)
         }).catch(err => console.log(err))
     }, [])
 
-    // const handleAddPro = () => {
-
-    // }
-
-    //TODO: need to wrap inside a link that when isLoggedIn on redux is true it will take them to recent matches.
     const proPlayers = pros.map(pro => {
         const handleAddPro = () => {
             axios

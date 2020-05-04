@@ -5,8 +5,7 @@ import { Link } from 'react-router-dom'
 import './RecentMatches.css'
 
 const baseURL = 'https://api.opendota.com'
-const victory = 'https://i.ytimg.com/vi/d_q4p19ojKs/maxresdefault.jpg'
-const loss = 'https://pngimage.net/wp-content/uploads/2018/06/overwatch-defeat-png-5.png'
+const loadingGif = <img src='https://miro.medium.com/max/1600/1*CsJ05WEGfunYMLGfsT2sXA.gif'/>
 
 //* player slot for radiant players = 0,1,2,3,4
 //* player_slot for dire players = 128,129,130,131,132
@@ -15,6 +14,7 @@ function RecentMatches(props) {
     const [matches, setMatch] = useState([])
     const [heros, setHeros] = useState([])
     const [pros, setPros] = useState([])
+    const [loading, setLoading] = useState(true)
 
     useEffect(() => {
         axios
@@ -26,7 +26,7 @@ function RecentMatches(props) {
                         setHeros(res.data)
 
                         axios.get(`/user/me/pros/${props.dota_users_id}`).then(res => setPros(res.data))
-
+                        setLoading(false)
                     })
             })
     }, [])
@@ -46,17 +46,17 @@ function RecentMatches(props) {
     console.log(getPlayerName())
     const recentMatches = matches.map(match => {
 
-        function determineWhoWon(){
-            if(match.player_slot >= 4 && match.
-                radiant_win == true){
-                    return <h3>Victory!</h3>
-                } if (match.player_slot >= 4 && match.radiant_win == false){
-                    return <h3>Defeat!</h3>
-                } if (match.player_slot <= 128 && match.radiant_win == true){
-                    return <h3>Defeat!</h3>
-                } else {
-                    return <h3>Victory!</h3>
-                }
+        function determineWhoWon() {
+            if (match.player_slot >= 4 && match.
+                radiant_win == true) {
+                return <h4 className='victory'>Victory!</h4>
+            } if (match.player_slot >= 4 && match.radiant_win == false) {
+                return <h4 className='defeat' >Defeat!</h4>
+            } if (match.player_slot <= 128 && match.radiant_win == true) {
+                return <h4 className='defeat' >Defeat!</h4>
+            } else {
+                return <h4 className='victory'>Victory!</h4>
+            }
         }
 
         function matchUpId() {
@@ -78,12 +78,17 @@ function RecentMatches(props) {
                     <img className='hero-picture'
                         alt='hero picture'
                         src={matchUpId()} />
-                        {determineWhoWon()}
-                    {/* <img src={determineWhoWon()} /> */}
-                    <p className='match-info'>Duration: {time(match.duration)}</p>
-                    <p className='match-info'>Kills: {match.kills}</p>
-                    <p className='match-info'>Deaths: {match.deaths}</p>
-                    <p className='match-info'>Assists: {match.assists}</p>
+                    {determineWhoWon()}
+                    <div className='duration-container'>
+                        <p className='match-info'>Duration:</p>
+                        <p>{time(match.duration)}</p>
+                    </div>
+                    <div className='kda-container'>
+                        <p className='match-info'>KDA</p>
+                        <p>{match.kills} / {match.deaths} / {match.assists}</p>
+                        {/* <p className='match-info'>D: {match.deaths}</p>
+                        <p className='match-info'>A {match.assists}</p> */}
+                    </div>
                 </div>
             </Link>
         )
@@ -91,7 +96,7 @@ function RecentMatches(props) {
     return (
         <div className='main-recent-matches-div'>
             <h2>{getPlayerName()}'s match history!</h2>
-            {recentMatches}
+            {loading ? loadingGif : recentMatches}
         </div>
     )
 }
