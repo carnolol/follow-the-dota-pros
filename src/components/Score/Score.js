@@ -5,7 +5,10 @@ import Comments from '../comments/Comments'
 import MatchInfo from '../MatchInfo/MatchInfo'
 
 const loadingGif = <img src='https://miro.medium.com/max/1600/1*CsJ05WEGfunYMLGfsT2sXA.gif'
-    alt='loading' />
+    alt='loading' 
+    className='loading-gif'/>
+
+    //TODO: need to style loadingGif to be in center of screen. 
 
 function Score(props) {
 
