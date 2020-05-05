@@ -8,16 +8,27 @@
 }
 
 .search-input{
-    padding: 7px;
+    padding: 12px;
     width: 80vw;
     border-radius: 5px;
     margin-top: .75vh;
     box-shadow: 2px 2px 4px black;
 }
 
+.search-and-img-container{
+    display: flex;
+}
+
+.search-img{
+    border: 1px black;
+    height: 6vh;
+    width: 6vw;
+}
+
 .landing-h2{
     background-color: #577399;
-    padding: 6px;
+    width: 90vw;
+    padding: 10px;
     color: white;
     margin-bottom: 1vh;
     box-shadow: 0 0 10px black;

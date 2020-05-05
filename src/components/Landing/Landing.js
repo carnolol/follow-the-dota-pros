@@ -44,23 +44,27 @@ function Landing(props) {
             </div>
             <img className='landing-add-player'
                 alt='add button'
-                src={add}    
-                onClick={() => handleAddPro()}/>
+                src={add}
+                onClick={() => handleAddPro()} />
         </div>
     })
 
     return (
         <div className='main-landing-div'>
             <h2 className='landing-h2'>Select your players to follow!</h2>
-            <input className='search-input'
-                placeholder='Search by Name'/>
+            <div className='search-and-img-container'>
+                <input className='search-input'
+                    placeholder='Search by Name' />
+                <img className='search-img'
+                    src={add}/>
+            </div>
             {loading === true ? <div>
                 <h1>Getting Pros...</h1>
-                <img src={loadingImg} 
-                    alt='need new loading gif'/>
+                <img src={loadingImg}
+                    alt='need new loading gif' />
             </div> : proPlayers}
             <img src={add}
-                alt='e'/>
+                alt='e' />
         </div>
     )
 }

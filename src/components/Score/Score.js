@@ -42,9 +42,9 @@ function Score(props) {
 
     function handleWhatTeamWon() {
         if (match.radiant_win === false) {
-            return <h1>DIRE VICTORY!</h1>
+            return <h1 className='dire-victory'>DIRE VICTORY!</h1>
         } else {
-            return <h1> RADIANT VICTORY!</h1>
+            return <h1 className='radiant-victory'> RADIANT VICTORY!</h1>
         }
     }
 
@@ -90,37 +90,37 @@ function Score(props) {
                         <img className='score-player-hero-pic'
                             alt='NA'
                             src={getHeroPicture()} />
+                                <h4>{player.name}</h4>
                         <div className='player-text-info'>
-                            <h3>{player.name}</h3>
                             <div>
                                 KDA
                                 <p>{player.kills}/{player.deaths}/{player.assists}</p>
                             </div>
                             <div>
-                                G / X
+                                GPM / XPM
                                 <p>{player.gold_per_min} / {player.xp_per_min}</p>
                             </div>
-                            <div>
+                            {/* <div>
                                 DMG
                                 {player.hero_damage}
-                            </div>
+                            </div> */}
                         </div>
                         {loading ? null : <div className='dota-items'>
-                            {item[0] ?  <img className='dota-item-picture'
+                            {item[0] ? <img className='dota-item-picture'
                                 alt='item'
                                 src={`${baseURL}${item[0].img}`} /> : null}
-                            {item[1] ?  <img className='dota-item-picture'
+                            {item[1] ? <img className='dota-item-picture'
                                 alt='item'
                                 src={`${baseURL}${item[1].img}`} /> : null}
                             {item[2] ? <img className='dota-item-picture'
                                 alt='item'
-                                src={`${baseURL}${item[2].img}`} />: null}
+                                src={`${baseURL}${item[2].img}`} /> : null}
                             {item[3] ? <img className='dota-item-picture'
                                 alt='item'
-                                src={`${baseURL}${item[3].img}`} />: null}
-                            {item[4] ?   <img className='dota-item-picture'
+                                src={`${baseURL}${item[3].img}`} /> : null}
+                            {item[4] ? <img className='dota-item-picture'
                                 alt='item'
-                                src={`${baseURL}${item[4].img}`} />: null}
+                                src={`${baseURL}${item[4].img}`} /> : null}
                             {item[5] ? <img className='dota-item-picture'
                                 alt='item'
                                 src={`${baseURL}${item[5].img}`} /> : null}
@@ -166,13 +166,15 @@ function Score(props) {
         <div className='main-score-div'>
             <div className='victory-container'>
                 <p>match ID: {match.match_id}</p>
+                <br></br>
                 {handleWhatTeamWon()}
                 <div className='score-scores'>
                     <h1 className='rad-score'>{match.radiant_score} </h1>
                                 -
                     <h1 className='dire-score'> {match.dire_score}</h1>
                 </div>
-                <p>{time(match.duration)}</p>
+                <p className='time'>{time(match.duration)}</p>
+                <br></br>
             </div>
             <br></br>
             <div>
@@ -186,6 +188,7 @@ function Score(props) {
                 </div>
                 <br></br>
                 <h1 className='radiant-h2'>DIRE</h1>
+                <br></br>
                 <div className='match-score-info-container'>
                     <br></br>
                     <p className='hero-kda-info'>hero player KDA GPM/XPM  DMG Items</p>
