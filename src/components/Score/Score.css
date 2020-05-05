@@ -78,7 +78,7 @@
     align-content: space-between;
     align-items: center;
     border: 2px solid black;
-    overflow: hidden;
+    /* overflow: hidden; */
 
 }
 
@@ -91,4 +91,7 @@
     background-color: seagreen;
     width: 25vw;
     height: 10.5vh;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
 }

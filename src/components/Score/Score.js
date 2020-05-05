@@ -8,7 +8,6 @@ const loadingGif = <img src='https://miro.medium.com/max/1600/1*CsJ05WEGfunYMLGf
     alt='loading'
     className='loading-gif' />
 const baseURL = 'https://api.opendota.com'
-const placeholder = 'https://wallpapercave.com/wp/wDL5J5P.jpg'
 
 //TODO: need to style loadingGif to be in center of screen. 
 
@@ -17,8 +16,9 @@ function Score(props) {
     const [match, setMatch] = useState({})
     const [heros, setHero] = useState([])
     const [items, setItems] = useState({})
-    // const [players, setPlayers] = useState([])
     const [loading, setLoading] = useState(true)
+
+    // const item = getItemPicture()
 
     useEffect(() => {
         axios
@@ -39,15 +39,6 @@ function Score(props) {
             })
     }, [])
 
-    // useEffect(() => {
-    //     if (match.players) {
-    //         const allPlayers = match.players.map(player => {
-    //             return player.account_id
-    //         })
-    //         setPlayers(allPlayers)
-    //     }
-    // }, [match.players])
-
     function handleWhatTeamWon() {
         if (match.radiant_win === false) {
             return <h1>DIRE VICTORY!</h1>
@@ -62,9 +53,11 @@ function Score(props) {
         return `${minutes}:${seconds}`
     }
 
+    //* !!!!!!!!!   MAP STARTS HERE        !!!!!!!
+
     function displayRadiant() {
         if (match.players) {
-            const matchInfo = match.players.map(player => {
+            const matchInfo = match.players.map( player => {
 
                 function getHeroPicture() {
                     if (match.players) {
@@ -76,16 +69,27 @@ function Score(props) {
                     }
                 }
 
-
                 function getItemPicture(){
+                    let list =[]
                     if(match.players){
                         for(let key in items){
-                            // console.log('item...?', key)
+                            if(items[key].id === player.item_0 || items[key].id === player.item_1 || items[key].id === player.item_2 || items[key].id === player.item_3 || items[key].id === player.item_4 || items[key].id === player.item_5){
+            
+                                list.push(items[key])
+                            }
                         }
                     }
+                    return list
                 }
 
-                // console.log(getItemPicture())
+                let item = getItemPicture()
+
+                item.map(i => {
+                    return 
+                })
+            
+                console.log(getItemPicture())
+                
 
                 if (player.player_slot <= 6) {
                     return <div className='score-match-container'>
@@ -107,15 +111,23 @@ function Score(props) {
                                 {player.hero_damage}
                             </div>
                         </div>
-                        <div className='dota-items'>
-                            ITEMS GO HERE
-                        </div>
+                        {loading ? null : <div className='dota-items'>
+                            <img src={`${baseURL}${item[0].img}`}/>
+                            <img src={`${baseURL}${item[1].img}`}/>
+                            <img src={`${baseURL}${item[2].img}`}/>
+                            <img src={`${baseURL}${item[3].img}`}/>
+                            <img src={`${baseURL}${item[4].img}`}/>
+                            <img src={`${baseURL}${item[5].img}`}/>
+                        </div>}
+                        
                     </div>
                 }
             })
             return matchInfo
         }
     }
+
+    //* !!!!!!!!!    OTHER MAP STARTS HERE        !!!!!!!
 
     function displayDire() {
         if (match.players) {
@@ -177,7 +189,7 @@ function Score(props) {
                 </div>
             </div>
             {loading === true ? null : <Comments props={props} />}
-            {/* {loading === true ? null : <MatchInfo />} */}
+            {loading === true ? null : <MatchInfo />}
         </div>
     )
 }
