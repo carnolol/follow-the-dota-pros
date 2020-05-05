@@ -12,14 +12,15 @@
 }
 
 .score-match-container{
-    height: 15vh;
+    height: 10vh;
     width: 95vw;
+    display: flex;
     border: 2px solid black;
     overflow: hidden;
 
 }
 
 .score-player-hero-pic{
-    height: 21vh;
-    width: ;
+    height: 11vh;
+    width: 25vw;
 }
