@@ -7,6 +7,14 @@
     background-color: #DEDEE6;
 }
 
+.search-input{
+    padding: 7px;
+    width: 80vw;
+    border-radius: 5px;
+    margin-top: .75vh;
+    box-shadow: 2px 2px 4px black;
+}
+
 .landing-h2{
     background-color: #577399;
     padding: 6px;

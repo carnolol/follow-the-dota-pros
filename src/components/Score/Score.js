@@ -113,7 +113,9 @@ function Score(props) {
                 </div>
                 <p>{time(match.duration)}</p>
             </div>
-            {display()}
+            <div>
+                {display()}
+            </div>
             {/* {loading === true ? null : <MatchInfo />} */}
             {loading === true ? null : <Comments props={props} />}
         </div>

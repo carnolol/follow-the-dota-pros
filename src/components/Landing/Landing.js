@@ -52,7 +52,8 @@ function Landing(props) {
     return (
         <div className='main-landing-div'>
             <h2 className='landing-h2'>Select your players to follow!</h2>
-            <input placeholder='Search by Name'/>
+            <input className='search-input'
+                placeholder='Search by Name'/>
             {loading === true ? <div>
                 <h1>Getting Pros...</h1>
                 <img src={loadingImg} 
