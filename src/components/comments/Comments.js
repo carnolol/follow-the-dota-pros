@@ -23,8 +23,8 @@ function Comments(props) {
             </div>
         )
     })
-    console.log(typeof (props.match.params.matchId))
-    console.log(props.match.params.matchId)
+    // console.log(typeof (props.match.params.matchId))
+    // console.log(props.match.params.matchId)
     return (
 
         <div className='main-comments-div'>

@@ -8,15 +8,16 @@ const loadingGif = <img src='https://miro.medium.com/max/1600/1*CsJ05WEGfunYMLGf
     alt='loading'
     className='loading-gif' />
 const baseURL = 'https://api.opendota.com'
+const placeholder = 'https://lh3.googleusercontent.com/proxy/ejFwN58gaX8OmhCukm-k7g2CMRJhSblcTCfkuqTD9WJh59CMN38PZWRfeBIe-hmN28w1jHsNVX5-6xoBnx3na_tfB_POS6mWpYgOSfQK2A'
 
 //TODO: need to style loadingGif to be in center of screen. 
 
 function Score(props) {
 
-    const [match, setMatch] = useState([])
+    const [match, setMatch] = useState({})
     const [hero, setHero] = useState([])
     const [items, setItems] = useState({})
-    const [players, setPlayers] =useState([])
+    const [players, setPlayers] = useState([])
     const [loading, setLoading] = useState(true)
 
     useEffect(() => {
@@ -28,22 +29,21 @@ function Score(props) {
                     setHero(res.data)
                 })
                 axios
-                .get('https://api.opendota.com/api/constants/items')
-                .then(res => {
-                    setItems(res.data)
-                    // getPlayer()
-                    setLoading(false)
+                    .get('https://api.opendota.com/api/constants/items')
+                    .then(res => {
+                        setItems(res.data)
+                        setLoading(false)
                     })
             })
     }, [])
 
     useEffect(() => {
-        if(match.players){
-                const allPlayers = match.players.map(player => {
-                    return player.account_id
-                }) 
-                setPlayers(allPlayers) 
-            }
+        if (match.players) {
+            const allPlayers = match.players.map(player => {
+                return player.account_id
+            })
+            setPlayers(allPlayers)
+        }
     }, [match.players])
 
     function handleWhatTeamWon() {
@@ -66,24 +66,56 @@ function Score(props) {
     // console.log(detailedInfo)
 
 
-    // function getRadiantInfo(){
-    //     for(let i = 0; i < match.length; i++)
-    //     return match
+
+
+    const dotaMatch = [match]
+
+    // function dispay() {
+    //     if (dotaMatch) {
+    //         const proMatch = dotaMatch.map(game => {
+    //             console.log(game.players)
+    //             game.players.map(player => {
+    //                 console.log(player)
+    //             })
+    //             // return <h1>{game.human_players}</h1>
+    //             // game.map( player =>{
+    //             // console.log(player)
+    //             // })
+    //         })
+    //         return proMatch
+    //     }
     // }
+
+    function display() {
+        if (match.players) {
+            const matchInfo = match.players.map(player => {
+                // console.log('inside display', player)
+                return <div className='score-match-container'>
+                    <img className='score-player-hero-pic'
+                        alt='NA'
+                        src={placeholder} />
+                    <h1>{player.gold}</h1>
+                </div>
+            })
+            return matchInfo
+        }
+    }
 
     return (
         <div className='main-score-div'>
-            <p>match ID: {match.match_id}</p>
-            {handleWhatTeamWon()}
-            <div className='score-scores'>
-                <h1>{match.radiant_score} </h1>
-                -
-            <h1> {match.dire_score}</h1>
+            <div className='victory-container'>
+                <p>match ID: {match.match_id}</p>
+                {handleWhatTeamWon()}
+                <div className='score-scores'>
+                    <h1>{match.radiant_score} </h1>
+                                -
+                    <h1> {match.dire_score}</h1>
+                </div>
+                <p>{time(match.duration)}</p>
             </div>
-            <p>{time(match.duration)}</p>
-            {/* {detailedInfo} */}
-            {loading === true ? null : <MatchInfo />}
-            {loading === true ? null : <Comments props={props}/>}
+            {display()}
+            {/* {loading === true ? null : <MatchInfo />} */}
+            {loading === true ? null : <Comments props={props} />}
         </div>
     )
 }
