@@ -7,7 +7,9 @@
 }
 
 .victory-container{
-    border: 2px solid crimson;
+    background-color: #C5D5DD;
+    border-radius: 10px;
+    box-shadow: 3px 3px 5px black;
     width: 95vw;
 }
 
@@ -19,8 +21,11 @@
 
 .player-text-info{
     display: flex;
+    font-weight: 700;
+    font-size: .6rem;
     justify-content: space-between;
 }
+
 
 .rad-score{
     padding-right: 5vw;
@@ -68,12 +73,22 @@
     height: 10vh;
     width: 95vw;
     display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-content: space-between;
+    align-items: center;
     border: 2px solid black;
     overflow: hidden;
 
 }
 
 .score-player-hero-pic{
-    height: 11vh;
+    height: 10.5vh;
+    width: 23vw;
+}
+
+.dota-items{
+    background-color: seagreen;
     width: 25vw;
+    height: 10.5vh;
 }

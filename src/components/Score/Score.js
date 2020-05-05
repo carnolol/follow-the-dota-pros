@@ -76,15 +76,16 @@ function Score(props) {
                     }
                 }
 
-                let dotaItems = [items]
 
                 function getItemPicture(){
                     if(match.players){
-                       console.log('item...?', dotaItems[0])
+                        for(let key in items){
+                            // console.log('item...?', key)
+                        }
                     }
                 }
 
-                console.log(getItemPicture())
+                // console.log(getItemPicture())
 
                 if (player.player_slot <= 6) {
                     return <div className='score-match-container'>
@@ -98,13 +99,16 @@ function Score(props) {
                                 <p>{player.kills}/{player.deaths}/{player.assists}</p>
                             </div>
                             <div>
-                                GPM / XPM
+                                G / X
                                 <p>{player.gold_per_min} / {player.xp_per_min}</p>
                             </div>
                             <div>
                                 DMG
                                 {player.hero_damage}
                             </div>
+                        </div>
+                        <div className='dota-items'>
+                            ITEMS GO HERE
                         </div>
                     </div>
                 }
