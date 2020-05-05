@@ -8,16 +8,16 @@ const loadingGif = <img src='https://miro.medium.com/max/1600/1*CsJ05WEGfunYMLGf
     alt='loading'
     className='loading-gif' />
 const baseURL = 'https://api.opendota.com'
-const placeholder = 'https://lh3.googleusercontent.com/proxy/ejFwN58gaX8OmhCukm-k7g2CMRJhSblcTCfkuqTD9WJh59CMN38PZWRfeBIe-hmN28w1jHsNVX5-6xoBnx3na_tfB_POS6mWpYgOSfQK2A'
+const placeholder = 'https://wallpapercave.com/wp/wDL5J5P.jpg'
 
 //TODO: need to style loadingGif to be in center of screen. 
 
 function Score(props) {
 
     const [match, setMatch] = useState({})
-    const [hero, setHero] = useState([])
+    const [heros, setHero] = useState([])
     const [items, setItems] = useState({})
-    const [players, setPlayers] = useState([])
+    // const [players, setPlayers] = useState([])
     const [loading, setLoading] = useState(true)
 
     useEffect(() => {
@@ -25,9 +25,11 @@ function Score(props) {
             .get(`https://api.opendota.com/api/matches/${props.match.params.matchId}`)
             .then(res => {
                 setMatch(res.data)
-                axios.get('https://api.opendota.com/api/heroStats').then(res => {
-                    setHero(res.data)
-                })
+                axios
+                    .get('https://api.opendota.com/api/heroStats')
+                    .then(res => {
+                        setHero(res.data)
+                    })
                 axios
                     .get('https://api.opendota.com/api/constants/items')
                     .then(res => {
@@ -37,14 +39,14 @@ function Score(props) {
             })
     }, [])
 
-    useEffect(() => {
-        if (match.players) {
-            const allPlayers = match.players.map(player => {
-                return player.account_id
-            })
-            setPlayers(allPlayers)
-        }
-    }, [match.players])
+    // useEffect(() => {
+    //     if (match.players) {
+    //         const allPlayers = match.players.map(player => {
+    //             return player.account_id
+    //         })
+    //         setPlayers(allPlayers)
+    //     }
+    // }, [match.players])
 
     function handleWhatTeamWon() {
         if (match.radiant_win === false) {
@@ -60,42 +62,79 @@ function Score(props) {
         return `${minutes}:${seconds}`
     }
 
-    // const detailedInfo = Object.keys(match).map( info => {
-    // return <p>{info[players]}</p>
-    // })
-    // console.log(detailedInfo)
-
-
-
-
-    const dotaMatch = [match]
-
-    // function dispay() {
-    //     if (dotaMatch) {
-    //         const proMatch = dotaMatch.map(game => {
-    //             console.log(game.players)
-    //             game.players.map(player => {
-    //                 console.log(player)
-    //             })
-    //             // return <h1>{game.human_players}</h1>
-    //             // game.map( player =>{
-    //             // console.log(player)
-    //             // })
-    //         })
-    //         return proMatch
-    //     }
-    // }
-
-    function display() {
+    function displayRadiant() {
         if (match.players) {
             const matchInfo = match.players.map(player => {
-                // console.log('inside display', player)
-                return <div className='score-match-container'>
-                    <img className='score-player-hero-pic'
-                        alt='NA'
-                        src={placeholder} />
-                    <h1>{player.gold}</h1>
-                </div>
+
+                function getHeroPicture() {
+                    if (match.players) {
+                        for (let i = 0; i < heros.length; i++) {
+                            if (heros[i].id === player.hero_id) {
+                                return `${baseURL}${heros[i].img}`
+                            }
+                        }
+                    }
+                }
+
+                let dotaItems = [items]
+
+                function getItemPicture(){
+                    if(match.players){
+                       console.log('item...?', dotaItems[0])
+                    }
+                }
+
+                console.log(getItemPicture())
+
+                if (player.player_slot <= 6) {
+                    return <div className='score-match-container'>
+                        <img className='score-player-hero-pic'
+                            alt='NA'
+                            src={getHeroPicture()} />
+                        <div className='player-text-info'>
+                            <p>{player.name}</p>
+                            <div>
+                                KDA
+                                <p>{player.kills}/{player.deaths}/{player.assists}</p>
+                            </div>
+                            <div>
+                                GPM / XPM
+                                <p>{player.gold_per_min} / {player.xp_per_min}</p>
+                            </div>
+                            <div>
+                                DMG
+                                {player.hero_damage}
+                            </div>
+                        </div>
+                    </div>
+                }
+            })
+            return matchInfo
+        }
+    }
+
+    function displayDire() {
+        if (match.players) {
+            const matchInfo = match.players.map(player => {
+
+                function getHeroPicture() {
+                    if (match.players) {
+                        for (let i = 0; i < heros.length; i++) {
+                            if (heros[i].id === player.hero_id) {
+                                return `${baseURL}${heros[i].img}`
+                            }
+                        }
+                    }
+                }
+
+                if (player.player_slot >= 125) {
+                    return <div className='score-match-container'>
+                        <img className='score-player-hero-pic'
+                            alt='NA'
+                            src={getHeroPicture()} />
+                        <p>{player.name}</p>
+                    </div>
+                }
             })
             return matchInfo
         }
@@ -107,17 +146,34 @@ function Score(props) {
                 <p>match ID: {match.match_id}</p>
                 {handleWhatTeamWon()}
                 <div className='score-scores'>
-                    <h1>{match.radiant_score} </h1>
+                    <h1 className='rad-score'>{match.radiant_score} </h1>
                                 -
-                    <h1> {match.dire_score}</h1>
+                    <h1 className='dire-score'> {match.dire_score}</h1>
                 </div>
                 <p>{time(match.duration)}</p>
             </div>
+            <br></br>
             <div>
-                {display()}
+                <h1 className='radiant-h1'>RADIANT</h1>
+                <br></br>
+                <div className='match-score-info-container'>
+                    <p className='hero-kda-info'>hero player KDA GPM/XPM  DMG Items</p>
+                    <div className='players-container'>
+                        {displayRadiant()}
+                    </div>
+                </div>
+                <br></br>
+                <h1 className='radiant-h2'>DIRE</h1>
+                <div className='match-score-info-container'>
+                    <br></br>
+                    <p className='hero-kda-info'>hero player KDA GPM/XPM  DMG Items</p>
+                    <div className='players-container'>
+                        {displayDire()}
+                    </div>
+                </div>
             </div>
-            {/* {loading === true ? null : <MatchInfo />} */}
             {loading === true ? null : <Comments props={props} />}
+            {/* {loading === true ? null : <MatchInfo />} */}
         </div>
     )
 }

@@ -11,6 +11,59 @@
     width: 95vw;
 }
 
+.score-scores{
+    font-size: 2.5rem;
+    font-weight: bold;
+    text-shadow: 3px 3px 2px #474747;
+}
+
+.player-text-info{
+    display: flex;
+    justify-content: space-between;
+}
+
+.rad-score{
+    padding-right: 5vw;
+    color: rgb(16, 119, 16);
+}
+
+.dire-score{
+    padding-left: 5vw;
+    color: rgb(153, 4, 33);
+}
+
+.match-score-info-container{
+    width: 100vw;
+    padding-bottom: 2vh;
+    padding-top: 2vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #8496AB;
+}
+
+.hero-kda-info{
+    padding-bottom: 2vh;
+    display: flex;
+    align-items: center;
+}
+
+.players-container{
+    background-color: #DEDEE6;
+}
+
+.radiant-h1{
+    color: rgb(16, 119, 16);
+    font-size: 2.5rem;
+    text-shadow: 2px 2px 2px #474747;
+}
+
+.radiant-h2{
+    color: rgb(153, 4, 33);
+    font-size: 3rem;
+    text-shadow: 2px 2px 2px #474747;
+}
+
 .score-match-container{
     height: 10vh;
     width: 95vw;
