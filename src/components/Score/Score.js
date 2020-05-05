@@ -35,6 +35,7 @@ function Score(props) {
                     .then(res => {
                         setItems(res.data)
                         setLoading(false)
+                        // setTimeout(() => setLoading(false), 1000)
                     })
             })
     }, [])
@@ -53,11 +54,11 @@ function Score(props) {
         return `${minutes}:${seconds}`
     }
 
-    //* !!!!!!!!!   MAP STARTS HERE        !!!!!!!
+    //* !!!!!!!!!       RADIANT MAP STARTS HERE        !!!!!!!
 
     function displayRadiant() {
         if (match.players) {
-            const matchInfo = match.players.map( player => {
+            const matchInfo = match.players.map(player => {
 
                 function getHeroPicture() {
                     if (match.players) {
@@ -69,12 +70,12 @@ function Score(props) {
                     }
                 }
 
-                function getItemPicture(){
-                    let list =[]
-                    if(match.players){
-                        for(let key in items){
-                            if(items[key].id === player.item_0 || items[key].id === player.item_1 || items[key].id === player.item_2 || items[key].id === player.item_3 || items[key].id === player.item_4 || items[key].id === player.item_5){
-            
+                function getItemPicture() {
+                    let list = []
+                    if (match.players) {
+                        for (let key in items) {
+                            if (items[key].id === player.item_0 || items[key].id === player.item_1 || items[key].id === player.item_2 || items[key].id === player.item_3 || items[key].id === player.item_4 || items[key].id === player.item_5) {
+
                                 list.push(items[key])
                             }
                         }
@@ -82,14 +83,7 @@ function Score(props) {
                     return list
                 }
 
-                let item = getItemPicture()
-
-                item.map(i => {
-                    return 
-                })
-            
-                console.log(getItemPicture())
-                
+                let item = getItemPicture()     //! DONT DELETE           
 
                 if (player.player_slot <= 6) {
                     return <div className='score-match-container'>
@@ -97,7 +91,7 @@ function Score(props) {
                             alt='NA'
                             src={getHeroPicture()} />
                         <div className='player-text-info'>
-                            <p>{player.name}</p>
+                            <h3>{player.name}</h3>
                             <div>
                                 KDA
                                 <p>{player.kills}/{player.deaths}/{player.assists}</p>
@@ -112,14 +106,26 @@ function Score(props) {
                             </div>
                         </div>
                         {loading ? null : <div className='dota-items'>
-                            <img src={`${baseURL}${item[0].img}`}/>
-                            <img src={`${baseURL}${item[1].img}`}/>
-                            <img src={`${baseURL}${item[2].img}`}/>
-                            <img src={`${baseURL}${item[3].img}`}/>
-                            <img src={`${baseURL}${item[4].img}`}/>
-                            <img src={`${baseURL}${item[5].img}`}/>
+                            {item[0] ?  <img className='dota-item-picture'
+                                alt='item'
+                                src={`${baseURL}${item[0].img}`} /> : null}
+                            {item[1] ?  <img className='dota-item-picture'
+                                alt='item'
+                                src={`${baseURL}${item[1].img}`} /> : null}
+                            {item[2] ? <img className='dota-item-picture'
+                                alt='item'
+                                src={`${baseURL}${item[2].img}`} />: null}
+                            {item[3] ? <img className='dota-item-picture'
+                                alt='item'
+                                src={`${baseURL}${item[3].img}`} />: null}
+                            {item[4] ?   <img className='dota-item-picture'
+                                alt='item'
+                                src={`${baseURL}${item[4].img}`} />: null}
+                            {item[5] ? <img className='dota-item-picture'
+                                alt='item'
+                                src={`${baseURL}${item[5].img}`} /> : null}
                         </div>}
-                        
+
                     </div>
                 }
             })
@@ -127,7 +133,7 @@ function Score(props) {
         }
     }
 
-    //* !!!!!!!!!    OTHER MAP STARTS HERE        !!!!!!!
+    //* !!!!!!!!!       DIRE MAP STARTS HERE        !!!!!!!
 
     function displayDire() {
         if (match.players) {
