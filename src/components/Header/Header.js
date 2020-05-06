@@ -33,11 +33,11 @@ function Header(props) {
             <h1 className='header-h1'>Dota Pros</h1>
             {props.isLoggedIn === true ? <div className='login-info'>
                 <Link to='/myProfile'>
-                    <p className='header-username'>{props.username}</p>
                     <img className='profile-header-pic'
                         alt='prof'
                         src={props.profile_pic} />
                 </Link>
+                <p className='header-username'>{props.username}</p>
                 <button className='logout-button'
                     onClick={() => handleLogout()}>Logout</button>
             </div> : <Link to='/login'>

@@ -47,7 +47,7 @@ function Comments(props) {
         }
 
         function handleEditPost() {
-            const body ={
+            const body = {
                 content: content
             }
             axios
@@ -57,21 +57,22 @@ function Comments(props) {
 
         return (
             <div className='post-container'>
-                <img className='comments-prof-pic' 
+                <img className='comments-prof-pic'
                     alt='profile pic'
                     src={props.profile_pic} />
-                <div>
+                <div className='all-post-info'>
                     <h3>{post.title}</h3>
-                    <p>{post.content}</p>
+                    <p className='postContent'>{post.content}</p>
                     <p>{moment(post.created_at.toString()).calendar()}</p>
                 </div>
                 {editing ? <div>
-                <textarea className="comments-textarea" 
-                    onChange={(e) => setContent(e.target.value)}>{post.content}</textarea>
+                    <textarea className="comments-textarea"
+                        onChange={(e) => setContent(e.target.value)}>{post.content}</textarea>
                     <button onClick={() => {
-                            setEditing(!editing)
-                            handleEditPost()}}>Submit Edit</button>
-                            <button onClick={() => setEditing(!editing)}>Reset</button>
+                        setEditing(!editing)
+                        handleEditPost()
+                    }}>Submit Edit</button>
+                    <button onClick={() => setEditing(!editing)}>Reset</button>
                 </div> : <div className='pencil-holder'>
                         <img className='pencil'
                             onClick={() => setEditing(!editing)}
@@ -87,11 +88,14 @@ function Comments(props) {
 
         <div className='main-comments-div'>
             <h1 className='comments-h1'>Comments below!</h1>
-            <div>
-                <input onChange={(e) => setTitle(e.target.value)}
-                    placeholder='Title' />
-                <input onChange={(e) => setContent(e.target.value)}
-                    placeholder='content' />
+            <div className='submit-box'>
+                <div className='title-and-content'>
+                    <input onChange={(e) => setTitle(e.target.value)}
+                        placeholder='Title' />
+                    <textarea className='add-textarea'
+                        onChange={(e) => setContent(e.target.value)}
+                        placeholder='content' />
+                </div>
                 <button onClick={() => handleAddPost()}>ADD POST</button>
             </div>
             {matchPosts}

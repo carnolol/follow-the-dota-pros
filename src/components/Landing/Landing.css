@@ -11,20 +11,30 @@
     padding: 12px;
     width: 65vw;
     border-radius: 5px;
-    margin-top: .75vh;
     box-shadow: 2px 2px 4px black;
 }
 
 .search-and-img-container{
     display: flex;
+    margin-top: 2vh;
+    margin-bottom: 2vh;
+    /* align-items: center; */
 }
 
 .search-img{
     background-color: transparent;
     background: transparent;
-    border: 1px black;
     height: 6vh;
-    width: 6vw;
+    width: 8vw;
+    margin-left: 2vw;
+    margin-right: 2vw;
+}
+
+.search-reset{
+    background-color: #DDF2F9;
+    border-radius: 5px;
+    font-weight: 700;
+    box-shadow: 2px 2px 5px gray;
 }
 
 .landing-h2{

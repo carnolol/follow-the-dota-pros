@@ -257,7 +257,6 @@ function Score(props) {
                 </div>
             </div>
             <Comments props={props}/>
-            {loadingGif}
             {/* {loading === true ? null : <Comments props={props} />} */}
             {/* {loading === true ? null : <MatchInfo />} */}
         </div>

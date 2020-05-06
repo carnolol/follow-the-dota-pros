@@ -1,18 +1,44 @@
 .main-comments-div{
-    padding-top: 10vh;
+    padding-top: 5vh;
     background-color: #DEDEE6;
+    min-height: 100vh;
 }
 
 .comments-h1{
     display: flex;
     align-content: center;
     justify-content: center;
-    margin-bottom: 4vh;
+    margin-bottom: 7vh;
     font-size: 2.5rem;
     background-color: #4E688D;
     box-shadow: 4px 4px 10px black;
     border-radius: 15px;
     
+}
+
+.submit-box{
+    background-color: #C6C6CD;
+    box-shadow: 2px 2px 10px rgb(119, 119, 119);
+    border: 2px solid #2C3646;
+    height: 10vh;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    border-radius: 10px;
+    margin-bottom: 5vh;
+}
+
+.title-and-content{
+    display: flex;
+    height: 80%;
+    border-radius: 10px;
+    width: 65%;
+    justify-content: space-evenly;
+    flex-direction: column;
+}
+
+.add-textarea{
+    height: 45px;
 }
 
 .post-container{
@@ -31,6 +57,19 @@
 .comments-prof-pic{
     border-radius: 50%;
     box-shadow: 3px 3px 10px black;
+}
+
+.all-post-info{
+    display: flex;
+    height: 100%;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    align-content: space-around;
+}
+
+.postContent{
+    
 }
 
 .comments-textarea{
