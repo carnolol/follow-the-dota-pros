@@ -76,7 +76,7 @@ function RecentMatches(props) {
         }
 
         return (
-            <Link to={`/${props.match.params.proPlayerId}/${match.match_id}/score`}style={{textDecoration: 'none'}} >
+            <Link to={`/${props.match.params.proPlayerId}/${match.match_id}/score`} style={{textDecoration: 'none'}} >
                 <div className='match-container'>
                     <img className='hero-picture'
                         alt='hero'

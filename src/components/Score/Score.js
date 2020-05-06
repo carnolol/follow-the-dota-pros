@@ -18,7 +18,6 @@ function Score(props) {
     const [items, setItems] = useState({})
     const [loading, setLoading] = useState(true)
 
-    // const item = getItemPicture()
 
     useEffect(() => {
         axios
@@ -54,7 +53,7 @@ function Score(props) {
         return `${minutes}:${seconds}`
     }
 
-    //* !!!!!!!!!       RADIANT MAP STARTS HERE        !!!!!!!
+    //! !!!!!!!!!       RADIANT MAP STARTS HERE        !!!!!!!
 
     function displayRadiant() {
         if (match.players) {
@@ -133,7 +132,7 @@ function Score(props) {
         }
     }
 
-    //* !!!!!!!!!       DIRE MAP STARTS HERE        !!!!!!!
+    //! !!!!!!!!!       DIRE MAP STARTS HERE        !!!!!!!
 
     function displayDire() {
         if (match.players) {

@@ -5,8 +5,8 @@ import { connect } from 'react-redux'
 import './Landing.css'
 
 const loadingImg = 'https://miro.medium.com/max/1600/1*CsJ05WEGfunYMLGfsT2sXA.gif'
-const add = 'https://w7.pngwing.com/pngs/535/334/png-transparent-computer-icons-add-button-logo-number-add-button.png'
-
+const glass = 'https://www.pinclipart.com/picdir/middle/384-3841918_tool-clipart-mason-search-tool-png-transparent-png.png'
+const add = 'https://cdn2.iconfinder.com/data/icons/everything-but-the-kitchen-sink-2/100/common-06-512.png'
 
 //TODO: Need to make search function based on pros name
 //TODO: let user filter based on winnings?
@@ -56,15 +56,13 @@ function Landing(props) {
                 <input className='search-input'
                     placeholder='Search by Name' />
                 <img className='search-img'
-                    src={add}/>
+                    src={glass}/>
             </div>
             {loading === true ? <div>
                 <h1>Getting Pros...</h1>
                 <img src={loadingImg}
                     alt='need new loading gif' />
             </div> : proPlayers}
-            <img src={add}
-                alt='e' />
         </div>
     )
 }

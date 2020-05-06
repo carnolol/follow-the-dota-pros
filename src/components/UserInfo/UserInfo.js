@@ -16,7 +16,6 @@ function UserInfo(props) {
 
 
     useEffect(() => {
-        console.log('hit?')
         axios
             .get('/user/me')
             .then(res => setUser(res.data))

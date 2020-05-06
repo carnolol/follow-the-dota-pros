@@ -20,6 +20,8 @@
 }
 
 .search-img{
+    background-color: transparent;
+    background: transparent;
     border: 1px black;
     height: 6vh;
     width: 6vw;
@@ -42,12 +44,11 @@
     margin-top: 2vh;
     display: flex;
     align-items: center;
-    justify-content: center;
-    /* border: 2px solid royalblue; */
+    justify-content: space-between;
     border-radius: 20px;
     box-shadow: 2px 3px 15px black;
     height: 17vh;
-    padding-right: 6vw;
+    /* padding-right: 6vw; */
     width: 90vw;
     background-color: #F7F7FF;
 }
@@ -59,7 +60,7 @@ h3{
 .name-and-winnings{
     display: flex;
     flex-direction: column;
-    padding-left: 5%;
+    /* padding-left: 5%; */
 }
 
 .winnings{
@@ -69,12 +70,18 @@ h3{
 }
 
 .landing-add-player{
-    height: 8%;
-    width: 8%;
-    border: 2px solid black;
-    padding-bottom: 25%;
-    margin-left: 2%;
-    z-index: 2;
+    height: 25px;
+    width: 25px;
+    margin-right: 2%;
+    margin-bottom: 23%;
+    background-color: #FE7569;
+    border-radius: 50%;
+
+    /* padding-bottom: 5vh; */
+    /* border: 2px solid black; */
+    /* padding-bottom: 25%; */
+    /* margin-left: 2%; */
+    /* z-index: 5; */
 }
 
 .pro-picture{
