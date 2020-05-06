@@ -227,7 +227,7 @@ function Score(props) {
                 <p>match ID: {match.match_id}</p>
                 <br></br>
                 {handleWhatTeamWon()}
-                <div className='score-scores'>
+                <div className='scores'>
                     <h1 className='rad-score'>{match.radiant_score} </h1>
                                 -
                     <h1 className='dire-score'> {match.dire_score}</h1>

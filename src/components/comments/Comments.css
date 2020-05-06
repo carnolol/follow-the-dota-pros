@@ -1,8 +1,30 @@
 .main-comments-div{
+    padding-top: 10vh;
     background-color: #DEDEE6;
 }
 
 .post-container{
     border: 2px solid black;
     width: 95vw;
+    height: 25vh;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.comments-prof-pic{
+    border-radius: 50%;
+    box-shadow: 3px 3px 10px black;
+}
+
+.comments-textarea{
+    height: 135px;
+}
+
+.pencil-holder{
+    display: flex;
+    flex-direction: column;
+    /* align-content: space-evenly; */
+    justify-content: space-evenly;
+    align-content: space-around;
 }

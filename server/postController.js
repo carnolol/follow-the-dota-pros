@@ -11,9 +11,8 @@ module.exports = {
         // WORKING
         const db = req.app.get('db')
         const { dota_posts_id } = req.params
-        const { title, content } = req.body
-        // console.log('ID:', dota_posts_id, 'TITLE:', title,'CONTENT:', content)
-        await db.edit_post([title, content, dota_posts_id])
+        const { content } = req.body
+        await db.edit_post([content, dota_posts_id])
         const editedPost = await db.get_all_posts()
         res.status(200).send(editedPost)
     },

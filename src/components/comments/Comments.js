@@ -46,23 +46,37 @@ function Comments(props) {
         }
 
         function handleEditPost() {
-            
+            const body ={
+                content: content
+            }
+            axios
+                .put(`/dota-pros/posts/${post.dota_posts_id}`, body)
+                .then(res => setPosts(res.data))
         }
 
         return (
             <div className='post-container'>
-                <img alt='profile pic'
+                <img className='comments-prof-pic' 
+                    alt='profile pic'
                     src={props.profile_pic} />
-                <h1>{post.title}</h1>
-                <h1>{post.content}</h1>
-                <h1>{post.created_at}</h1>
-                <button onClick={() => handleDeletePost()}>Delete</button>
-                <img className='pencil'
-                    onClick={() => setEditing(!editing)}
-                    alt='edit'
-                    src={pencil} />
-                <textarea>{post.content}</textarea>
-                <button onClick={() => handleEditPost()}>Submit Edit</button>
+                <div>
+                    <h3>{post.title}</h3>
+                    <p>{post.content}</p>
+                    <p>{post.created_at}</p>
+                </div>
+                {editing ? <div>
+                <textarea className="comments-textarea" 
+                    onChange={(e) => setContent(e.target.value)}>{post.content}</textarea>
+                    <button onClick={() => {
+                            setEditing(!editing)
+                            handleEditPost()}}>Submit Edit</button>
+                </div> : <div className='pencil-holder'>
+                        <img className='pencil'
+                            onClick={() => setEditing(!editing)}
+                            alt='edit'
+                            src={pencil} />
+                        <button onClick={() => handleDeletePost()}>Delete</button>
+                    </div>}
             </div>
         )
     })
