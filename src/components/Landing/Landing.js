@@ -14,13 +14,37 @@ const add = 'https://cdn2.iconfinder.com/data/icons/everything-but-the-kitchen-s
 function Landing(props) {
     const [pros, setPros] = useState([])
     const [loading, setLoading] = useState(true)
+    const [search, setSearch] = useState('')
 
     useEffect(() => {
-        axios.get('/dota-pros/pros').then(res => {
+        axios
+            .get('/dota-pros/pros')
+            .then(res => {
             setPros(res.data)
             setTimeout(() => setLoading(false), 1)
         }).catch(err => console.log(err))
     }, [])
+
+    function handleSearch(){
+        axios
+            .get(`/dota-pros/pros?search=${search}`)
+            .then(res => {
+                setPros(res.data)
+            })
+            .catch(err => console.log(err))
+    }
+
+    function handleReset(){
+        axios
+            .get('dota-pros/pros')
+            .then( res => {
+                setPros(res.data)
+            })
+            .catch(err => console.log(err))
+            setSearch('')
+    }
+
+    //       !!!!!!!        MAP STARTS HERE        !!!!!!!!!!
 
     const proPlayers = pros.map(pro => {
         const handleAddPro = () => {
@@ -49,14 +73,19 @@ function Landing(props) {
         </div>
     })
 
+    //!    !!!!!!!!!!!       MAIN RETURN HERE     !!!!!!!!!!!!!!!
+
     return (
         <div className='main-landing-div'>
             <h2 className='landing-h2'>Select your players to follow!</h2>
             <div className='search-and-img-container'>
                 <input className='search-input'
+                    onChange={(e) => setSearch(e.target.value)}
                     placeholder='Search by Name' />
                 <img className='search-img'
+                    onClick={() => handleSearch()}
                     src={glass}/>
+                <button onClick={() => handleReset()}>Reset</button>
             </div>
             {loading === true ? <div>
                 <h1>Getting Pros...</h1>
