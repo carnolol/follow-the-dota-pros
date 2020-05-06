@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import axios from 'axios'
+import moment from 'moment'
 import { connect } from 'react-redux'
 import { withRouter } from 'react-router-dom'
 import './Comments.css'
@@ -62,7 +63,7 @@ function Comments(props) {
                 <div>
                     <h3>{post.title}</h3>
                     <p>{post.content}</p>
-                    <p>{post.created_at}</p>
+                    <p>{moment(post.created_at.toString()).calendar()}</p>
                 </div>
                 {editing ? <div>
                 <textarea className="comments-textarea" 
@@ -70,6 +71,7 @@ function Comments(props) {
                     <button onClick={() => {
                             setEditing(!editing)
                             handleEditPost()}}>Submit Edit</button>
+                            <button onClick={() => setEditing(!editing)}>Reset</button>
                 </div> : <div className='pencil-holder'>
                         <img className='pencil'
                             onClick={() => setEditing(!editing)}
@@ -84,7 +86,7 @@ function Comments(props) {
     return (
 
         <div className='main-comments-div'>
-            <h1>Comment below!</h1>
+            <h1 className='comments-h1'>Comments below!</h1>
             <div>
                 <input onChange={(e) => setTitle(e.target.value)}
                     placeholder='Title' />

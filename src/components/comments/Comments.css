@@ -3,12 +3,28 @@
     background-color: #DEDEE6;
 }
 
+.comments-h1{
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    margin-bottom: 4vh;
+    font-size: 2.5rem;
+    background-color: #4E688D;
+    box-shadow: 4px 4px 10px black;
+    border-radius: 15px;
+    
+}
+
 .post-container{
     border: 2px solid black;
-    width: 95vw;
-    height: 25vh;
+    width: 85vw;
+    height: 20vh;
+    box-shadow: 4px 4px 10px rgb(72, 151, 165);
+    border-radius: 20px;
+    margin-bottom: 3vh;
     display: flex;
     justify-content: space-between;
+    overflow: hidden;
     align-items: center;
 }
 
@@ -18,7 +34,7 @@
 }
 
 .comments-textarea{
-    height: 135px;
+    height: 100px;
 }
 
 .pencil-holder{
