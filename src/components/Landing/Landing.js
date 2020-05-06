@@ -54,7 +54,7 @@ function Landing(props) {
         }
         return <div className='pro-container'>
 
-            <Link to='to=/recent-matches/:proPlayerId'>
+            <Link to={`/recent-matches/${pro.steam_account_id}`}>
                 <img className='pro-picture'
                     alt='pro'
                     src={pro.picture} />
