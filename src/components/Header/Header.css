@@ -8,6 +8,7 @@
     justify-content: space-around;
     align-items: center;
     box-shadow: 0 0 15px black;
+    z-index: 5;
 }
 
 .header-logo{

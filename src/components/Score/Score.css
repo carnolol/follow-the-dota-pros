@@ -48,7 +48,7 @@
     font-weight: 700;
     font-size: .75rem;
     align-items: center;
-    position: relative;
+    padding-bottom: 5px;
     /* align-content: space-around; */
     justify-content: space-evenly;
 }
@@ -97,7 +97,20 @@
     text-shadow: 2px 2px 2px #474747;
 }
 
-.score-match-container{
+.score-match-container-rad{
+    height: 10vh;
+    width: 95vw;
+    background-color: rgb(115, 177, 109);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-content: space-between;
+    align-items: center;
+    border: 2px solid rgb(110, 110, 110);
+    overflow: hidden;
+}
+
+.score-match-container-dire{
     height: 10vh;
     width: 95vw;
     background-color: rgb(214, 124, 118);
@@ -112,8 +125,18 @@
 }
 
 .score-player-hero-pic{
+    position: relative;
     height: 10.5vh;
     width: 23vw;
+}
+
+.hero-level{
+    position: absolute;
+    color: white;
+    bottom: 10px;
+    font-weight: 700;
+    background-color: rgb(160, 157, 157, .5);
+    left: 4px;
 }
 
 .dota-items{

@@ -4,9 +4,13 @@ import './Score.css'
 import Comments from '../comments/Comments'
 import MatchInfo from '../MatchInfo/MatchInfo'
 
-const loadingGif = <img src='https://miro.medium.com/max/1600/1*CsJ05WEGfunYMLGfsT2sXA.gif'
-    alt='loading'
-    className='loading-gif' />
+const loadingGif = <div className='loading-gif'>   
+    <h1>One moment while we fetch some data...</h1>
+    <img src='https://miro.medium.com/max/1600/1*CsJ05WEGfunYMLGfsT2sXA.gif'
+        alt='loading'
+        className='loading-gif' />
+</div>
+
 const baseURL = 'https://api.opendota.com'
 
 //TODO: need to style loadingGif to be in center of screen. 
@@ -85,18 +89,21 @@ function Score(props) {
                 let item = getItemPicture()     //! DONT DELETE           
 
                 if (player.player_slot <= 6) {
-                    return <div className='score-match-container'>
-                        <img className='score-player-hero-pic'
-                            alt='NA'
-                            src={getHeroPicture()} />
-                                <h4>{player.name}</h4>
+                    return <div className='score-match-container-rad'>
+                        <div className='score-player-hero-pic' >
+                            <img className='score-player-hero-pic'
+                                alt='NA'
+                                src={getHeroPicture()} />
+                            <div className='hero-level'>{player.level}</div>
+                        </div>
+                        <h4>{player.name ? player.name : `Anon`}</h4>
                         <div className='player-text-info'>
                             <div>
                                 KDA
                                 <p>{player.kills}/{player.deaths}/{player.assists}</p>
                             </div>
                             <div>
-                                GPM / XPM
+                                GPM {'&'} XPM
                                 <p>{player.gold_per_min} / {player.xp_per_min}</p>
                             </div>
                             {/* <div>
@@ -148,12 +155,65 @@ function Score(props) {
                     }
                 }
 
+                function getItemPicture() {
+                    let list = []
+                    if (match.players) {
+                        for (let key in items) {
+                            if (items[key].id === player.item_0 || items[key].id === player.item_1 || items[key].id === player.item_2 || items[key].id === player.item_3 || items[key].id === player.item_4 || items[key].id === player.item_5) {
+
+                                list.push(items[key])
+                            }
+                        }
+                    }
+                    return list
+                }
+
+                let item = getItemPicture()     //! DONT DELETE           
+
                 if (player.player_slot >= 125) {
-                    return <div className='score-match-container'>
-                        <img className='score-player-hero-pic'
-                            alt='NA'
-                            src={getHeroPicture()} />
-                        <p>{player.name}</p>
+                    return <div className='score-match-container-dire'>
+                        <div className='score-player-hero-pic'>
+                            <img className='score-player-hero-pic'
+                                alt='NA'
+                                src={getHeroPicture()} />
+                            <div className='hero-level'>{player.level}</div>
+                        </div>
+                        <h4>{player.name ? player.name : `Anon`}</h4>
+                        <div className='player-text-info'>
+                            <div>
+                                KDA
+                                <p>{player.kills}/{player.deaths}/{player.assists}</p>
+                            </div>
+                            <div>
+                                GPM {'&'} XPM
+                                <p>{player.gold_per_min} / {player.xp_per_min}</p>
+                            </div>
+                            {/* <div>
+                                DMG
+                                {player.hero_damage}
+                            </div> */}
+                        </div>
+                        {loading ? null : <div className='dota-items'>
+                            {item[0] ? <img className='dota-item-picture'
+                                alt='item'
+                                src={`${baseURL}${item[0].img}`} /> : null}
+                            {item[1] ? <img className='dota-item-picture'
+                                alt='item'
+                                src={`${baseURL}${item[1].img}`} /> : null}
+                            {item[2] ? <img className='dota-item-picture'
+                                alt='item'
+                                src={`${baseURL}${item[2].img}`} /> : null}
+                            {item[3] ? <img className='dota-item-picture'
+                                alt='item'
+                                src={`${baseURL}${item[3].img}`} /> : null}
+                            {item[4] ? <img className='dota-item-picture'
+                                alt='item'
+                                src={`${baseURL}${item[4].img}`} /> : null}
+                            {item[5] ? <img className='dota-item-picture'
+                                alt='item'
+                                src={`${baseURL}${item[5].img}`} /> : null}
+                        </div>}
+
                     </div>
                 }
             })
@@ -196,8 +256,10 @@ function Score(props) {
                     </div>
                 </div>
             </div>
-            {loading === true ? null : <Comments props={props} />}
-            {loading === true ? null : <MatchInfo />}
+            <Comments props={props}/>
+            {loadingGif}
+            {/* {loading === true ? null : <Comments props={props} />} */}
+            {/* {loading === true ? null : <MatchInfo />} */}
         </div>
     )
 }

@@ -2,8 +2,7 @@
     background-color: #DEDEE6;
 }
 
-.score-scores{
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.post-container{
+    border: 2px solid black;
+    width: 95vw;
 }
