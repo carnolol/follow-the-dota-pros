@@ -18,11 +18,13 @@ const baseURL = 'https://api.opendota.com'
 
 function Score(props) {
 
-    const [chartData, setChartData] = useState({})
     const [match, setMatch] = useState({})
+    const [heroDamage, setHeroDamage] = useState([])
+    const [heroHealing, setHeroHealing] = useState([])
     const [heros, setHero] = useState([])
     const [items, setItems] = useState({})
     const [loading, setLoading] = useState(true)
+    const [chartData, setChartData] = useState({})
 
 
     useEffect(() => {
@@ -59,37 +61,65 @@ function Score(props) {
         const seconds = num % 60
         return `${minutes}:${seconds}`
     }
+    
 
     function chart() {
-        setChartData({
-            labels: ['player 1', 'player 2', 'player 3', 'player 4', 'payer 5', 'player 6', '7' , '8', '9', '10'],
-            datasets: [
-                {
-                    label: 'Damage Done',
-                    data: [345, 500, 213, 897, 397],
-                    backgroundColor: [
-                        'rgba(175, 40, 22, .8)',
-                        'rgba(175, 40, 22, .8)',
-                        'rgba(175, 40, 22, .8)',
-                        'rgba(175, 40, 22, .8)',
-                        'rgba(175, 40, 22, .8)'
-                    ],
-                    borderWidth: 2
-                },
-                {
-                    label: 'Healing Done',
-                    data: [150, 100, 400, 500, 600],
-                    backgroundColor: [
-                       'rgba(54, 114, 47, .85)',
-                       'rgba(54, 114, 47, .85)' ,
-                       'rgba(54, 114, 47, .85)' ,
-                       'rgba(54, 114, 47, .85)' ,
-                       'rgba(54, 114, 47, .85)'  
-                    ],
-                    borderWidth: 2
+        let dmg = []
+        let healing = []
+        let name = []
+        axios
+            .get(`https://api.opendota.com/api/matches/${props.match.params.matchId}`)
+            .then(res => {
+                // console.log(res.data.players)
+                for(const dataObj of res.data.players){
+                    dmg.push(dataObj.hero_damage)
+                    healing.push(dataObj.hero_healing)
+                    name.push(dataObj.name)
                 }
-            ]
-        })
+                setChartData({
+                    labels: name,
+                    datasets: [
+                        {
+                            label: 'Damage Done',
+                            data: dmg,
+                            backgroundColor: [
+                                'rgba(175, 40, 22, .8)',
+                                'rgba(175, 40, 22, .8)',
+                                'rgba(175, 40, 22, .8)',
+                                'rgba(175, 40, 22, .8)',
+                                'rgba(175, 40, 22, .8)',
+                                'rgba(175, 40, 22, .8)',
+                                'rgba(175, 40, 22, .8)',
+                                'rgba(175, 40, 22, .8)',
+                                'rgba(175, 40, 22, .8)',
+                                'rgba(175, 40, 22, .8)'
+                            ],
+                            borderWidth: 2
+                        },
+                        {
+                            label: 'Healing Done',
+                            data: healing,
+                            backgroundColor: [
+                               'rgba(54, 114, 47, .85)',
+                               'rgba(54, 114, 47, .85)' ,
+                               'rgba(54, 114, 47, .85)' ,
+                               'rgba(54, 114, 47, .85)' ,
+                               'rgba(54, 114, 47, .85)'  
+                            ],
+                            borderWidth: 2
+                        }
+                    ]
+                })
+            })
+            .catch(err => console.log(err))
+        // if(match.players){
+        //     console.log('hit')
+        //     for(let i = 0; i < match.players.length; i++){
+        //         dmg.push(match.players.hero_damage)
+        //         healing.push(match.players.hero_healing)
+        //     }
+        // }
+        console.log('DMG HEALING NAME', dmg, healing, name)
     }
 
     //! !!!!!!!!!       RADIANT MAP STARTS HERE        !!!!!!!
@@ -301,6 +331,14 @@ function Score(props) {
                             yAxes: [{
                                 ticks: {
                                     beginAtZero: true
+                                },
+                                gridLines: {
+                                    display: false
+                                }
+                            }],
+                            xAxes: [{
+                                gridLines:{
+                                    display: false
                                 }
                             }]
                         }

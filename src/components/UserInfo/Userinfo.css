@@ -11,6 +11,8 @@
     font-size: 2rem;
     text-shadow: 2px 2px 3px rgb(105, 105, 105);
     padding: 15px;
+    padding-bottom: 3vh;
+    padding-top: 3vh;
 }
 
 .age-container{

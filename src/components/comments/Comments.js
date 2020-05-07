@@ -34,8 +34,6 @@ function Comments(props) {
             .catch(err => console.log(err))
     }
 
-    console.log(posts)
-
 
     const matchPosts = posts.map(post => {
 
