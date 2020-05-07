@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react'
-import {Bar} from 'react-chartjs-2'
+import { Bar } from 'react-chartjs-2'
 import axios from 'axios'
 import './Score.css'
 import Comments from '../comments/Comments'
 import MatchInfo from '../MatchInfo/MatchInfo'
 
-const loadingGif = <div className='loading-gif'>   
+const loadingGif = <div className='loading-gif'>
     <h1>One moment while we fetch some data...</h1>
     <img src='https://miro.medium.com/max/1600/1*CsJ05WEGfunYMLGfsT2sXA.gif'
         alt='loading'
@@ -43,7 +43,7 @@ function Score(props) {
                         // setTimeout(() => setLoading(false), 1000)
                     })
             })
-            chart()
+        chart()
     }, [])
 
     function handleWhatTeamWon() {
@@ -60,15 +60,33 @@ function Score(props) {
         return `${minutes}:${seconds}`
     }
 
-    function chart(){
+    function chart() {
         setChartData({
-            labels: ['player 1' , 'player 2', 'player 3' ,'player 4', 'payer 5'],
+            labels: ['player 1', 'player 2', 'player 3', 'player 4', 'payer 5', 'player 6', '7' , '8', '9', '10'],
             datasets: [
                 {
-                    labels: 'Damage Done',
-                    data:[345, 500, 213, 897, 397],
-                    backgroundColor:['rgba(75, 192, 192, .6)'],
-                    borderWidth: 5
+                    label: 'Damage Done',
+                    data: [345, 500, 213, 897, 397],
+                    backgroundColor: [
+                        'rgba(175, 40, 22, .8)',
+                        'rgba(175, 40, 22, .8)',
+                        'rgba(175, 40, 22, .8)',
+                        'rgba(175, 40, 22, .8)',
+                        'rgba(175, 40, 22, .8)'
+                    ],
+                    borderWidth: 2
+                },
+                {
+                    label: 'Healing Done',
+                    data: [150, 100, 400, 500, 600],
+                    backgroundColor: [
+                       'rgba(54, 114, 47, .85)',
+                       'rgba(54, 114, 47, .85)' ,
+                       'rgba(54, 114, 47, .85)' ,
+                       'rgba(54, 114, 47, .85)' ,
+                       'rgba(54, 114, 47, .85)'  
+                    ],
+                    borderWidth: 2
                 }
             ]
         })
@@ -79,26 +97,6 @@ function Score(props) {
     function displayRadiant() {
         if (match.players) {
             const matchInfo = match.players.map(player => {
-
-                // useEffect(() => {
-                //     chart()
-                // }, [])
-
-                // function chart(){
-                //     setChartData({
-                //         labels: ['test 1' , 'test 2', 'test 3' ,'test 4'],
-                //         datasets: [
-                //             {
-                //                 labels: 'Damage Done',
-                //                 data:[],
-                //                 backgroundColor:['rgba(75, 192, 192, .6)'],
-                //                 borderWidth: 5
-                //             }
-                //         ]
-                //     })
-                // }
-                
-                // console.log(chart())
 
                 function getHeroPicture() {
                     if (match.players) {
@@ -293,18 +291,22 @@ function Score(props) {
                     </div>
                 </div>
             </div>
-            <div style={{height: "100vh" , width: "90vw"}}> 
+            <div style={{ height: "100vh", width: "98vw" }}>
 
-                <Bar data={chartData} 
+                <Bar data={chartData}
                     options={{
-                        responsive: true, 
-                        title: {text: 'PLAYERS Damage & Healing' , display: true},
-                        scales:{
-                            beginAtZero: true
+                        responsive: true,
+                        title: { text: 'PLAYERS Damage & Healing', display: true },
+                        scales: {
+                            yAxes: [{
+                                ticks: {
+                                    beginAtZero: true
+                                }
+                            }]
                         }
-                    }}/>
+                    }} />
             </div>
-            <Comments props={props}/>
+            <Comments props={props} />
             {/* {loading === true ? null : <Comments props={props} />} */}
             {/* {loading === true ? null : <MatchInfo />} */}
         </div>
