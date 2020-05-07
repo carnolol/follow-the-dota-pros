@@ -19,7 +19,7 @@ function Comments(props) {
             .then(res => {
                 setPosts(res.data)
             })
-    }, [posts[0]])
+    }, [posts.length-1])
 
     function handleAddPost() {
         const body = {
