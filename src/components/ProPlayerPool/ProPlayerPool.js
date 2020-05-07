@@ -29,13 +29,15 @@ function ProPlayerPool(props) {
                 .delete(`/user/me/${pro.id}`)
         }
         return (
-            <Link to={`/recent-matches/${pro.steam_account_id}`} 
-                style={{textDecoration: 'none'}}>
+            
                 <div className='main-pro-div'>
+                <Link to={`/recent-matches/${pro.steam_account_id}`} 
+                style={{textDecoration: 'none'}}>
                     <img className='proplayer-pic'
                         src={pro.picture}
                         alt='pic'
                     />
+                     </Link>
                         <h3 className='pro-name'>{pro.name}</h3>
 
                         <img className='delete-pro'
@@ -47,7 +49,6 @@ function ProPlayerPool(props) {
                     {/* </div> */}
 
                 </div>
-            </Link>
         )
     })
     return (

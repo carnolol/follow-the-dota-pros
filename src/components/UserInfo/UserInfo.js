@@ -7,7 +7,6 @@ import ProPlayerPool from '../ProPlayerPool/ProPlayerPool'
 
 const pencil = 'https://cdn1.iconfinder.com/data/icons/editing/60/cell-2-0-480.png'
 
-//TODO: edit function does edit the DB but doesn't display on the front end
 
 function UserInfo(props) {
     const [user, setUser] = useState({})
@@ -32,13 +31,6 @@ function UserInfo(props) {
             })
             .catch(err => console.log(err))
     }
-    console.log('USER BIO:', user.bio)
-
-    //         < div >
-    //         <textarea onChange={(e) => setBio(e.target.value)}>{user.bio}</textarea>
-    //         <button onClick={() => handleEditUser()}>Submit</button>
-    //         <button onClick={() => setEditBio(!editBio)}>Reset</button>
-    // </ >
 
     return (
         <div className='info-main-div'>

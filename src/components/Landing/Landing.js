@@ -84,6 +84,7 @@ function Landing(props) {
                     placeholder='Search by Name' />
                 <img className='search-img'
                     onClick={() => handleSearch()}
+                    alt='mag glass'
                     src={glass}/>
                 <button className='search-reset'
                     onClick={() => handleReset()}>Reset</button>

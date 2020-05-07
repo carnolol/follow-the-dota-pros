@@ -3,3 +3,5 @@ INSERT INTO dota_posts
 VALUES
 ($1, $2, $3, now(), $4)
 returning *;
+
+select * from dota_posts
