@@ -54,7 +54,7 @@ function Auth(props) {
                     onChange={e => setUsername(e.target.value)} />
                 <p className='auth-text'>Password:</p>
                 <input className='auth-input'
-                    placeholder='password'
+                    placeholder='Max length of 16'
                     onChange={e => setPassword(e.target.value)}
                     type='password' required
                     maxLength='16' />

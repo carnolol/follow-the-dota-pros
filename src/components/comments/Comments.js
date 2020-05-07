@@ -19,7 +19,7 @@ function Comments(props) {
             .then(res => {
                 setPosts(res.data)
             })
-    }, [posts.length - 1])
+    }, [posts[0]])
 
     function handleAddPost() {
         const body = {
@@ -30,7 +30,8 @@ function Comments(props) {
         }
         axios
             .post('/dota-pros/posts', body)
-            .then(res => setPosts(res.data))
+            .then(res => { setPosts(res.data) })
+            .catch(err => console.log(err))
     }
 
     console.log(posts)
@@ -57,9 +58,12 @@ function Comments(props) {
 
         return (
             <div className='post-container'>
-                <img className='comments-prof-pic'
-                    alt='profile pic'
-                    src={props.profile_pic} />
+                <div>
+                    <img className='comments-prof-pic'
+                        alt='profile pic'
+                        src={post.profile_pic} />
+                        <p>{post.username}</p>
+                </div>
                 <div className='all-post-info'>
                     <h3>{post.title}</h3>
                     <p className='postContent'>{post.content}</p>

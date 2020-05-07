@@ -42,21 +42,26 @@ function UserInfo(props) {
 
     return (
         <div className='info-main-div'>
-            <h2>Welcome back {user.username}</h2>
-            <img className='user-info-pic'
-                alt='pic'
-                src={user.profile_pic} />
+            <h2 className='welcome-back'>Welcome back {user.username}</h2>
             <div className='bio-container'>
                 {editBio ? (
                     <div>
                         <textarea className='user-textarea'
+                            maxLength='150'
                             onChange={(e) => setBio(e.target.value)}>{user.bio}</textarea>
                         <button onClick={() => handleEditUser()}>Submit</button>
                         <button onClick={() => setEditBio(!editBio)}>Reset</button>
                     </div>
                 ) : (
                         <div className='bio-and-pencil'>
-                            <p>About me: {user.bio}</p>
+                            <p>About me:</p>
+                            <br></br>
+                            <div className='pic-and-bio'>
+                                <img className='user-info-pic'
+                                    alt='pic'
+                                    src={user.profile_pic} />
+                                <p className='user-bio'>{user.bio}</p>
+                            </div>
                             <img className='pencil'
                                 alt='pencil'
                                 src={pencil}

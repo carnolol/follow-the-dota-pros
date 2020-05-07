@@ -8,11 +8,13 @@
 
 .main-pro-div{
     display: flex;
+    flex-direction: column;
     justify-content: space-between;
     align-items: center;
     align-content: center;
+    position: relative;
     width: 45vw;
-    height: 15vh;
+    /* height: 15vh; */
     border-radius: 15px;
     overflow: hidden;
     padding-bottom: 2vh;
@@ -45,15 +47,16 @@
 
 .proplayer-pic{
     height: 17vh;
-    width: 25vw;
+    width: 47vw;
 }
 
 .pro-name{
-
+    padding: 10px;
 }
 
 .delete-pro{
     height: 5vh;
     width: 10vw;
+    border-radius: 10px;
     box-shadow: 0 0 10px black;
 }
