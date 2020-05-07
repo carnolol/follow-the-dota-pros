@@ -11,7 +11,7 @@ alt='loading'/>
 //* player slot for radiant players = 0,1,2,3,4
 //* player_slot for dire players = 128,129,130,131,132
 
-//TODO: make it so user can click a more button to change the amount of mitches displayed based of the query. 
+//TODO: make it so user can click a more button to change the amount of matches displayed based of the query. 
 
 function RecentMatches(props) {
     const [matches, setMatch] = useState([])

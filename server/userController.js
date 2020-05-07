@@ -68,13 +68,15 @@ module.exports = {
         const editedUser = await db.edit_user([bio, dota_users_id])
         req.session.user = editedUser[0]
         res.status(200).send(req.session.user)
+        //working
     },
     logout: (req, res) => {
         req.session.destroy()
         res.sendStatus(200)
+        //working
     },
     getLoggedInUser: async (req, res) => {
-        console.log('GetLoggedInUser', req.session.user)
+        // console.log('GetLoggedInUser', req.session.user)
         if (req.session.user) {
            return res.status(200).send(req.session.user)
         } else {
@@ -82,3 +84,4 @@ module.exports = {
         }
     }
 }
+//working

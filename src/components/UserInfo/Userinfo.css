@@ -19,17 +19,39 @@
 }
 
 .pencil{
+    margin-top: 5vh;
     height: 25px;
     width: 25px;
 }
 
-button{
-    padding: 4px;
-    background-color: crimson;
-}
 
 .bio-container{
-    border: 2px solid crimson;
+    border-radius: 15px;
+    box-shadow: 4px 4px 10px black;
     height: 20vh;
     width: 40vw;
+}
+
+button{
+    padding: 5px;
+    border-radius: 5px;
+    box-shadow: 1px 1px 5px black;
+    color: white;
+    text-shadow: 1px 1px black;
+    background-color: #4E688D;
+}
+
+.bio-and-pencil{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    /* align-content: space-between; */
+
+
+}
+
+.user-textarea{
+    width: 90%;
+    height: 15vh;
 }

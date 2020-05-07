@@ -28,24 +28,26 @@ function ProPlayerPool(props) {
             axios
                 .delete(`/user/me/${pro.id}`)
         }
-        return <div className='main-pro-div'>
-            <img className='proplayer-pic'
-                src={pro.picture}
-                alt='pic'
-            />
-            <div className='name-match-button'>
-                <h3 className='pro-name'>{pro.name}</h3>
-                <Link to={`/recent-matches/${pro.steam_account_id}`} >
-                    <button className='recentmatch-button'>recent matches</button>
-                </Link>
-                <img className='delete-pro'
-                    alt='trashcan'
-                    src={trash}
-                    onClick={() => handleDeletePro()}
-                />
-            </div>
+        return (
+            <Link to={`/recent-matches/${pro.steam_account_id}`} >
+                <div className='main-pro-div'>
+                    <img className='proplayer-pic'
+                        src={pro.picture}
+                        alt='pic'
+                    />
+                    <div className='name-match-button'>
+                        <h3 className='pro-name'>{pro.name}</h3>
 
-        </div>
+                        <img className='delete-pro'
+                            alt='trashcan'
+                            src={trash}
+                            onClick={() => handleDeletePro()}
+                        />
+                    </div>
+
+                </div>
+            </Link>
+        )
     })
     return (
         <div className='OMEGA-DIV'>

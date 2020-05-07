@@ -1,18 +1,20 @@
 .OMEGA-DIV{
     background-color: #DEDEE6;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .main-pro-div{
     display: flex;
-    flex-direction: row;
-    /* justify-content: center; */
-    /* flex-wrap: wrap; */
+    justify-content: space-between;
     align-items: center;
     align-content: center;
     width: 45vw;
     height: 15vh;
     border-radius: 15px;
-    overflow: auto;
+    overflow: hidden;
     padding-bottom: 2vh;
     margin-left: 3.3vw;
     box-shadow: 0 0 10px black;
@@ -26,16 +28,19 @@
 
 .name-match-button{
     display: flex;
-    /* justify-content: space-between; */
-    /* flex-wrap: wrap; */
-    /* align-items: space-around; */
     flex-direction: column;
 
 }
 
 .players-h2{
-    padding-bottom: 3vh;
+    margin-bottom: 3vh;
     text-shadow: 2px 2px 4px #FE5F55 ;
+    color: white;
+    background-color: #3A4757;
+    width: 80vw;
+    padding: 6px;
+    border-radius: 15px;
+    box-shadow: 3px 3px 10px #FFBDAD;
 }
 
 .proplayer-pic{
@@ -44,10 +49,6 @@
 }
 
 .pro-name{
-
-}
-
-.recentmatch-button{
 
 }
 
