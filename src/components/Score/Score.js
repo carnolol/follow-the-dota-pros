@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import {Bar} from 'react-chartjs-2'
 import axios from 'axios'
 import './Score.css'
 import Comments from '../comments/Comments'
@@ -17,6 +18,7 @@ const baseURL = 'https://api.opendota.com'
 
 function Score(props) {
 
+    const [chartData, setChartData] = useState({})
     const [match, setMatch] = useState({})
     const [heros, setHero] = useState([])
     const [items, setItems] = useState({})
@@ -41,6 +43,7 @@ function Score(props) {
                         // setTimeout(() => setLoading(false), 1000)
                     })
             })
+            chart()
     }, [])
 
     function handleWhatTeamWon() {
@@ -57,11 +60,45 @@ function Score(props) {
         return `${minutes}:${seconds}`
     }
 
+    function chart(){
+        setChartData({
+            labels: ['player 1' , 'player 2', 'player 3' ,'player 4', 'payer 5'],
+            datasets: [
+                {
+                    labels: 'Damage Done',
+                    data:[345, 500, 213, 897, 397],
+                    backgroundColor:['rgba(75, 192, 192, .6)'],
+                    borderWidth: 5
+                }
+            ]
+        })
+    }
+
     //! !!!!!!!!!       RADIANT MAP STARTS HERE        !!!!!!!
 
     function displayRadiant() {
         if (match.players) {
             const matchInfo = match.players.map(player => {
+
+                // useEffect(() => {
+                //     chart()
+                // }, [])
+
+                // function chart(){
+                //     setChartData({
+                //         labels: ['test 1' , 'test 2', 'test 3' ,'test 4'],
+                //         datasets: [
+                //             {
+                //                 labels: 'Damage Done',
+                //                 data:[],
+                //                 backgroundColor:['rgba(75, 192, 192, .6)'],
+                //                 borderWidth: 5
+                //             }
+                //         ]
+                //     })
+                // }
+                
+                // console.log(chart())
 
                 function getHeroPicture() {
                     if (match.players) {
@@ -255,6 +292,17 @@ function Score(props) {
                         {displayDire()}
                     </div>
                 </div>
+            </div>
+            <div style={{height: "100vh" , width: "90vw"}}> 
+
+                <Bar data={chartData} 
+                    options={{
+                        responsive: true, 
+                        title: {text: 'PLAYERS Damage & Healing' , display: true},
+                        scales:{
+                            beginAtZero: true
+                        }
+                    }}/>
             </div>
             <Comments props={props}/>
             {/* {loading === true ? null : <Comments props={props} />} */}
