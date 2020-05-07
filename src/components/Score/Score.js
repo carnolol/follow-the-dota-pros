@@ -19,12 +19,11 @@ const baseURL = 'https://api.opendota.com'
 function Score(props) {
 
     const [match, setMatch] = useState({})
-    const [heroDamage, setHeroDamage] = useState([])
-    const [heroHealing, setHeroHealing] = useState([])
     const [heros, setHero] = useState([])
     const [items, setItems] = useState({})
     const [loading, setLoading] = useState(true)
     const [chartData, setChartData] = useState({})
+    const [lastHits, setLastHits] = useState({})
 
 
     useEffect(() => {
@@ -46,6 +45,7 @@ function Score(props) {
                     })
             })
         chart()
+        lastHitChart()
     }, [])
 
     function handleWhatTeamWon() {
@@ -61,7 +61,64 @@ function Score(props) {
         const seconds = num % 60
         return `${minutes}:${seconds}`
     }
-    
+
+    function lastHitChart(){
+        let name =[]
+        let lastHits = []
+        let denies = []
+        
+        axios
+            .get(`https://api.opendota.com/api/matches/${props.match.params.matchId}`)
+            .then(res => {
+                for(const obj of res.data.players){
+                    name.push(obj.name)
+                    lastHits.push(obj.last_hits)
+                    denies.push(obj.denies)
+                }
+                setLastHits({
+                    labels: name,
+                    datasets: [
+                        {
+                            label: 'Last Hits',
+                            data: lastHits,
+                            backgroundColor: [
+                                'rgba(175, 40, 22, .8)',
+                                'rgba(175, 40, 22, .8)',
+                                'rgba(175, 40, 22, .8)',
+                                'rgba(175, 40, 22, .8)',
+                                'rgba(175, 40, 22, .8)',
+                                'rgba(175, 40, 22, .8)',
+                                'rgba(175, 40, 22, .8)',
+                                'rgba(175, 40, 22, .8)',
+                                'rgba(175, 40, 22, .8)',
+                                'rgba(175, 40, 22, .8)'
+                            ],
+                            borderWidth: 2
+                        },
+                        {
+                            label: 'Denies',
+                            data: denies,
+                            backgroundColor: [
+                                'rgba(54, 114, 47, .85)',
+                                'rgba(54, 114, 47, .85)',
+                                'rgba(54, 114, 47, .85)',
+                                'rgba(54, 114, 47, .85)',
+                                'rgba(54, 114, 47, .85)',
+                                'rgba(54, 114, 47, .85)',
+                                'rgba(54, 114, 47, .85)',
+                                'rgba(54, 114, 47, .85)',
+                                'rgba(54, 114, 47, .85)',
+                                'rgba(54, 114, 47, .85)'
+                            ],
+                            borderWidth: 2
+                        }
+                    ]
+                })
+            })
+            .catch(err => console.log(err))
+
+            console.log(name, lastHits, denies)
+    }
 
     function chart() {
         let dmg = []
@@ -71,7 +128,7 @@ function Score(props) {
             .get(`https://api.opendota.com/api/matches/${props.match.params.matchId}`)
             .then(res => {
                 // console.log(res.data.players)
-                for(const dataObj of res.data.players){
+                for (const dataObj of res.data.players) {
                     dmg.push(dataObj.hero_damage)
                     healing.push(dataObj.hero_healing)
                     name.push(dataObj.name)
@@ -100,11 +157,16 @@ function Score(props) {
                             label: 'Healing Done',
                             data: healing,
                             backgroundColor: [
-                               'rgba(54, 114, 47, .85)',
-                               'rgba(54, 114, 47, .85)' ,
-                               'rgba(54, 114, 47, .85)' ,
-                               'rgba(54, 114, 47, .85)' ,
-                               'rgba(54, 114, 47, .85)'  
+                                'rgba(54, 114, 47, .85)',
+                                'rgba(54, 114, 47, .85)',
+                                'rgba(54, 114, 47, .85)',
+                                'rgba(54, 114, 47, .85)',
+                                'rgba(54, 114, 47, .85)',
+                                'rgba(54, 114, 47, .85)',
+                                'rgba(54, 114, 47, .85)',
+                                'rgba(54, 114, 47, .85)',
+                                'rgba(54, 114, 47, .85)',
+                                'rgba(54, 114, 47, .85)'
                             ],
                             borderWidth: 2
                         }
@@ -112,14 +174,6 @@ function Score(props) {
                 })
             })
             .catch(err => console.log(err))
-        // if(match.players){
-        //     console.log('hit')
-        //     for(let i = 0; i < match.players.length; i++){
-        //         dmg.push(match.players.hero_damage)
-        //         healing.push(match.players.hero_healing)
-        //     }
-        // }
-        console.log('DMG HEALING NAME', dmg, healing, name)
     }
 
     //! !!!!!!!!!       RADIANT MAP STARTS HERE        !!!!!!!
@@ -161,14 +215,23 @@ function Score(props) {
                                 src={getHeroPicture()} />
                             <div className='hero-level'>{player.level}</div>
                         </div>
-                        <h4>{player.name ? player.name : `Anon`}</h4>
+                        <div className='name-tower-dmg'>
+                            <h4 className='player-name-game'>{player.name ? player.name : `Anon`}</h4>
+                            <div>
+                                <br></br>
+                                <p className='match-stats-info'>Building Dmg</p>
+                                <p>{player.tower_damage}</p>
+                            </div>
+                        </div>
                         <div className='player-text-info'>
                             <div>
-                                KDA
+                                <p className='match-stats-info'>KDA</p>
                                 <p>{player.kills}/{player.deaths}/{player.assists}</p>
                             </div>
                             <div>
-                                GPM {'&'} XPM
+                                <p className='match-stats-info'>
+                                    GPM {'&'} XPM
+                                </p>
                                 <p>{player.gold_per_min} / {player.xp_per_min}</p>
                             </div>
                             {/* <div>
@@ -243,14 +306,23 @@ function Score(props) {
                                 src={getHeroPicture()} />
                             <div className='hero-level'>{player.level}</div>
                         </div>
-                        <h4>{player.name ? player.name : `Anon`}</h4>
+                        <div className='name-tower-dmg'>
+                            <h4 className='player-name-game'>{player.name ? player.name : `Anon`}</h4>
+                            <div>
+                                <br></br>
+                                <p className='match-stats-info'>Building Dmg</p>
+                                <p>{player.tower_damage}</p>
+                            </div>
+                        </div>
                         <div className='player-text-info'>
                             <div>
-                                KDA
+                                <p className='match-stats-info'>KDA</p>
                                 <p>{player.kills}/{player.deaths}/{player.assists}</p>
                             </div>
                             <div>
-                                GPM {'&'} XPM
+                                <p className='match-stats-info'>
+                                    GPM {'&'} XPM
+                                </p>
                                 <p>{player.gold_per_min} / {player.xp_per_min}</p>
                             </div>
                             {/* <div>
@@ -321,12 +393,12 @@ function Score(props) {
                     </div>
                 </div>
             </div>
-            <div style={{ height: "100vh", width: "98vw" }}>
+            <div className='charts'>
 
                 <Bar data={chartData}
                     options={{
                         responsive: true,
-                        title: { text: 'PLAYERS Damage & Healing', display: true },
+                        title: { text: 'Damage & Healing', display: true },
                         scales: {
                             yAxes: [{
                                 ticks: {
@@ -337,7 +409,27 @@ function Score(props) {
                                 }
                             }],
                             xAxes: [{
-                                gridLines:{
+                                gridLines: {
+                                    display: false
+                                }
+                            }]
+                        }
+                    }} />
+                <Bar data={lastHits}
+                    options={{
+                        responsive: true,
+                        title: { text: 'Last Hits & Denies', display: true },
+                        scales: {
+                            yAxes: [{
+                                ticks: {
+                                    beginAtZero: true
+                                },
+                                gridLines: {
+                                    display: false
+                                }
+                            }],
+                            xAxes: [{
+                                gridLines: {
                                     display: false
                                 }
                             }]

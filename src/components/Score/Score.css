@@ -145,6 +145,33 @@
     left: 4px;
 }
 
+.player-name-game{
+    font-size: 1.1rem;
+    text-shadow: 1px 1px 2px rgb(199, 199, 199);
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.match-stats-info{
+    color: rgb(223, 223, 223);
+    text-shadow: 1px 1px 2px black;
+}
+
+.name-tower-dmg{
+    display: flex;
+    height: 100%;
+    flex-direction: column;
+    align-content: space-around;
+    justify-content: space-around;
+    font-weight: 700;
+    font-size: .75rem;
+    position: relative;
+    padding-right: 30px;
+}
+
+
+
 .dota-items{
     background-color: rgb(70, 111, 112, .8);
     width: 23vw;
@@ -158,4 +185,10 @@
     border: 1px solid rgb(95, 95, 102);
     width: 33.33%;
     height: 50%;
+}
+
+.charts{
+   width: 98vw;
+   height: 100vw; 
+   margin-top: 10vh;
 }
