@@ -82,16 +82,16 @@ function Score(props) {
                             label: 'Last Hits',
                             data: lastHits,
                             backgroundColor: [
-                                'rgba(175, 40, 22, .8)',
-                                'rgba(175, 40, 22, .8)',
-                                'rgba(175, 40, 22, .8)',
-                                'rgba(175, 40, 22, .8)',
-                                'rgba(175, 40, 22, .8)',
-                                'rgba(175, 40, 22, .8)',
-                                'rgba(175, 40, 22, .8)',
-                                'rgba(175, 40, 22, .8)',
-                                'rgba(175, 40, 22, .8)',
-                                'rgba(175, 40, 22, .8)'
+                                'rgba(132, 15, 148, .65)',
+                                'rgba(132, 15, 148, .65)',
+                                'rgba(132, 15, 148, .65)',
+                                'rgba(132, 15, 148, .65)',
+                                'rgba(132, 15, 148, .65)',
+                                'rgba(132, 15, 148, .65)',
+                                'rgba(132, 15, 148, .65)',
+                                'rgba(132, 15, 148, .65)',
+                                'rgba(132, 15, 148, .65)',
+                                'rgba(132, 15, 148, .65)'
                             ],
                             borderWidth: 2
                         },
@@ -99,16 +99,16 @@ function Score(props) {
                             label: 'Denies',
                             data: denies,
                             backgroundColor: [
-                                'rgba(54, 114, 47, .85)',
-                                'rgba(54, 114, 47, .85)',
-                                'rgba(54, 114, 47, .85)',
-                                'rgba(54, 114, 47, .85)',
-                                'rgba(54, 114, 47, .85)',
-                                'rgba(54, 114, 47, .85)',
-                                'rgba(54, 114, 47, .85)',
-                                'rgba(54, 114, 47, .85)',
-                                'rgba(54, 114, 47, .85)',
-                                'rgba(54, 114, 47, .85)'
+                                'rgba(255, 192, 20, .85)',
+                                'rgba(255, 192, 20, .85)',
+                                'rgba(255, 192, 20, .85)',
+                                'rgba(255, 192, 20, .85)',
+                                'rgba(255, 192, 20, .85)',
+                                'rgba(255, 192, 20, .85)',
+                                'rgba(255, 192, 20, .85)',
+                                'rgba(255, 192, 20, .85)',
+                                'rgba(255, 192, 20, .85)',
+                                'rgba(255, 192, 20, .85)'
                             ],
                             borderWidth: 2
                         }
@@ -116,8 +116,6 @@ function Score(props) {
                 })
             })
             .catch(err => console.log(err))
-
-            console.log(name, lastHits, denies)
     }
 
     function chart() {
@@ -127,7 +125,6 @@ function Score(props) {
         axios
             .get(`https://api.opendota.com/api/matches/${props.match.params.matchId}`)
             .then(res => {
-                // console.log(res.data.players)
                 for (const dataObj of res.data.players) {
                     dmg.push(dataObj.hero_damage)
                     healing.push(dataObj.hero_healing)

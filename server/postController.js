@@ -4,6 +4,7 @@ module.exports = {
         const { author_id, title, content, match_id } = req.body
         console.log('body??', req.body)
         const newPost = await db.add_post([author_id, title, content, match_id])
+        console.log(newPost)
         res.status(200).send(newPost)
         // working 
     },
