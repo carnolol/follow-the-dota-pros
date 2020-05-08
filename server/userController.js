@@ -1,4 +1,7 @@
 const bcrypt = require('bcryptjs')
+const nodemailer = require('nodemailer')
+require('dotenv').config()
+
 const pictures = [
     'https://api.opendota.com/apps/dota2/images/items/moon_shard_lg.png?t=1587186172645',
     'https://api.opendota.com/apps/dota2/images/items/hand_of_midas_lg.png?t=1587186172645',
@@ -25,6 +28,16 @@ const pictures = [
 
 const random = Math.floor(Math.random() * pictures.length)
 const randomPicture = pictures[random]
+
+let transporter = nodemailer.createTransport({
+    service: 'gmail',
+    auth: {
+        user: process.env.EMAIL,
+        pass: process.env.PASSWORD
+    }
+})
+
+
 
 module.exports = {
     login: async (req, res) => {
@@ -58,6 +71,29 @@ module.exports = {
         const newUser = await db.register_new_user([username, hash, profile_pic, email])
 
         req.session.user = newUser[0]
+
+        // let mail = await transporter.sendMail({
+        //     from: 'SaltCityShredders@gmail.com',
+        //     to: `${newUser.email}`,
+        //     subject: 'Welcome New User',
+        //     text: 'Thank you for registering with our website, we hope your day of riding is incredible. Our goal with this website is to try and make deciding where you can go based on riding level more streamlined.'
+        // })
+
+        let mailOptions = {
+            from: 'follow.your.dota.pros@gmail.com',
+            to: email,
+            subject: 'Welcome to Dota Pros!',
+            text: 'Thank you for registering with us! Our goal is to simplify finding information about professional Dota players by keeping all the info you could want in one place!'
+        };
+
+        transporter.sendMail(mailOptions, function(err, data){
+            if(err){
+                console.log('error with Nodemailer')
+            } else {
+                console.log('Email has been sent!!')
+            }
+        })
+
         res.status(200).send(req.session.user)
         // working
     },

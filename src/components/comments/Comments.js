@@ -66,7 +66,7 @@ function Comments(props) {
                 <div className='all-post-info'>
                     <h3>{post.title}</h3>
                     <p className='postContent'>{post.content}</p>
-                    <p>{moment(post.created_at.toString()).calendar()}</p>
+                    <p>{moment(post.created_at).add(13, 'hours').add(25, 'minutes').fromNow()}</p>
                 </div>
                 {editing ? <div>
                     <textarea className="comments-textarea"

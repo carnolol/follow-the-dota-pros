@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import axios from 'axios'
 import { connect } from 'react-redux'
+import swal from 'sweetalert'
 // import { Link } from 'react-router-dom'
 import { makeUser } from '../../ducks/userReducer'
 import './Auth.css'
@@ -24,7 +25,7 @@ function Auth(props) {
             console.log('redux data:', res.data)
             props.makeUser(res.data)
             props.history.push('/')
-        }).catch(err => alert(`That Username is Taken! ${err}`))
+        }).catch(err => swal('Error', `That Username is Taken!`, 'error'))
     }
 
     const handleLoginUser = () => {
@@ -35,7 +36,7 @@ function Auth(props) {
         axios.post('/user/login', body).then(res => {
             props.makeUser(res.data)
             props.history.push('/')
-        }).catch(err => alert(`Username or Password is incorrect! ${err}`))
+        }).catch(err => swal('Error', `Password is incorrect.`, 'error'))
     }
 
     return (

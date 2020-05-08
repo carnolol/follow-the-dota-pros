@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
+import moment from 'moment'
 import './RecentMatches.css'
 
 const baseURL = 'https://api.opendota.com'
@@ -77,12 +78,9 @@ function RecentMatches(props) {
         }
 
         function convertEpochTime() {
-            // var myDate = new Date( your epoch date *1000);
             let date = new Date(match.start_time * 1000)
             return date
         }
-
-        console.log(convertEpochTime())
 
         return (
             <Link to={`/${props.match.params.proPlayerId}/${match.match_id}/score`} style={{ textDecoration: 'none' }} >
@@ -90,8 +88,11 @@ function RecentMatches(props) {
                     <img className='hero-picture'
                         alt='hero'
                         src={matchUpId()} />
-                    {determineWhoWon()}
-                    {/* <p>{convertEpochTime()}</p> */}
+                    <div className='winner-and-fromnow'>
+                        {determineWhoWon()}
+                        {/* moment(post.created_at).add(12, 'hours').add(42, 'minutes').fromNow() */}
+                        <p>{moment(convertEpochTime()).fromNow()}</p>
+                    </div>
                     <div className='duration-container'>
                         <p className='match-info'>Duration:</p>
                         <p>{time(match.duration)}</p>

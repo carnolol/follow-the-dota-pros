@@ -3,7 +3,7 @@ import { Bar } from 'react-chartjs-2'
 import axios from 'axios'
 import './Score.css'
 import Comments from '../comments/Comments'
-import MatchInfo from '../MatchInfo/MatchInfo'
+import moment from 'moment'
 
 const loadingGif = <div className='loading-gif'>
     <h1>One moment while we fetch some data...</h1>
@@ -40,12 +40,12 @@ function Score(props) {
                     .get('https://api.opendota.com/api/constants/items')
                     .then(res => {
                         setItems(res.data)
-                        setLoading(false)
                         // setTimeout(() => setLoading(false), 1000)
                     })
             })
         chart()
         lastHitChart()
+        setLoading(false)
     }, [])
 
     function handleWhatTeamWon() {
@@ -60,6 +60,11 @@ function Score(props) {
         const minutes = Math.floor(num / 60)
         const seconds = num % 60
         return `${minutes}:${seconds}`
+    }
+
+    function convertEpochTime() {
+        let date = new Date(match.start_time * 1000)
+        return date
     }
 
     function lastHitChart() {
@@ -231,10 +236,6 @@ function Score(props) {
                                 </p>
                                 <p>{player.gold_per_min} / {player.xp_per_min}</p>
                             </div>
-                            {/* <div>
-                                DMG
-                                {player.hero_damage}
-                            </div> */}
                         </div>
                         {loading ? null : <div className='dota-items'>
                             {item[0] ? <img className='dota-item-picture'
@@ -322,10 +323,6 @@ function Score(props) {
                                 </p>
                                 <p>{player.gold_per_min} / {player.xp_per_min}</p>
                             </div>
-                            {/* <div>
-                                DMG
-                                {player.hero_damage}
-                            </div> */}
                         </div>
                         {loading ? null : <div className='dota-items'>
                             {item[0] ? <img className='dota-item-picture'
@@ -368,6 +365,7 @@ function Score(props) {
                 </div>
                 <p className='time'>{time(match.duration)}</p>
                 <br></br>
+                <p>{moment(convertEpochTime()).fromNow()}</p>
             </div>
             <br></br>
             <div>
@@ -433,9 +431,8 @@ function Score(props) {
                         }
                     }} />
             </div>
-            <Comments props={props} />
-            {/* {loading === true ? null : <Comments props={props} />} */}
-            {/* {loading === true ? null : <MatchInfo />} */}
+            {/* <Comments props={props} /> */}
+            {loading === true ? null : <Comments props={props} />}
         </div>
     )
 }

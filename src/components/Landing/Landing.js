@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
+import swal from 'sweetalert'
 import './Landing.css'
 
 const loadingImg = 'https://miro.medium.com/max/1600/1*CsJ05WEGfunYMLGfsT2sXA.gif'
@@ -50,7 +51,12 @@ function Landing(props) {
         const handleAddPro = () => {
             axios
                 .post(`/user/me/${pro.pro_player_id}`)
-                .then(alert(`${pro.name} has been added to your pool!`))
+                .then(swal({
+                    title: 'Success!',
+                    text: `${pro.name} has successfully been added to your pool!`,
+                    icon: 'success',
+                    button: 'add more?'
+                }))
         }
         return <div className='pro-container'>
 
