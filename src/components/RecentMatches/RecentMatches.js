@@ -6,7 +6,7 @@ import './RecentMatches.css'
 
 const baseURL = 'https://api.opendota.com'
 const loadingGif = <img src='https://miro.medium.com/max/1600/1*CsJ05WEGfunYMLGfsT2sXA.gif'
-alt='loading'/>
+    alt='loading' />
 
 //* player slot for radiant players = 0,1,2,3,4
 //* player_slot for dire players = 128,129,130,131,132
@@ -18,10 +18,11 @@ function RecentMatches(props) {
     const [heros, setHeros] = useState([])
     const [pros, setPros] = useState([])
     const [loading, setLoading] = useState(true)
+    let [count, setCount] = useState(10)
 
     useEffect(() => {
         axios
-            .get(`https://api.opendota.com/api/players/${props.match.params.proPlayerId}/matches?limit=10`)
+            .get(`https://api.opendota.com/api/players/${props.match.params.proPlayerId}/matches?limit=${count}`)
             .then(res => {
                 setMatch(res.data)
                 axios
@@ -32,7 +33,7 @@ function RecentMatches(props) {
                         setLoading(false)
                     })
             })
-    }, [])
+    }, [count])
 
 
     function getPlayerName() {
@@ -46,7 +47,7 @@ function RecentMatches(props) {
             }
         }
     }
-    // console.log(getPlayerName())
+
     const recentMatches = matches.map(match => {
 
         function determineWhoWon() {
@@ -56,8 +57,8 @@ function RecentMatches(props) {
                 return <h4 className='defeat' >Defeat!</h4>
             } if (match.player_slot >= 125 && match.radiant_win === true) {
                 return <h4 className='defeat' >Defeat!</h4>
-            } if(match.player_slot >= 125 && match.radiant_win === false){
-                 return <h4 className='victory'>Victory!</h4>
+            } if (match.player_slot >= 125 && match.radiant_win === false) {
+                return <h4 className='victory'>Victory!</h4>
             }
         }
 
@@ -68,20 +69,29 @@ function RecentMatches(props) {
                 }
             }
         }
-        
+
         function time(num) {
             const minutes = Math.floor(num / 60)
             const seconds = num % 60
             return `${minutes}:${seconds}`
         }
 
+        function convertEpochTime() {
+            // var myDate = new Date( your epoch date *1000);
+            let date = new Date(match.start_time * 1000)
+            return date
+        }
+
+        console.log(convertEpochTime())
+
         return (
-            <Link to={`/${props.match.params.proPlayerId}/${match.match_id}/score`} style={{textDecoration: 'none'}} >
+            <Link to={`/${props.match.params.proPlayerId}/${match.match_id}/score`} style={{ textDecoration: 'none' }} >
                 <div className='match-container'>
                     <img className='hero-picture'
                         alt='hero'
                         src={matchUpId()} />
                     {determineWhoWon()}
+                    {/* <p>{convertEpochTime()}</p> */}
                     <div className='duration-container'>
                         <p className='match-info'>Duration:</p>
                         <p>{time(match.duration)}</p>
@@ -97,7 +107,11 @@ function RecentMatches(props) {
     return (
         <div className='main-recent-matches-div'>
             <h2>{getPlayerName()}'s match history!</h2>
-            {loading ? loadingGif : recentMatches}
+            {loading ? loadingGif : <div>
+                {recentMatches}
+                <button className='more-btn'
+                    onClick={() => setCount(count += 10)}>See 10 more recent matches!</button>
+            </div>}
         </div>
     )
 }

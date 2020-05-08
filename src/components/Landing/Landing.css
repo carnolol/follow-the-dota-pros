@@ -18,6 +18,11 @@
     display: flex;
     margin-top: 2vh;
     margin-bottom: 2vh;
+    background-color: #ADADB5;
+    width: 90vw;
+    border-radius: 8px;
+    padding:15px;
+    box-shadow: 4px 4px 12px black;
     /* align-items: center; */
 }
 
@@ -26,6 +31,8 @@
     background: transparent;
     height: 6vh;
     width: 8vw;
+    border-radius: 5px;
+    box-shadow: 2px 2px 4px gray;
     margin-left: 2vw;
     margin-right: 2vw;
 }

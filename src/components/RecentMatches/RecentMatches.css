@@ -74,3 +74,9 @@
    font-size: 1.1rem;
 
 }
+
+.more-btn{
+    margin-top: 4vh;
+    margin-bottom: 4vh;
+    padding: 10px
+}
