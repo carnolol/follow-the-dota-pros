@@ -22,6 +22,7 @@ function RecentMatches(props) {
     let [count, setCount] = useState(10)
 
     useEffect(() => {
+        window.scrollTo(0, 0)
         axios
             .get(`https://api.opendota.com/api/players/${props.match.params.proPlayerId}/matches?limit=${count}`)
             .then(res => {
@@ -34,6 +35,7 @@ function RecentMatches(props) {
                         setLoading(false)
                     })
             })
+
     }, [count])
 
 

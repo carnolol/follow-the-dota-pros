@@ -24,23 +24,32 @@
 .user-info-pic{
     margin-top: 3vh;
     margin-bottom: 3vh;
-    margin-left: 2vw;
     border-radius: 50%;
     box-shadow: -2px -2px 10px black;
-    top: 0;
-    left: 20px;
+    top: -35px;
+    left: 0;
+    position: absolute;
 
 }
 
 .pic-and-bio{
     display: flex;
-    /* flex-wrap: wrap; */
+    flex-wrap: wrap;
     align-items: center;
+    /* height: 100%; */
+    width: 90%;
+    height: 15vh;
+    text-align: center;
+    align-content: center;
+    align-items: center;
+    position: relative;
 }
 
 .user-bio{
   width: 90%;
   height: 100%;
+    word-wrap: break-word;
+  padding-top: 8vh;
 }
 
 .pencil{

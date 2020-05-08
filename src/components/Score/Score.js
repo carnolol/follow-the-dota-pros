@@ -27,6 +27,7 @@ function Score(props) {
 
 
     useEffect(() => {
+        window.scrollTo(0, 0)
         axios
             .get(`https://api.opendota.com/api/matches/${props.match.params.matchId}`)
             .then(res => {
@@ -193,6 +194,26 @@ function Score(props) {
                         }
                     }
                 }
+
+                function getItemTime() {
+                    let list = []
+                    let purchasedItems = []
+                    if (match.players) {
+                        for (let i = 0; i < player.purchase_log.length; i++) {
+                            purchasedItems.push(player.purchase_log[i])
+                            console.log(purchasedItems)
+                        }
+
+                        // if (player.purchase_log[i].key ===)
+                        // for(let key in items){
+                        //     console.log('inside for in loop: ', player.purchase_log[5].key)
+                        //    if(items[key] === player.purchase_log){
+                        //    }
+                        // }
+                    }
+                }
+
+                console.log(getItemTime())
 
                 function getItemPicture() {
                     let list = []

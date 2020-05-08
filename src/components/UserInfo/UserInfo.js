@@ -15,6 +15,7 @@ function UserInfo(props) {
 
 
     useEffect(() => {
+        window.scrollTo(0, 0)
         axios
             .get('/user/me')
             .then(res => setUser(res.data))
