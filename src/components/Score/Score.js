@@ -62,15 +62,15 @@ function Score(props) {
         return `${minutes}:${seconds}`
     }
 
-    function lastHitChart(){
-        let name =[]
+    function lastHitChart() {
+        let name = []
         let lastHits = []
         let denies = []
-        
+
         axios
             .get(`https://api.opendota.com/api/matches/${props.match.params.matchId}`)
             .then(res => {
-                for(const obj of res.data.players){
+                for (const obj of res.data.players) {
                     name.push(obj.name)
                     lastHits.push(obj.last_hits)
                     denies.push(obj.denies)
