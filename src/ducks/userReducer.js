@@ -22,7 +22,6 @@ export function logoutUser(){
 }
 
 export function makeUser(values){
-    console.log('redux:', values)
     return{
         type: MAKE_USER,
         payload: values

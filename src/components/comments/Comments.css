@@ -51,7 +51,7 @@
     margin-bottom: 3vh;
     display: flex;
     justify-content: space-between;
-    overflow: hidden;
+    /* overflow: hidden; */
     align-items: center;
 }
 
@@ -79,8 +79,19 @@
 
 .pencil-holder{
     display: flex;
+    position: relative;
     flex-direction: column;
-    /* align-content: space-evenly; */
     justify-content: space-evenly;
     align-content: space-around;
+}
+
+.com-pencil{
+    height: 25px;
+    width: 25px;
+    margin-bottom: 65px;    
+    margin-left: 20px;
+}
+
+.post-delete-btn{
+    margin-right: 10px;
 }

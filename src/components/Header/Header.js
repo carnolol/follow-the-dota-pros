@@ -13,7 +13,6 @@ function Header(props) {
         axios
             .get('/user/me')
             .then(res => {
-                console.log('header useEffect:', res.data)
                 props.makeUser(res.data)
             }).catch(err => console.log(err))
     }, [props.isLoggedIn])

@@ -39,7 +39,6 @@ function Comments(props) {
 
     const matchPosts = posts.map(post => {
 
-        console.log(post)
 
         function handleDeletePost() {
             axios
@@ -78,11 +77,12 @@ function Comments(props) {
                     }}>Submit Edit</button>
                     <button onClick={() => setEditing(!editing)}>Reset</button>
                 </div> : <div className='pencil-holder'>
-                        <img className='pencil'
+                        <img className='com-pencil'
                             onClick={() => setEditing(!editing)}
                             alt='edit'
                             src={pencil} />
-                        <button onClick={() => handleDeletePost()}>Delete</button>
+                        <button className='post-delete-btn'
+                            onClick={() => handleDeletePost()}>Delete</button>
                     </div>}
             </div>
         )
