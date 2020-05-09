@@ -195,25 +195,32 @@ function Score(props) {
                     }
                 }
 
-                function getItemTime() {
-                    let list = []
-                    let purchasedItems = []
-                    if (match.players) {
-                        for (let i = 0; i < player.purchase_log.length; i++) {
-                            purchasedItems.push(player.purchase_log[i])
-                            console.log(purchasedItems)
-                        }
+                // function getItemTime() {
+                //     // const list = items.filter()
+                //     let purchasedItems = []
+                //     if (match.players) {
+                //         for (let i = 0; i < player.purchase_log.length; i++) {
+                //             purchasedItems.push(player.purchase_log[i])
+                //         }
+                //             for (let key in items) {
+                //                 console.log(key)
+                //                 if (key === player.purchase_log) {
+                //                     list.push(key)
+                //                     console.log('inside if:', list)
+                //                 }
+                //             }
+                        
 
-                        // if (player.purchase_log[i].key ===)
-                        // for(let key in items){
-                        //     console.log('inside for in loop: ', player.purchase_log[5].key)
-                        //    if(items[key] === player.purchase_log){
-                        //    }
-                        // }
-                    }
-                }
+                //         // if (player.purchase_log[i].key ===)
+                //         // for(let key in items){
+                //         //     console.log('inside for in loop: ', player.purchase_log[5].key)
+                //         //    if(items[key] === player.purchase_log){
+                //         //    }
+                //         // }
+                //     }
+                // }
 
-                console.log(getItemTime())
+                // console.log(getItemTime())
 
                 function getItemPicture() {
                     let list = []

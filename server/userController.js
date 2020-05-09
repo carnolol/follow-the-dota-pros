@@ -17,7 +17,6 @@ const pictures = [
     'https://api.opendota.com/apps/dota2/images/items/invis_sword_lg.png?t=1587186172645',
     'https://api.opendota.com/apps/dota2/images/items/orchid_lg.png?t=1587186172645',
     'https://api.opendota.com/apps/dota2/images/items/desolator_lg.png?t=1587186172645',
-    'https://api.opendota.com/apps/dota2/images/items/desolator_lg.png?t=1587186172645',
     'https://api.opendota.com/apps/dota2/images/items/sange_and_yasha_lg.png?t=1587186172645',
     'https://api.opendota.com/apps/dota2/images/items/skadi_lg.png?t=1587186172645',
     'https://api.opendota.com/apps/dota2/images/items/flask_lg.png?t=1587186172645',
