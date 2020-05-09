@@ -196,30 +196,19 @@ function Score(props) {
                 }
 
                 // function getItemTime() {
-                //     // const list = items.filter()
-                //     let purchasedItems = []
-                //     if (match.players) {
-                //         for (let i = 0; i < player.purchase_log.length; i++) {
-                //             purchasedItems.push(player.purchase_log[i])
-                //         }
-                //             for (let key in items) {
-                //                 console.log(key)
-                //                 if (key === player.purchase_log) {
-                //                     list.push(key)
-                //                     console.log('inside if:', list)
-                //                 }
-                //             }
-                        
+                //     if(match.players){
+                //         for(let i = 0; i < player.purchase_log.length; i++){
+                         
+                //             // for (const obj of res.data.players) {
+                //             // console.log(player.purchase_log[i].key)
+                //             if(player.purchase_log[i].key === items){
 
-                //         // if (player.purchase_log[i].key ===)
-                //         // for(let key in items){
-                //         //     console.log('inside for in loop: ', player.purchase_log[5].key)
-                //         //    if(items[key] === player.purchase_log){
-                //         //    }
-                //         // }
+                //             }
+                //         }
                 //     }
                 // }
 
+                
                 // console.log(getItemTime())
 
                 function getItemPicture() {

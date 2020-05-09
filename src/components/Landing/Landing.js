@@ -8,6 +8,7 @@ import './Landing.css'
 const loadingImg = 'https://miro.medium.com/max/1600/1*CsJ05WEGfunYMLGfsT2sXA.gif'
 const glass = 'https://i.etsystatic.com/17857814/r/il/1e14b2/1578632427/il_570xN.1578632427_i01w.jpg'
 const add = 'https://cdn2.iconfinder.com/data/icons/everything-but-the-kitchen-sink-2/100/common-06-512.png'
+const checkmark = 'https://i.pinimg.com/originals/70/a5/52/70a552e8e955049c8587b2d7606cd6a6.gif'
 
 //TODO: Need to make search function based on pros name
 //TODO: let user filter based on winnings?
@@ -45,18 +46,33 @@ function Landing(props) {
             setSearch('')
     }
 
+    function displayCheckmark(){
+        const check = setTimeout(() => {
+           return <img className='landing-add-player'
+            alt='checked?'
+            src={checkmark}/> 
+        }, 2000)
+        return check
+    }
+
+    console.log(displayCheckmark())
+
     //       !!!!!!!        MAP STARTS HERE        !!!!!!!!!!
 
     const proPlayers = pros.map(pro => {
         const handleAddPro = () => {
             axios
                 .post(`/user/me/${pro.pro_player_id}`)
-                .then(swal({
-                    title: 'Success!',
-                    text: `${pro.name} has successfully been added to your pool!`,
-                    icon: 'success',
-                    button: 'add more?'
-                }))
+                .then(
+                //     swal({
+                //     title: 'Success!',
+                //     text: `${pro.name} has successfully been added to your pool!`,
+                //     icon: 'success',
+                //     button: 'add more?'
+                // })
+                displayCheckmark()
+                )
+                .catch(err => console.log(err))
         }
         return <div className='pro-container'>
 
@@ -75,7 +91,7 @@ function Landing(props) {
             <img className='landing-add-player'
                 alt='add button'
                 src={add}
-                onClick={() => handleAddPro()} />
+                onClick={() => {handleAddPro()}} />
         </div>
     })
 

@@ -67,16 +67,10 @@ module.exports = {
         const salt = bcrypt.genSaltSync(9)
         const hash = bcrypt.hashSync(password, salt)
         const profile_pic = randomPicture
+        // console.log(profile_pic)
         const newUser = await db.register_new_user([username, hash, profile_pic, email])
 
         req.session.user = newUser[0]
-
-        // let mail = await transporter.sendMail({
-        //     from: 'SaltCityShredders@gmail.com',
-        //     to: `${newUser.email}`,
-        //     subject: 'Welcome New User',
-        //     text: 'Thank you for registering with our website, we hope your day of riding is incredible. Our goal with this website is to try and make deciding where you can go based on riding level more streamlined.'
-        // })
 
         let mailOptions = {
             from: 'follow.your.dota.pros@gmail.com',
