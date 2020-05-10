@@ -119,14 +119,24 @@
     width: 95vw;
     background-color: rgb(214, 124, 118);
     display: flex;
-    flex-wrap: wrap;
+    /* flex-wrap: wrap; */
     justify-content: space-between;
     align-content: space-between;
     align-items: center;
     border: 2px solid rgb(110, 110, 110);
+    /* position: relative; */
     overflow: auto;
     /* scroll-behavior: auto; */
+}
 
+.neut-item{
+    position: absolute;
+    border-radius: 50%;
+    height: 8vh;
+    width: 15vw;
+    box-shadow: 0 0  5px rgb(160, 160, 160)
+    ;
+    /* right:0; */
 }
 
 .score-player-hero-pic{

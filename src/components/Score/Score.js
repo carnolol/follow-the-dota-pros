@@ -595,10 +595,10 @@ function Score(props) {
                                     src={`${baseURL}${item[5].img}`} />
                                     <p className='item-time'>{getItemTime5()}</p>
                             </div> : null}
-                        </div>}
                         <img className='neut-item'
                             alt='neut item pic'
                             src={getNeutralItemPicture()}/>
+                        </div>}
                     </div>
                 }
             })
