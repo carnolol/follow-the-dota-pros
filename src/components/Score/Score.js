@@ -424,6 +424,96 @@ function Score(props) {
                     }
                 }
 
+                function timeForMinutes(num) {
+                    const minutes = Math.floor(num / 60)
+                    return `${minutes} min`
+                }
+
+                function getItemTime0() {
+                    if (match.players) {
+                        for (let i = 0; i < player.purchase_log.length; i++) {
+                            for (let itemsKey in items) {
+                                if (player.purchase_log[i].key === itemsKey && items[itemsKey].id === player.item_0) {
+                                    console.log(timeForMinutes(player.purchase_log[i].time))
+                                    return timeForMinutes(player.purchase_log[i].time)
+                                }
+                            }
+                        }
+                    }
+                }
+
+                function getItemTime1(){
+                    if(match.players){
+                        for(let i = 0; i < player.purchase_log.length ; i++){
+                            for( let itemsKey in items ){
+                                if(player.purchase_log[i].key === itemsKey && items[itemsKey].id === player.item_1){
+                                    console.log(player.purchase_log[i])
+                                    return(timeForMinutes(player.purchase_log[i].time))
+                                }
+                            }
+                        }
+                    }
+                }
+
+                function getItemTime2(){
+                    if(match.players){
+                        for(let i = 0; i < player.purchase_log.length ; i++){
+                            for( let itemsKey in items){
+                                if(player.purchase_log[i].key === itemsKey && items[itemsKey].id === player.item_2){
+                                    return(timeForMinutes(player.purchase_log[i].time))
+                                }
+                            }
+                        }
+                    }
+                }
+
+                function getItemTime3(){
+                    if(match.players){
+                        for(let i = 0; i < player.purchase_log.length; i++){
+                            for( let itemsKey in items){
+                                if(player.purchase_log[i].key === itemsKey && items[itemsKey].id === player.item_3){
+                                    return(timeForMinutes(player.purchase_log[i].time))
+                                }
+                            }
+                        }
+                    }
+                }
+
+                function getItemTime4(){
+                    if(match.players){
+                        for(let i = 0; i < player.purchase_log.length; i++){
+                            for( let itemsKey in items){
+                                if(player.purchase_log[i].key === itemsKey && items[itemsKey].id === player.item_4){
+                                    return(timeForMinutes(player.purchase_log[i].time))
+                                }
+                            }
+                        }
+                    }
+                }
+
+                function getItemTime5(){
+                    if(match.players){
+                        for(let i = 0; i < player.purchase_log.length; i++){
+                            for( let itemsKey in items){
+                                if(player.purchase_log[i].key === itemsKey && items[itemsKey].id === player.item_5){
+                                    return(timeForMinutes(player.purchase_log[i].time))
+                                }
+                            }
+                        }
+                    }
+                }
+
+                function getNeutralItemPicture(){
+                    if(match.players){
+                        for(let itemsKey in items){
+                            if (items[itemsKey].id === player.
+                                item_neutral){
+                                    return `${baseURL}${items[itemsKey].img}`
+                                }
+                        }
+                    }
+                }
+
                 function getItemPicture() {
                     let list = []
                     if (match.players) {
@@ -468,26 +558,47 @@ function Score(props) {
                             </div>
                         </div>
                         {loading ? null : <div className='dota-items'>
-                            {item[0] ? <img className='dota-item-picture'
-                                alt='item'
-                                src={`${baseURL}${item[0].img}`} /> : null}
-                            {item[1] ? <img className='dota-item-picture'
-                                alt='item'
-                                src={`${baseURL}${item[1].img}`} /> : null}
-                            {item[2] ? <img className='dota-item-picture'
-                                alt='item'
-                                src={`${baseURL}${item[2].img}`} /> : null}
-                            {item[3] ? <img className='dota-item-picture'
-                                alt='item'
-                                src={`${baseURL}${item[3].img}`} /> : null}
-                            {item[4] ? <img className='dota-item-picture'
-                                alt='item'
-                                src={`${baseURL}${item[4].img}`} /> : null}
-                            {item[5] ? <img className='dota-item-picture'
-                                alt='item'
-                                src={`${baseURL}${item[5].img}`} /> : null}
+                        {item[0] ? <div className='each-item-div'>
+                                <img className='dota-item-picture'
+                                    alt='item'
+                                    src={`${baseURL}${item[0].img}`} />
+                                {console.log(item[0].img)}
+                                <p className='item-time'>{getItemTime0()}</p>
+                            </div> : null}
+                            {item[1] ? <div className='each-item-div'>
+                                <img className='dota-item-picture'
+                                    alt='item'
+                                    src={`${baseURL}${item[1].img}`} />
+                                <p className='item-time'>{getItemTime1()}</p>
+                            </div> : null}
+                            {item[2] ? <div className='each-item-div'>
+                                <img className='dota-item-picture'
+                                    alt='item'
+                                    src={`${baseURL}${item[2].img}`} />
+                                <p className='item-time'>{getItemTime2()}</p>
+                            </div> : null}
+                            {item[3] ? <div className='each-item-div'>
+                                <img className='dota-item-picture'
+                                    alt='item'
+                                    src={`${baseURL}${item[3].img}`} />
+                                <p className='item-time'>{getItemTime3()}</p>
+                            </div> : null}
+                            {item[4] ? <div className='each-item-div'>
+                                <img className='dota-item-picture'
+                                    alt='item'
+                                    src={`${baseURL}${item[4].img}`} />
+                                <p className='item-time'>{getItemTime4()}</p>
+                            </div> : null}
+                            {item[5] ? <div className='each-item-div'>
+                                <img className='dota-item-picture'
+                                    alt='item'
+                                    src={`${baseURL}${item[5].img}`} />
+                                    <p className='item-time'>{getItemTime5()}</p>
+                            </div> : null}
                         </div>}
-
+                        <img className='neut-item'
+                            alt='neut item pic'
+                            src={getNeutralItemPicture()}/>
                     </div>
                 }
             })
