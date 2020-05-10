@@ -195,6 +195,24 @@ function Score(props) {
                     }
                 }
 
+
+                function getItemTime(){
+                    let playerItems =[]
+                    if(match.players){
+                        for(let i =0; i <player.purchase_log.length; i++){
+                            for(let key in items){
+                                if(player.purchase_log[i].key === key && items[key].id === player.item_0){
+                                    playerItems.push(player.purchase_log[i])
+                                    console.log('player items:',playerItems)
+                                }
+                            }
+                        }
+                    }
+                    return playerItems
+                }
+
+                // console.log(getItemTime())
+
                 // function getItemTime() {
                 //     if(match.players){
                 //         for(let i = 0; i < player.purchase_log.length; i++){
@@ -209,7 +227,6 @@ function Score(props) {
                 // }
 
                 
-                // console.log(getItemTime())
 
                 function getItemPicture() {
                     let list = []
@@ -229,6 +246,7 @@ function Score(props) {
                 if (player.player_slot <= 6) {
                     return <div className='score-match-container-rad'>
                         <div className='score-player-hero-pic' >
+                        <button onClick={() => getItemTime()}>GET ITEM TIME FUNC</button>
                             <img className='score-player-hero-pic'
                                 alt='NA'
                                 src={getHeroPicture()} />

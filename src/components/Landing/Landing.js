@@ -46,16 +46,16 @@ function Landing(props) {
             setSearch('')
     }
 
-    function displayCheckmark(){
-        const check = setTimeout(() => {
-           return <img className='landing-add-player'
-            alt='checked?'
-            src={checkmark}/> 
-        }, 2000)
-        return check
-    }
+    // function displayCheckmark(){
+    //     const check = setTimeout(() => {
+    //        return <img className='landing-add-player'
+    //         alt='checked?'
+    //         src={checkmark}/> 
+    //     }, 2000)
+    //     return check
+    // }
 
-    console.log(displayCheckmark())
+    // console.log(displayCheckmark())
 
     //       !!!!!!!        MAP STARTS HERE        !!!!!!!!!!
 
@@ -64,13 +64,13 @@ function Landing(props) {
             axios
                 .post(`/user/me/${pro.pro_player_id}`)
                 .then(
-                //     swal({
-                //     title: 'Success!',
-                //     text: `${pro.name} has successfully been added to your pool!`,
-                //     icon: 'success',
-                //     button: 'add more?'
-                // })
-                displayCheckmark()
+                    swal({
+                    title: 'Success!',
+                    text: `${pro.name} has successfully been added to your pool!`,
+                    icon: 'success',
+                    button: 'add more?'
+                })
+                // displayCheckmark()
                 )
                 .catch(err => console.log(err))
         }
