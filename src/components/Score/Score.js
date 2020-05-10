@@ -195,38 +195,61 @@ function Score(props) {
                     }
                 }
 
+                function timeForMinutes(num) {
+                    const minutes = Math.floor(num / 60)
+                    return `${minutes} min`
+                }
 
-                function getItemTime(){
-                    let playerItems =[]
-                    if(match.players){
-                        for(let i =0; i <player.purchase_log.length; i++){
-                            for(let key in items){
-                                if(player.purchase_log[i].key === key && items[key].id === player.item_0){
-                                    playerItems.push(player.purchase_log[i])
-                                    console.log('player items:',playerItems)
+                function getItemTime() {
+                    if (match.players) {
+                        for (let i = 0; i < player.purchase_log.length; i++) {
+                            for (let itemsKey in items) {
+                                if (player.purchase_log[i].key === itemsKey && items[itemsKey].id === player.item_0) {
+                                    console.log(timeForMinutes(player.purchase_log[i].time))
+                                    return timeForMinutes(player.purchase_log[i].time)
                                 }
                             }
                         }
                     }
-                    return playerItems
                 }
 
-                // console.log(getItemTime())
-
                 // function getItemTime() {
-                //     if(match.players){
-                //         for(let i = 0; i < player.purchase_log.length; i++){
-                         
-                //             // for (const obj of res.data.players) {
-                //             // console.log(player.purchase_log[i].key)
-                //             if(player.purchase_log[i].key === items){
+                //     let playerItems = []
 
+                //     if (match.players) {
+                //         for (let i = 0; i < player.purchase_log.length; i++) {
+                //             for (let itemsKey in items) {
+                //                 if (player.purchase_log[i].key === itemsKey && items[itemsKey].id === player.item_0
+                //                     ||
+                //                     player.purchase_log[i].key === itemsKey && items[itemsKey].id === player.item_1
+                //                     ||
+                //                     player.purchase_log[i].key === itemsKey && items[itemsKey].id === player.item_2
+                //                     ||
+                //                     player.purchase_log[i].key === itemsKey && items[itemsKey].id === player.item_3
+                //                     ||
+                //                     player.purchase_log[i].key === itemsKey && items[itemsKey].id === player.item_4
+                //                     ||
+                //                     player.purchase_log[i].key === itemsKey && items[itemsKey].id === player.item_5) {
+                //                         console.log(timeForMinutes(player.purchase_log[i].time))
+                //                     return timeForMinutes(player.purchase_log[i].time)
+
+                //                 }
+                //                 for (let i = 0; i < playerItems.length; i++) {
+                //                     if (playerItems[i].key === "ward_sentry" ||
+                //                         playerItems[i].key === "ward_observer" ||
+                //                         playerItems[i].key === "dust") {
+                //                             playerItems.splice([i], 1)
+                //                             console.log('GEGEGE', playerItems)
+                //                     } if (playerItems[i].key = itemsKey) {
+
+                //                     }
+                //                 }
                 //             }
                 //         }
                 //     }
+                //     return playerItems
                 // }
 
-                
 
                 function getItemPicture() {
                     let list = []
@@ -241,12 +264,17 @@ function Score(props) {
                     return list
                 }
 
-                let item = getItemPicture()     //! DONT DELETE           
+
+
+                let item = getItemPicture()     //! DONT DELETE    
+
+                // console.log(`${player.name}'s:`, item)
+
 
                 if (player.player_slot <= 6) {
                     return <div className='score-match-container-rad'>
                         <div className='score-player-hero-pic' >
-                        <button onClick={() => getItemTime()}>GET ITEM TIME FUNC</button>
+                            {/* <button onClick={() => getItemTime()}>GET ITEM TIME FUNC</button> */}
                             <img className='score-player-hero-pic'
                                 alt='NA'
                                 src={getHeroPicture()} />
@@ -273,9 +301,13 @@ function Score(props) {
                             </div>
                         </div>
                         {loading ? null : <div className='dota-items'>
-                            {item[0] ? <img className='dota-item-picture'
-                                alt='item'
-                                src={`${baseURL}${item[0].img}`} /> : null}
+                            {item[0] ? <div className='each-item-div'>
+                                <img className='dota-item-picture'
+                                    alt='item'
+                                    src={`${baseURL}${item[0].img}`} />
+                                    {console.log(item[0].img)}
+                                    <p className='item-time'>{getItemTime()}</p>
+                            </div> : null}
                             {item[1] ? <img className='dota-item-picture'
                                 alt='item'
                                 src={`${baseURL}${item[1].img}`} /> : null}
@@ -407,7 +439,6 @@ function Score(props) {
                 <h1 className='radiant-h1'>RADIANT</h1>
                 <br></br>
                 <div className='match-score-info-container'>
-                    <p className='hero-kda-info'>hero player KDA GPM/XPM  DMG Items</p>
                     <div className='players-container'>
                         {displayRadiant()}
                     </div>
@@ -417,7 +448,6 @@ function Score(props) {
                 <br></br>
                 <div className='match-score-info-container'>
                     <br></br>
-                    <p className='hero-kda-info'>hero player KDA GPM/XPM  DMG Items</p>
                     <div className='players-container'>
                         {displayDire()}
                     </div>
@@ -468,6 +498,7 @@ function Score(props) {
             </div>
             {/* <Comments props={props} /> */}
             {loading === true ? null : <Comments props={props} />}
+            {/* <p>{getItemTime()}</p> */}
         </div>
     )
 }

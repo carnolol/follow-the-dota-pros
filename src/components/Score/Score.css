@@ -181,6 +181,20 @@
     flex-wrap: wrap;
 }
 
+.each-item-div{
+    position: relative;
+    /* width: 100%;
+    height: 100%; */
+}
+
+.item-time{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    font-size: .5rem;
+    color: white;
+}
+
 .dota-item-picture{
     border: 1px solid rgb(95, 95, 102);
     width: 33.33%;
