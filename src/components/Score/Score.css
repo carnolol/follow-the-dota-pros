@@ -124,7 +124,8 @@
     align-content: space-between;
     align-items: center;
     border: 2px solid rgb(110, 110, 110);
-    overflow: hidden;
+    overflow: auto;
+    /* scroll-behavior: auto; */
 
 }
 
@@ -176,6 +177,7 @@
     background-color: rgb(70, 111, 112, .8);
     width: 23vw;
     height: 10.5vh;
+    padding-bottom: .5vh;
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
@@ -183,22 +185,23 @@
 
 .each-item-div{
     position: relative;
-    /* width: 100%;
-    height: 100%; */
+    width: 33.33%;
+    height: 50%;
 }
 
 .item-time{
     position: absolute;
-    bottom: 0;
-    left: 0;
-    font-size: .5rem;
+    top: -1px;
+    right: 0;
+    font-size: .35rem;
+    text-shadow: 1px 1px 1px black;
     color: white;
 }
 
 .dota-item-picture{
     border: 1px solid rgb(95, 95, 102);
-    width: 33.33%;
-    height: 50%;
+    width: 100%;
+    height: 100%;
 }
 
 .charts{
