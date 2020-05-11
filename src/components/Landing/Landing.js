@@ -3,6 +3,7 @@ import axios from 'axios'
 import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 import swal from 'sweetalert'
+import Footer from '../Footer/Footer'
 import './Landing.css'
 
 const loadingImg = 'https://miro.medium.com/max/1600/1*CsJ05WEGfunYMLGfsT2sXA.gif'
@@ -120,6 +121,7 @@ function Landing(props) {
                 <img src={loadingImg}
                     alt='need new loading gif' />
             </div> : proPlayers}
+            {loading === true ? null : <Footer/>}
         </div>
     )
 }

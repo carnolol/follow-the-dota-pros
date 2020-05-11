@@ -239,6 +239,14 @@ function Score(props) {
                                             src={`${baseURL}/apps/dota2/images/items/cheese_lg.png?t=1588708532600`} />
                                     </div> 
                                     )
+                                }else if(player.item_0 === 216){
+                                    return (
+                                        <div className='each-item-div'>
+                                        <img className='dota-item-picture'
+                                            alt='item'
+                                            src={`${baseURL}/apps/dota2/images/items/enchanted_mango_lg.png?t=1588708532600`} />
+                                    </div> 
+                                    )
                                 }else if (player.item_0 === 0) {
                                     return noItemImg
                                 }
@@ -283,6 +291,14 @@ function Score(props) {
                                         <img className='dota-item-picture'
                                             alt='item'
                                             src={`${baseURL}/apps/dota2/images/items/cheese_lg.png?t=1588708532600`} />
+                                    </div> 
+                                    )
+                                }else if(player.item_1 === 216){
+                                    return (
+                                        <div className='each-item-div'>
+                                        <img className='dota-item-picture'
+                                            alt='item'
+                                            src={`${baseURL}/apps/dota2/images/items/enchanted_mango_lg.png?t=1588708532600`} />
                                     </div> 
                                     )
                                 }else if (player.item_1 === 0) {
@@ -331,6 +347,14 @@ function Score(props) {
                                             src={`${baseURL}/apps/dota2/images/items/cheese_lg.png?t=1588708532600`} />
                                     </div> 
                                     )
+                                }else if(player.item_2 === 216){
+                                    return (
+                                        <div className='each-item-div'>
+                                        <img className='dota-item-picture'
+                                            alt='item'
+                                            src={`${baseURL}/apps/dota2/images/items/enchanted_mango_lg.png?t=1588708532600`} />
+                                    </div> 
+                                    )
                                 }else if (player.item_2 === 0) {
                                     return noItemImg
                                 }
@@ -377,6 +401,14 @@ function Score(props) {
                                             src={`${baseURL}/apps/dota2/images/items/cheese_lg.png?t=1588708532600`} />
                                     </div> 
                                     )
+                                }else if(player.item_3 === 216){
+                                    return (
+                                        <div className='each-item-div'>
+                                        <img className='dota-item-picture'
+                                            alt='item'
+                                            src={`${baseURL}/apps/dota2/images/items/enchanted_mango_lg.png?t=1588708532600`} />
+                                    </div> 
+                                    )
                                 }else if (player.item_3 === 0) {
                                     return noItemImg
                                 }
@@ -414,7 +446,15 @@ function Score(props) {
                                             src={`${baseURL}/apps/dota2/images/items/aegis_lg.png?t=1588708532600`} />
                                     </div> 
                                     )
-                                } else if(player.item_4 === 33){
+                                } else if(player.item_4 === 216){
+                                    return (
+                                        <div className='each-item-div'>
+                                        <img className='dota-item-picture'
+                                            alt='item'
+                                            src={`${baseURL}/apps/dota2/images/items/enchanted_mango_lg.png?t=1588708532600`} />
+                                    </div> 
+                                    )
+                                }else if(player.item_4 === 33){
                                     return (
                                         <div className='each-item-div'>
                                         <img className='dota-item-picture'
@@ -465,6 +505,14 @@ function Score(props) {
                                         <img className='dota-item-picture'
                                             alt='item'
                                             src={`${baseURL}/apps/dota2/images/items/cheese_lg.png?t=1588708532600`} />
+                                    </div> 
+                                    )
+                                } else if(player.item_5 === 216){
+                                    return (
+                                        <div className='each-item-div'>
+                                        <img className='dota-item-picture'
+                                            alt='item'
+                                            src={`${baseURL}/apps/dota2/images/items/enchanted_mango_lg.png?t=1588708532600`} />
                                     </div> 
                                     )
                                 }else if (player.item_5 === 0) {
@@ -597,7 +645,15 @@ function Score(props) {
                                             src={`${baseURL}/apps/dota2/images/items/ward_dispenser_lg.png?t=1588708532600`} />
                                     </div> 
                                     )
-                                } else if( player.item_0 === 117){
+                                } else if(player.item_0 === 216){
+                                    return (
+                                        <div className='each-item-div'>
+                                        <img className='dota-item-picture'
+                                            alt='item'
+                                            src={`${baseURL}/apps/dota2/images/items/enchanted_mango_lg.png?t=1588708532600`} />
+                                    </div> 
+                                    )
+                                }else if( player.item_0 === 117){
                                     return (
                                         <div className='each-item-div'>
                                         <img className='dota-item-picture'
@@ -643,7 +699,15 @@ function Score(props) {
                                             src={`${baseURL}/apps/dota2/images/items/ward_dispenser_lg.png?t=1588708532600`} />
                                     </div> 
                                     )
-                                } else if( player.item_1 === 117){
+                                } else if(player.item_1 === 216){
+                                    return (
+                                        <div className='each-item-div'>
+                                        <img className='dota-item-picture'
+                                            alt='item'
+                                            src={`${baseURL}/apps/dota2/images/items/enchanted_mango_lg.png?t=1588708532600`} />
+                                    </div> 
+                                    )
+                                }else if( player.item_1 === 117){
                                     return (
                                         <div className='each-item-div'>
                                         <img className='dota-item-picture'
@@ -689,7 +753,15 @@ function Score(props) {
                                             src={`${baseURL}/apps/dota2/images/items/ward_dispenser_lg.png?t=1588708532600`} />
                                     </div> 
                                     )
-                                } else if( player.item_2 === 117){
+                                } else if(player.item_2 === 216){
+                                    return (
+                                        <div className='each-item-div'>
+                                        <img className='dota-item-picture'
+                                            alt='item'
+                                            src={`${baseURL}/apps/dota2/images/items/enchanted_mango_lg.png?t=1588708532600`} />
+                                    </div> 
+                                    )
+                                }else if( player.item_2 === 117){
                                     return (
                                         <div className='each-item-div'>
                                         <img className='dota-item-picture'
@@ -736,7 +808,15 @@ function Score(props) {
                                             src={`${baseURL}/apps/dota2/images/items/ward_dispenser_lg.png?t=1588708532600`} />
                                     </div> 
                                     )
-                                } else if( player.item_3 === 117){
+                                } else if(player.item_3 === 216){
+                                    return (
+                                        <div className='each-item-div'>
+                                        <img className='dota-item-picture'
+                                            alt='item'
+                                            src={`${baseURL}/apps/dota2/images/items/enchanted_mango_lg.png?t=1588708532600`} />
+                                    </div> 
+                                    )
+                                }else if( player.item_3 === 117){
                                     return (
                                         <div className='each-item-div'>
                                         <img className='dota-item-picture'
@@ -781,7 +861,15 @@ function Score(props) {
                                             src={`${baseURL}/apps/dota2/images/items/ward_dispenser_lg.png?t=1588708532600`} />
                                     </div> 
                                     )
-                                } else if( player.item_4 === 117){
+                                } else if(player.item_4 === 216){
+                                    return (
+                                        <div className='each-item-div'>
+                                        <img className='dota-item-picture'
+                                            alt='item'
+                                            src={`${baseURL}/apps/dota2/images/items/enchanted_mango_lg.png?t=1588708532600`} />
+                                    </div> 
+                                    )
+                                }else if( player.item_4 === 117){
                                     return (
                                         <div className='each-item-div'>
                                         <img className='dota-item-picture'
@@ -826,7 +914,15 @@ function Score(props) {
                                             src={`${baseURL}/apps/dota2/images/items/ward_dispenser_lg.png?t=1588708532600`} />
                                     </div> 
                                     )
-                                } else if( player.item_5 === 117){
+                                } else if(player.item_5 === 216){
+                                    return (
+                                        <div className='each-item-div'>
+                                        <img className='dota-item-picture'
+                                            alt='item'
+                                            src={`${baseURL}/apps/dota2/images/items/enchanted_mango_lg.png?t=1588708532600`} />
+                                    </div> 
+                                    )
+                                }else if( player.item_5 === 117){
                                     return (
                                         <div className='each-item-div'>
                                         <img className='dota-item-picture'
