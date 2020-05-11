@@ -6,6 +6,7 @@ const session = require('express-session')
 const postCtrl = require('./postController')
 const userCtrl = require('./userController')
 const proCtrl = require('./ProsController')
+const path = require('path')
 const {SERVER_PORT, CONNECTION_STRING, SESSION_SECRET} = process.env
 const app = express()
 app.use(express.json())
@@ -50,4 +51,7 @@ app.get('/user/me/pros/:user_id', proCtrl.getUsersProPlayers)
 app.post('/user/me/:pro_player_account_id', proCtrl.addProPlayer)
 app.delete('/user/me/:id', proCtrl.deletePro)
 
-
+app.use(express.static(__dirname + '/../build'))
+app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, '../build/index.html'))
+})
