@@ -13,6 +13,9 @@ const loadingGif = <div className='loading-gif'>
 </div>
 
 const baseURL = 'https://api.opendota.com'
+const noItemImg = <div className='each-item-div'>
+    <img className='no-img-pic' alt='N/A' src='https://748073e22e8db794416a-cc51ef6b37841580002827d4d94d19b6.ssl.cf3.rackcdn.com/not-found.png' />
+</div>
 
 //TODO: need to style loadingGif to be in center of screen. 
 
@@ -197,139 +200,167 @@ function Score(props) {
 
                 function timeForMinutes(num) {
                     const minutes = Math.floor(num / 60)
-                    return `${minutes} min`
+                    return `${minutes} m`
                 }
 
-                function getItemTime0() {
+                function getItem0() {
                     if (match.players) {
                         for (let i = 0; i < player.purchase_log.length; i++) {
                             for (let itemsKey in items) {
                                 if (player.purchase_log[i].key === itemsKey && items[itemsKey].id === player.item_0) {
-                                    console.log(timeForMinutes(player.purchase_log[i].time))
-                                    return timeForMinutes(player.purchase_log[i].time)
+                                    return (
+                                        <div className='each-item-div'>
+                                            <img className='dota-item-picture'
+                                                alt='item'
+                                                src={`${baseURL}${items[itemsKey].img}`} />
+                                            <p className='item-time'>{timeForMinutes(player.purchase_log[i].time)}</p>
+                                        </div>
+                                    )
+                                } else if (player.item_0 === 0) {
+                                    return noItemImg
                                 }
                             }
                         }
                     }
                 }
 
-                function getItemTime1(){
-                    if(match.players){
-                        for(let i = 0; i < player.purchase_log.length ; i++){
-                            for( let itemsKey in items ){
-                                if(player.purchase_log[i].key === itemsKey && items[itemsKey].id === player.item_1){
-                                    console.log(player.purchase_log[i])
-                                    return(timeForMinutes(player.purchase_log[i].time))
+
+                function getItem1() {
+                    if (match.players) {
+                        for (let i = 0; i < player.purchase_log.length; i++) {
+                            for (let itemsKey in items) {
+                                if (player.purchase_log[i].key === itemsKey && items[itemsKey].id === player.item_1) {
+                                    return (
+                                        <div className='each-item-div'>
+                                            <img className='dota-item-picture'
+                                                alt='item'
+                                                src={`${baseURL}${items[itemsKey].img}`} />
+                                            <p className='item-time'>{timeForMinutes(player.purchase_log[i].time)}</p>
+                                        </div>
+                                    )
+                                } else if (player.item_1 === 0) {
+                                    return noItemImg
                                 }
                             }
                         }
                     }
                 }
 
-                function getItemTime2(){
-                    if(match.players){
-                        for(let i = 0; i < player.purchase_log.length ; i++){
-                            for( let itemsKey in items){
-                                if(player.purchase_log[i].key === itemsKey && items[itemsKey].id === player.item_2){
-                                    return(timeForMinutes(player.purchase_log[i].time))
+
+                function getItem2() {
+                    if (match.players) {
+                        for (let i = 0; i < player.purchase_log.length; i++) {
+                            for (let itemsKey in items) {
+                                if (player.purchase_log[i].key === itemsKey && items[itemsKey].id === player.item_2) {
+                                    return (
+                                        <div className='each-item-div'>
+                                            <img className='dota-item-picture'
+                                                alt='item'
+                                                src={`${baseURL}${items[itemsKey].img}`} />
+                                            <p className='item-time'>{timeForMinutes(player.purchase_log[i].time)}</p>
+                                        </div>
+                                    )
+                                } else if (player.item_2 === 0) {
+                                    return noItemImg
                                 }
                             }
                         }
                     }
                 }
 
-                function getItemTime3(){
-                    if(match.players){
-                        for(let i = 0; i < player.purchase_log.length; i++){
-                            for( let itemsKey in items){
-                                if(player.purchase_log[i].key === itemsKey && items[itemsKey].id === player.item_3){
-                                    return(timeForMinutes(player.purchase_log[i].time))
+
+                function getItem3() {
+                    if (match.players) {
+                        for (let i = 0; i < player.purchase_log.length; i++) {
+                            for (let itemsKey in items) {
+                                if (player.purchase_log[i].key === itemsKey && items[itemsKey].id === player.item_3) {
+                                    return (
+                                        <div className='each-item-div'>
+                                            <img className='dota-item-picture'
+                                                alt='item'
+                                                src={`${baseURL}${items[itemsKey].img}`} />
+                                            <p className='item-time'>{timeForMinutes(player.purchase_log[i].time)}</p>
+                                        </div>
+                                    )
+                                } else if (player.item_3 === 0) {
+                                    return noItemImg
                                 }
                             }
                         }
                     }
                 }
 
-                function getItemTime4(){
-                    if(match.players){
-                        for(let i = 0; i < player.purchase_log.length; i++){
-                            for( let itemsKey in items){
-                                if(player.purchase_log[i].key === itemsKey && items[itemsKey].id === player.item_4){
-                                    return(timeForMinutes(player.purchase_log[i].time))
+                function getItem4() {
+                    if (match.players) {
+                        for (let i = 0; i < player.purchase_log.length; i++) {
+                            for (let itemsKey in items) {
+                                if (player.purchase_log[i].key === itemsKey && items[itemsKey].id === player.item_4) {
+                                    return (
+                                        <div className='each-item-div'>
+                                            <img className='dota-item-picture'
+                                                alt='item'
+                                                src={`${baseURL}${items[itemsKey].img}`} />
+                                            <p className='item-time'>{timeForMinutes(player.purchase_log[i].time)}</p>
+                                        </div>
+                                    )
+                                } else if (player.item_5 === 0) {
+                                    return noItemImg
                                 }
                             }
                         }
                     }
                 }
 
-                function getItemTime5(){
-                    if(match.players){
-                        for(let i = 0; i < player.purchase_log.length; i++){
-                            for( let itemsKey in items){
-                                if(player.purchase_log[i].key === itemsKey && items[itemsKey].id === player.item_5){
-                                    return(timeForMinutes(player.purchase_log[i].time))
+                function getItem5() {
+                    if (match.players) {
+                        for (let i = 0; i < player.purchase_log.length; i++) {
+                            for (let itemsKey in items) {
+                                if (player.purchase_log[i].key === itemsKey && items[itemsKey].id === player.item_5) {
+                                    return (
+                                        <div className='each-item-div'>
+                                            <img className='dota-item-picture'
+                                                alt='item'
+                                                src={`${baseURL}${items[itemsKey].img}`} />
+                                            <p className='item-time'>{timeForMinutes(player.purchase_log[i].time)}</p>
+                                        </div>
+                                    )
+                                } else if (player.item_5 === 0) {
+                                    return noItemImg
                                 }
                             }
                         }
                     }
                 }
 
-                // function getItemTime() {
-                //     let playerItems = []
+                function getNeutralItemPicture() {
+                    if (match.players) {
+                        for (let itemsKey in items) {
+                            if (items[itemsKey].id === player.
+                                item_neutral) {
+                                return `${baseURL}${items[itemsKey].img}`
+                            }
+                        }
+                    }
+                }
 
+
+                // function getItemPicture() {
+                //     let list = []
                 //     if (match.players) {
-                //         for (let i = 0; i < player.purchase_log.length; i++) {
-                //             for (let itemsKey in items) {
-                //                 if (player.purchase_log[i].key === itemsKey && items[itemsKey].id === player.item_0
-                //                     ||
-                //                     player.purchase_log[i].key === itemsKey && items[itemsKey].id === player.item_1
-                //                     ||
-                //                     player.purchase_log[i].key === itemsKey && items[itemsKey].id === player.item_2
-                //                     ||
-                //                     player.purchase_log[i].key === itemsKey && items[itemsKey].id === player.item_3
-                //                     ||
-                //                     player.purchase_log[i].key === itemsKey && items[itemsKey].id === player.item_4
-                //                     ||
-                //                     player.purchase_log[i].key === itemsKey && items[itemsKey].id === player.item_5) {
-                //                         console.log(timeForMinutes(player.purchase_log[i].time))
-                //                     return timeForMinutes(player.purchase_log[i].time)
+                //         for (let key in items) {
+                //             if (items[key].id === player.item_0 || items[key].id === player.item_1 || items[key].id === player.item_2 || items[key].id === player.item_3 || items[key].id === player.item_4 || items[key].id === player.item_5) {
 
-                //                 }
-                //                 for (let i = 0; i < playerItems.length; i++) {
-                //                     if (playerItems[i].key === "ward_sentry" ||
-                //                         playerItems[i].key === "ward_observer" ||
-                //                         playerItems[i].key === "dust") {
-                //                             playerItems.splice([i], 1)
-                //                             console.log('GEGEGE', playerItems)
-                //                     } if (playerItems[i].key = itemsKey) {
-
-                //                     }
-                //                 }
+                //                 list.push(items[key])
                 //             }
                 //         }
                 //     }
-                //     return playerItems
+                //     return list
                 // }
 
 
-                function getItemPicture() {
-                    let list = []
-                    if (match.players) {
-                        for (let key in items) {
-                            if (items[key].id === player.item_0 || items[key].id === player.item_1 || items[key].id === player.item_2 || items[key].id === player.item_3 || items[key].id === player.item_4 || items[key].id === player.item_5) {
 
-                                list.push(items[key])
-                            }
-                        }
-                    }
-                    return list
-                }
+                // let item = getItemPicture()     //! DONT DELETE    
 
-
-
-                let item = getItemPicture()     //! DONT DELETE    
-
-                // console.log(`${player.name}'s:`, item)
 
 
                 if (player.player_slot <= 6) {
@@ -362,43 +393,16 @@ function Score(props) {
                             </div>
                         </div>
                         {loading ? null : <div className='dota-items'>
-                            {item[0] ? <div className='each-item-div'>
-                                <img className='dota-item-picture'
-                                    alt='item'
-                                    src={`${baseURL}${item[0].img}`} />
-                                {console.log(item[0].img)}
-                                <p className='item-time'>{getItemTime0()}</p>
-                            </div> : null}
-                            {item[1] ? <div className='each-item-div'>
-                                <img className='dota-item-picture'
-                                    alt='item'
-                                    src={`${baseURL}${item[1].img}`} />
-                                <p className='item-time'>{getItemTime1()}</p>
-                            </div> : null}
-                            {item[2] ? <div className='each-item-div'>
-                                <img className='dota-item-picture'
-                                    alt='item'
-                                    src={`${baseURL}${item[2].img}`} />
-                                <p className='item-time'>{getItemTime2()}</p>
-                            </div> : null}
-                            {item[3] ? <div className='each-item-div'>
-                                <img className='dota-item-picture'
-                                    alt='item'
-                                    src={`${baseURL}${item[3].img}`} />
-                                <p className='item-time'>{getItemTime3()}</p>
-                            </div> : null}
-                            {item[4] ? <div className='each-item-div'>
-                                <img className='dota-item-picture'
-                                    alt='item'
-                                    src={`${baseURL}${item[4].img}`} />
-                                <p className='item-time'>{getItemTime4()}</p>
-                            </div> : null}
-                            {item[5] ? <div className='each-item-div'>
-                                <img className='dota-item-picture'
-                                    alt='item'
-                                    src={`${baseURL}${item[5].img}`} />
-                                    <p className='item-time'>{getItemTime5()}</p>
-                            </div> : null}
+                            {getItem0()}
+                            {getItem1()}
+                            {getItem2()}
+                            {getItem3()}
+                            {getItem4()}
+                            {getItem5()}
+                            {getNeutralItemPicture() ?
+                                <img className='neut-item'
+                                    alt='neut item pic'
+                                    src={getNeutralItemPicture()} /> : null}
                         </div>}
 
                     </div>
@@ -426,90 +430,146 @@ function Score(props) {
 
                 function timeForMinutes(num) {
                     const minutes = Math.floor(num / 60)
-                    return `${minutes} min`
+                    return `${minutes} m`
                 }
 
-                function getItemTime0() {
+                function getItem0() {
                     if (match.players) {
                         for (let i = 0; i < player.purchase_log.length; i++) {
                             for (let itemsKey in items) {
                                 if (player.purchase_log[i].key === itemsKey && items[itemsKey].id === player.item_0) {
-                                    console.log(timeForMinutes(player.purchase_log[i].time))
-                                    return timeForMinutes(player.purchase_log[i].time)
+                                    return (
+                                        <div className='each-item-div'>
+                                            <img className='dota-item-picture'
+                                                alt='item'
+                                                src={`${baseURL}${items[itemsKey].img}`} />
+                                            <p className='item-time'>{timeForMinutes(player.purchase_log[i].time)}</p>
+                                        </div>
+                                    )
+                                } else if (player.item_0 === 0) {
+                                    return noItemImg
                                 }
                             }
                         }
                     }
                 }
 
-                function getItemTime1(){
-                    if(match.players){
-                        for(let i = 0; i < player.purchase_log.length ; i++){
-                            for( let itemsKey in items ){
-                                if(player.purchase_log[i].key === itemsKey && items[itemsKey].id === player.item_1){
-                                    console.log(player.purchase_log[i])
-                                    return(timeForMinutes(player.purchase_log[i].time))
+
+                function getItem1() {
+                    if (match.players) {
+                        for (let i = 0; i < player.purchase_log.length; i++) {
+                            for (let itemsKey in items) {
+                                if (player.purchase_log[i].key === itemsKey && items[itemsKey].id === player.item_1) {
+                                    return (
+                                        <div className='each-item-div'>
+                                            <img className='dota-item-picture'
+                                                alt='item'
+                                                src={`${baseURL}${items[itemsKey].img}`} />
+                                            <p className='item-time'>{timeForMinutes(player.purchase_log[i].time)}</p>
+                                        </div>
+                                    )
+                                } else if (player.item_1 === 0) {
+                                    return noItemImg
                                 }
                             }
                         }
                     }
                 }
 
-                function getItemTime2(){
-                    if(match.players){
-                        for(let i = 0; i < player.purchase_log.length ; i++){
-                            for( let itemsKey in items){
-                                if(player.purchase_log[i].key === itemsKey && items[itemsKey].id === player.item_2){
-                                    return(timeForMinutes(player.purchase_log[i].time))
+
+                function getItem2() {
+                    if (match.players) {
+                        for (let i = 0; i < player.purchase_log.length; i++) {
+                            for (let itemsKey in items) {
+                                if (player.purchase_log[i].key === itemsKey && items[itemsKey].id === player.item_2) {
+                                    return (
+                                        <div className='each-item-div'>
+                                            <img className='dota-item-picture'
+                                                alt='item'
+                                                src={`${baseURL}${items[itemsKey].img}`} />
+                                            <p className='item-time'>{timeForMinutes(player.purchase_log[i].time)}</p>
+                                        </div>
+                                    )
+                                } else if (player.item_2 === 0) {
+                                    return noItemImg
                                 }
                             }
                         }
                     }
                 }
 
-                function getItemTime3(){
-                    if(match.players){
-                        for(let i = 0; i < player.purchase_log.length; i++){
-                            for( let itemsKey in items){
-                                if(player.purchase_log[i].key === itemsKey && items[itemsKey].id === player.item_3){
-                                    return(timeForMinutes(player.purchase_log[i].time))
+
+                function getItem3() {
+                    if (match.players) {
+                        for (let i = 0; i < player.purchase_log.length; i++) {
+                            for (let itemsKey in items) {
+                                if (player.purchase_log[i].key === itemsKey && items[itemsKey].id === player.item_3) {
+                                    console.log('item 3', `${baseURL}${items[itemsKey].img}`)
+                                    return (
+                                        <div className='each-item-div'>
+                                            <img className='dota-item-picture'
+                                                alt='item'
+                                                src={`${baseURL}${items[itemsKey].img}`} />
+                                            <p className='item-time'>{timeForMinutes(player.purchase_log[i].time)}</p>
+                                        </div>
+                                    )
+                                }  else if (player.item_3 === 0) {
+                                    return noItemImg
                                 }
                             }
                         }
                     }
                 }
 
-                function getItemTime4(){
-                    if(match.players){
-                        for(let i = 0; i < player.purchase_log.length; i++){
-                            for( let itemsKey in items){
-                                if(player.purchase_log[i].key === itemsKey && items[itemsKey].id === player.item_4){
-                                    return(timeForMinutes(player.purchase_log[i].time))
+                function getItem4() {
+                    if (match.players) {
+                        for (let i = 0; i < player.purchase_log.length; i++) {
+                            for (let itemsKey in items) {
+                                if (player.purchase_log[i].key === itemsKey && items[itemsKey].id === player.item_4) {
+                                    return (
+                                        <div className='each-item-div'>
+                                            <img className='dota-item-picture'
+                                                alt='item'
+                                                src={`${baseURL}${items[itemsKey].img}`} />
+                                            <p className='item-time'>{timeForMinutes(player.purchase_log[i].time)}</p>
+                                        </div>
+                                    )
+                                } else if (player.item_4 === 0) {
+                                    return noItemImg
                                 }
                             }
                         }
                     }
                 }
 
-                function getItemTime5(){
-                    if(match.players){
-                        for(let i = 0; i < player.purchase_log.length; i++){
-                            for( let itemsKey in items){
-                                if(player.purchase_log[i].key === itemsKey && items[itemsKey].id === player.item_5){
-                                    return(timeForMinutes(player.purchase_log[i].time))
+                function getItem5() {
+                    if (match.players) {
+                        for (let i = 0; i < player.purchase_log.length; i++) {
+                            for (let itemsKey in items) {
+                                if (player.purchase_log[i].key === itemsKey && items[itemsKey].id === player.item_5) {
+                                    return (
+                                        <div className='each-item-div'>
+                                            <img className='dota-item-picture'
+                                                alt='item'
+                                                src={`${baseURL}${items[itemsKey].img}`} />
+                                            <p className='item-time'>{timeForMinutes(player.purchase_log[i].time)}</p>
+                                        </div>
+                                    )
+                                } else if (player.item_5 === 0) {
+                                    return noItemImg
                                 }
                             }
                         }
                     }
                 }
 
-                function getNeutralItemPicture(){
-                    if(match.players){
-                        for(let itemsKey in items){
+                function getNeutralItemPicture() {
+                    if (match.players) {
+                        for (let itemsKey in items) {
                             if (items[itemsKey].id === player.
-                                item_neutral){
-                                    return `${baseURL}${items[itemsKey].img}`
-                                }
+                                item_neutral) {
+                                return `${baseURL}${items[itemsKey].img}`
+                            }
                         }
                     }
                 }
@@ -558,46 +618,16 @@ function Score(props) {
                             </div>
                         </div>
                         {loading ? null : <div className='dota-items'>
-                        {item[0] ? <div className='each-item-div'>
-                                <img className='dota-item-picture'
-                                    alt='item'
-                                    src={`${baseURL}${item[0].img}`} />
-                                {console.log(item[0].img)}
-                                <p className='item-time'>{getItemTime0()}</p>
-                            </div> : null}
-                            {item[1] ? <div className='each-item-div'>
-                                <img className='dota-item-picture'
-                                    alt='item'
-                                    src={`${baseURL}${item[1].img}`} />
-                                <p className='item-time'>{getItemTime1()}</p>
-                            </div> : null}
-                            {item[2] ? <div className='each-item-div'>
-                                <img className='dota-item-picture'
-                                    alt='item'
-                                    src={`${baseURL}${item[2].img}`} />
-                                <p className='item-time'>{getItemTime2()}</p>
-                            </div> : null}
-                            {item[3] ? <div className='each-item-div'>
-                                <img className='dota-item-picture'
-                                    alt='item'
-                                    src={`${baseURL}${item[3].img}`} />
-                                <p className='item-time'>{getItemTime3()}</p>
-                            </div> : null}
-                            {item[4] ? <div className='each-item-div'>
-                                <img className='dota-item-picture'
-                                    alt='item'
-                                    src={`${baseURL}${item[4].img}`} />
-                                <p className='item-time'>{getItemTime4()}</p>
-                            </div> : null}
-                            {item[5] ? <div className='each-item-div'>
-                                <img className='dota-item-picture'
-                                    alt='item'
-                                    src={`${baseURL}${item[5].img}`} />
-                                    <p className='item-time'>{getItemTime5()}</p>
-                            </div> : null}
-                        <img className='neut-item'
-                            alt='neut item pic'
-                            src={getNeutralItemPicture()}/>
+                            {getItem0()}
+                            {getItem1()}
+                            {getItem2()}
+                            {getItem3()}
+                            {getItem4()}
+                            {getItem5()}
+                            {getNeutralItemPicture() ?
+                                <img className='neut-item'
+                                    alt='neut item pic'
+                                    src={getNeutralItemPicture()} /> : null}
                         </div>}
                     </div>
                 }
@@ -683,9 +713,8 @@ function Score(props) {
                         }
                     }} />
             </div>
-            {/* <Comments props={props} /> */}
+            {noItemImg}
             {loading === true ? null : <Comments props={props} />}
-            {/* <p>{getItemTime()}</p> */}
         </div>
     )
 }

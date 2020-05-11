@@ -60,6 +60,8 @@ function Landing(props) {
     //       !!!!!!!        MAP STARTS HERE        !!!!!!!!!!
 
     const proPlayers = pros.map(pro => {
+
+
         const handleAddPro = () => {
             axios
                 .post(`/user/me/${pro.pro_player_id}`)
@@ -68,12 +70,14 @@ function Landing(props) {
                     title: 'Success!',
                     text: `${pro.name} has successfully been added to your pool!`,
                     icon: 'success',
-                    button: 'add more?'
+                    button: 'OK'
                 })
                 // displayCheckmark()
                 )
                 .catch(err => console.log(err))
         }
+
+
         return <div className='pro-container'>
 
             <Link to={`/recent-matches/${pro.steam_account_id}`}>
