@@ -22,6 +22,8 @@ function Header(props) {
             .delete('/user/logout')
             .then(() => props.logoutUser())
     }
+
+    
     return (
         <div className='header-main'>
             <Link to='/'>

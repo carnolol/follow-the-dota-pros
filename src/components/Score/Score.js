@@ -216,7 +216,31 @@ function Score(props) {
                                             <p className='item-time'>{timeForMinutes(player.purchase_log[i].time)}</p>
                                         </div>
                                     )
-                                } else if (player.item_0 === 0) {
+                                } else if(player.item_0 === 218){
+                                    return(
+                                        <div className='each-item-div'>
+                                        <img className='dota-item-picture'
+                                            alt='item'
+                                            src={`${baseURL}/apps/dota2/images/items/ward_dispenser_lg.png?t=1588708532600`} />
+                                    </div> 
+                                    )
+                                } else if( player.item_0 === 117){
+                                    return (
+                                        <div className='each-item-div'>
+                                        <img className='dota-item-picture'
+                                            alt='item'
+                                            src={`${baseURL}/apps/dota2/images/items/aegis_lg.png?t=1588708532600`} />
+                                    </div> 
+                                    )
+                                } else if(player.item_0 === 33){
+                                    return (
+                                        <div className='each-item-div'>
+                                        <img className='dota-item-picture'
+                                            alt='item'
+                                            src={`${baseURL}/apps/dota2/images/items/cheese_lg.png?t=1588708532600`} />
+                                    </div> 
+                                    )
+                                }else if (player.item_0 === 0) {
                                     return noItemImg
                                 }
                             }
@@ -238,7 +262,31 @@ function Score(props) {
                                             <p className='item-time'>{timeForMinutes(player.purchase_log[i].time)}</p>
                                         </div>
                                     )
-                                } else if (player.item_1 === 0) {
+                                } else if(player.item_1 === 218){
+                                    return(
+                                        <div className='each-item-div'>
+                                        <img className='dota-item-picture'
+                                            alt='item'
+                                            src={`${baseURL}/apps/dota2/images/items/ward_dispenser_lg.png?t=1588708532600`} />
+                                    </div> 
+                                    )
+                                } else if( player.item_1 === 117){
+                                    return (
+                                        <div className='each-item-div'>
+                                        <img className='dota-item-picture'
+                                            alt='item'
+                                            src={`${baseURL}/apps/dota2/images/items/aegis_lg.png?t=1588708532600`} />
+                                    </div> 
+                                    )
+                                } else if(player.item_1 === 33){
+                                    return (
+                                        <div className='each-item-div'>
+                                        <img className='dota-item-picture'
+                                            alt='item'
+                                            src={`${baseURL}/apps/dota2/images/items/cheese_lg.png?t=1588708532600`} />
+                                    </div> 
+                                    )
+                                }else if (player.item_1 === 0) {
                                     return noItemImg
                                 }
                             }
@@ -260,7 +308,31 @@ function Score(props) {
                                             <p className='item-time'>{timeForMinutes(player.purchase_log[i].time)}</p>
                                         </div>
                                     )
-                                } else if (player.item_2 === 0) {
+                                } else if(player.item_2 === 218){
+                                    return(
+                                        <div className='each-item-div'>
+                                        <img className='dota-item-picture'
+                                            alt='item'
+                                            src={`${baseURL}/apps/dota2/images/items/ward_dispenser_lg.png?t=1588708532600`} />
+                                    </div> 
+                                    )
+                                } else if( player.item_2 === 117){
+                                    return (
+                                        <div className='each-item-div'>
+                                        <img className='dota-item-picture'
+                                            alt='item'
+                                            src={`${baseURL}/apps/dota2/images/items/aegis_lg.png?t=1588708532600`} />
+                                    </div> 
+                                    )
+                                } else if(player.item_2 === 33){
+                                    return (
+                                        <div className='each-item-div'>
+                                        <img className='dota-item-picture'
+                                            alt='item'
+                                            src={`${baseURL}/apps/dota2/images/items/cheese_lg.png?t=1588708532600`} />
+                                    </div> 
+                                    )
+                                }else if (player.item_2 === 0) {
                                     return noItemImg
                                 }
                             }
@@ -327,7 +399,31 @@ function Score(props) {
                                             <p className='item-time'>{timeForMinutes(player.purchase_log[i].time)}</p>
                                         </div>
                                     )
-                                } else if (player.item_4 === 0) {
+                                } else if(player.item_4 === 218){
+                                    return(
+                                        <div className='each-item-div'>
+                                        <img className='dota-item-picture'
+                                            alt='item'
+                                            src={`${baseURL}/apps/dota2/images/items/ward_dispenser_lg.png?t=1588708532600`} />
+                                    </div> 
+                                    )
+                                } else if( player.item_4 === 117){
+                                    return (
+                                        <div className='each-item-div'>
+                                        <img className='dota-item-picture'
+                                            alt='item'
+                                            src={`${baseURL}/apps/dota2/images/items/aegis_lg.png?t=1588708532600`} />
+                                    </div> 
+                                    )
+                                } else if(player.item_4 === 33){
+                                    return (
+                                        <div className='each-item-div'>
+                                        <img className='dota-item-picture'
+                                            alt='item'
+                                            src={`${baseURL}/apps/dota2/images/items/cheese_lg.png?t=1588708532600`} />
+                                    </div> 
+                                    )
+                                }else if (player.item_4 === 0) {
                                     return noItemImg
                                 }
                             }
@@ -348,7 +444,31 @@ function Score(props) {
                                             <p className='item-time'>{timeForMinutes(player.purchase_log[i].time)}</p>
                                         </div>
                                     )
-                                } else if (player.item_5 === 0) {
+                                } else if(player.item_5 === 218){
+                                    return(
+                                        <div className='each-item-div'>
+                                        <img className='dota-item-picture'
+                                            alt='item'
+                                            src={`${baseURL}/apps/dota2/images/items/ward_dispenser_lg.png?t=1588708532600`} />
+                                    </div> 
+                                    )
+                                } else if( player.item_5 === 117){
+                                    return (
+                                        <div className='each-item-div'>
+                                        <img className='dota-item-picture'
+                                            alt='item'
+                                            src={`${baseURL}/apps/dota2/images/items/aegis_lg.png?t=1588708532600`} />
+                                    </div> 
+                                    )
+                                } else if(player.item_5 === 33){
+                                    return (
+                                        <div className='each-item-div'>
+                                        <img className='dota-item-picture'
+                                            alt='item'
+                                            src={`${baseURL}/apps/dota2/images/items/cheese_lg.png?t=1588708532600`} />
+                                    </div> 
+                                    )
+                                }else if (player.item_5 === 0) {
                                     return noItemImg
                                 }
                             }
@@ -470,7 +590,31 @@ function Score(props) {
                                             <p className='item-time'>{timeForMinutes(player.purchase_log[i].time)}</p>
                                         </div>
                                     )
-                                } else if (player.item_0 === 0) {
+                                } else if(player.item_0 === 218){
+                                    return(
+                                        <div className='each-item-div'>
+                                        <img className='dota-item-picture'
+                                            alt='item'
+                                            src={`${baseURL}/apps/dota2/images/items/ward_dispenser_lg.png?t=1588708532600`} />
+                                    </div> 
+                                    )
+                                } else if( player.item_0 === 117){
+                                    return (
+                                        <div className='each-item-div'>
+                                        <img className='dota-item-picture'
+                                            alt='item'
+                                            src={`${baseURL}/apps/dota2/images/items/aegis_lg.png?t=1588708532600`} />
+                                    </div> 
+                                    )
+                                } else if(player.item_0 === 33){
+                                    return (
+                                        <div className='each-item-div'>
+                                        <img className='dota-item-picture'
+                                            alt='item'
+                                            src={`${baseURL}/apps/dota2/images/items/cheese_lg.png?t=1588708532600`} />
+                                    </div> 
+                                    )
+                                }else if (player.item_0 === 0) {
                                     return noItemImg
                                 }
                             }
@@ -492,7 +636,31 @@ function Score(props) {
                                             <p className='item-time'>{timeForMinutes(player.purchase_log[i].time)}</p>
                                         </div>
                                     )
-                                } else if (player.item_1 === 0) {
+                                } else if(player.item_1 === 218){
+                                    return(
+                                        <div className='each-item-div'>
+                                        <img className='dota-item-picture'
+                                            alt='item'
+                                            src={`${baseURL}/apps/dota2/images/items/ward_dispenser_lg.png?t=1588708532600`} />
+                                    </div> 
+                                    )
+                                } else if( player.item_1 === 117){
+                                    return (
+                                        <div className='each-item-div'>
+                                        <img className='dota-item-picture'
+                                            alt='item'
+                                            src={`${baseURL}/apps/dota2/images/items/aegis_lg.png?t=1588708532600`} />
+                                    </div> 
+                                    )
+                                } else if(player.item_1 === 33){
+                                    return (
+                                        <div className='each-item-div'>
+                                        <img className='dota-item-picture'
+                                            alt='item'
+                                            src={`${baseURL}/apps/dota2/images/items/cheese_lg.png?t=1588708532600`} />
+                                    </div> 
+                                    )
+                                }else if (player.item_1 === 0) {
                                     return noItemImg
                                 }
                             }
@@ -514,7 +682,31 @@ function Score(props) {
                                             <p className='item-time'>{timeForMinutes(player.purchase_log[i].time)}</p>
                                         </div>
                                     )
-                                } else if (player.item_2 === 0) {
+                                } else if(player.item_2 === 218){
+                                    return(
+                                        <div className='each-item-div'>
+                                        <img className='dota-item-picture'
+                                            alt='item'
+                                            src={`${baseURL}/apps/dota2/images/items/ward_dispenser_lg.png?t=1588708532600`} />
+                                    </div> 
+                                    )
+                                } else if( player.item_2 === 117){
+                                    return (
+                                        <div className='each-item-div'>
+                                        <img className='dota-item-picture'
+                                            alt='item'
+                                            src={`${baseURL}/apps/dota2/images/items/aegis_lg.png?t=1588708532600`} />
+                                    </div> 
+                                    )
+                                } else if(player.item_2 === 33){
+                                    return (
+                                        <div className='each-item-div'>
+                                        <img className='dota-item-picture'
+                                            alt='item'
+                                            src={`${baseURL}/apps/dota2/images/items/cheese_lg.png?t=1588708532600`} />
+                                    </div> 
+                                    )
+                                }else if (player.item_2 === 0) {
                                     return noItemImg
                                 }
                             }
@@ -537,7 +729,31 @@ function Score(props) {
                                             <p className='item-time'>{timeForMinutes(player.purchase_log[i].time)}</p>
                                         </div>
                                     )
-                                }  else if (player.item_3 === 0) {
+                                }  else if(player.item_3 === 218){
+                                    return(
+                                        <div className='each-item-div'>
+                                        <img className='dota-item-picture'
+                                            alt='item'
+                                            src={`${baseURL}/apps/dota2/images/items/ward_dispenser_lg.png?t=1588708532600`} />
+                                    </div> 
+                                    )
+                                } else if( player.item_3 === 117){
+                                    return (
+                                        <div className='each-item-div'>
+                                        <img className='dota-item-picture'
+                                            alt='item'
+                                            src={`${baseURL}/apps/dota2/images/items/aegis_lg.png?t=1588708532600`} />
+                                    </div> 
+                                    )
+                                } else if(player.item_3 === 33){
+                                    return (
+                                        <div className='each-item-div'>
+                                        <img className='dota-item-picture'
+                                            alt='item'
+                                            src={`${baseURL}/apps/dota2/images/items/cheese_lg.png?t=1588708532600`} />
+                                    </div> 
+                                    )
+                                }else if (player.item_3 === 0) {
                                     return noItemImg
                                 }
                             }
@@ -558,7 +774,31 @@ function Score(props) {
                                             <p className='item-time'>{timeForMinutes(player.purchase_log[i].time)}</p>
                                         </div>
                                     )
-                                } else if (player.item_4 === 0) {
+                                } else if(player.item_4 === 218){
+                                    return(
+                                        <div className='each-item-div'>
+                                        <img className='dota-item-picture'
+                                            alt='item'
+                                            src={`${baseURL}/apps/dota2/images/items/ward_dispenser_lg.png?t=1588708532600`} />
+                                    </div> 
+                                    )
+                                } else if( player.item_4 === 117){
+                                    return (
+                                        <div className='each-item-div'>
+                                        <img className='dota-item-picture'
+                                            alt='item'
+                                            src={`${baseURL}/apps/dota2/images/items/aegis_lg.png?t=1588708532600`} />
+                                    </div> 
+                                    )
+                                } else if(player.item_4 === 33){
+                                    return (
+                                        <div className='each-item-div'>
+                                        <img className='dota-item-picture'
+                                            alt='item'
+                                            src={`${baseURL}/apps/dota2/images/items/cheese_lg.png?t=1588708532600`} />
+                                    </div> 
+                                    )
+                                }else if (player.item_4 === 0) {
                                     return noItemImg
                                 }
                             }
@@ -579,7 +819,31 @@ function Score(props) {
                                             <p className='item-time'>{timeForMinutes(player.purchase_log[i].time)}</p>
                                         </div>
                                     )
-                                } else if (player.item_5 === 0) {
+                                } else if(player.item_5 === 218){
+                                    return(
+                                        <div className='each-item-div'>
+                                        <img className='dota-item-picture'
+                                            alt='item'
+                                            src={`${baseURL}/apps/dota2/images/items/ward_dispenser_lg.png?t=1588708532600`} />
+                                    </div> 
+                                    )
+                                } else if( player.item_5 === 117){
+                                    return (
+                                        <div className='each-item-div'>
+                                        <img className='dota-item-picture'
+                                            alt='item'
+                                            src={`${baseURL}/apps/dota2/images/items/aegis_lg.png?t=1588708532600`} />
+                                    </div> 
+                                    )
+                                } else if(player.item_5 === 33){
+                                    return (
+                                        <div className='each-item-div'>
+                                        <img className='dota-item-picture'
+                                            alt='item'
+                                            src={`${baseURL}/apps/dota2/images/items/cheese_lg.png?t=1588708532600`} />
+                                    </div> 
+                                    )
+                                }else if (player.item_5 === 0) {
                                     return noItemImg
                                 }
                             }
