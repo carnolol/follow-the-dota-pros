@@ -5,19 +5,18 @@ import './Score.css'
 import Comments from '../comments/Comments'
 import moment from 'moment'
 
-const loadingGif = <div className='loading-gif'>
-    <h1>One moment while we fetch some data...</h1>
-    <img src='https://miro.medium.com/max/1600/1*CsJ05WEGfunYMLGfsT2sXA.gif'
-        alt='loading'
-        className='loading-gif' />
-</div>
+// const loadingGif = <div className='loading-gif'>
+//     <h1>One moment while we fetch some data...</h1>
+//     <img src='https://miro.medium.com/max/1600/1*CsJ05WEGfunYMLGfsT2sXA.gif'
+//         alt='loading'
+//         className='loading-gif' />
+// </div>
 
 const baseURL = 'https://api.opendota.com'
 const noItemImg = <div className='each-item-div'>
     <img className='no-img-pic' alt='N/A' src='https://748073e22e8db794416a-cc51ef6b37841580002827d4d94d19b6.ssl.cf3.rackcdn.com/not-found.png' />
 </div>
 
-//TODO: need to style loadingGif to be in center of screen. 
 
 function Score(props) {
 
@@ -862,20 +861,20 @@ function Score(props) {
                     }
                 }
 
-                function getItemPicture() {
-                    let list = []
-                    if (match.players) {
-                        for (let key in items) {
-                            if (items[key].id === player.item_0 || items[key].id === player.item_1 || items[key].id === player.item_2 || items[key].id === player.item_3 || items[key].id === player.item_4 || items[key].id === player.item_5) {
+                // function getItemPicture() {
+                //     let list = []
+                //     if (match.players) {
+                //         for (let key in items) {
+                //             if (items[key].id === player.item_0 || items[key].id === player.item_1 || items[key].id === player.item_2 || items[key].id === player.item_3 || items[key].id === player.item_4 || items[key].id === player.item_5) {
 
-                                list.push(items[key])
-                            }
-                        }
-                    }
-                    return list
-                }
+                //                 list.push(items[key])
+                //             }
+                //         }
+                //     }
+                //     return list
+                // }
 
-                let item = getItemPicture()     //! DONT DELETE           
+                // let item = getItemPicture()     //! DONT DELETE           
 
                 if (player.player_slot >= 125) {
                     return <div className='score-match-container-dire'>
@@ -1001,7 +1000,6 @@ function Score(props) {
                         }
                     }} />
             </div>
-            {noItemImg}
             {loading === true ? null : <Comments props={props} />}
         </div>
     )
