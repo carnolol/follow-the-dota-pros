@@ -791,7 +791,6 @@ function Score(props) {
                         for (let i = 0; i < player.purchase_log.length; i++) {
                             for (let itemsKey in items) {
                                 if (player.purchase_log[i].key === itemsKey && items[itemsKey].id === player.item_3) {
-                                    console.log('item 3', `${baseURL}${items[itemsKey].img}`)
                                     return (
                                         <div className='each-item-div'>
                                             <img className='dota-item-picture'
