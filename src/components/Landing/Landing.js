@@ -90,7 +90,7 @@ function Landing(props) {
                 <h3>{pro.name}</h3>
                 <br />
                 <p>Career winnings:</p>
-                <p className='winnings'>${pro.winnings}</p>
+                <h3 className='winnings'>${pro.winnings}</h3>
             </div>
             <img className='landing-add-player'
                 alt='add button'

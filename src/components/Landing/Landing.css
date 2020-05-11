@@ -8,6 +8,7 @@
 }
 
 .search-input{
+    /* cursor: pointer; */
     padding: 12px;
     width: 65vw;
     border-radius: 5px;
@@ -31,6 +32,7 @@
     background: transparent;
     height: 6vh;
     width: 8vw;
+    cursor: pointer;
     border-radius: 5px;
     box-shadow: 2px 2px 4px gray;
     margin-left: 2vw;
@@ -48,10 +50,11 @@
 
 .landing-h2{
     background-color: #577399;
-    width: 90vw;
-    padding: 10px;
+    width: 85vw;
+    padding: 25px;
     color: white;
     margin-bottom: 1vh;
+    /* font-size: 1.65rem; */
     box-shadow: 0 0 10px black;
     border-radius: 10px;
     font-weight: bold;
@@ -59,14 +62,15 @@
 }
 
 .pro-container{
+    position: relative;
     overflow: hidden;
     margin-top: 2vh;
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
     border-radius: 20px;
     box-shadow: 2px 3px 15px black;
-    height: 17vh;
+    height: 19vh;
     /* padding-right: 6vw; */
     width: 90vw;
     background-color: #F7F7FF;
@@ -78,6 +82,8 @@ h3{
 
 .name-and-winnings{
     display: flex;
+
+    padding-left: 32vw;
     flex-direction: column;
     /* padding-left: 5%; */
 }
@@ -85,27 +91,37 @@ h3{
 .winnings{
     color: rgb(6, 107, 11);
     font-weight: bold;
+    text-shadow: 1px 1px 10px rgb(128, 128, 128);
     font-size: 1.5rem;
 }
 
 .landing-add-player{
     height: 25px;
     width: 25px;
-    margin-right: 2%;
-    margin-bottom: 23%;
+    top: 15px;
+    right: 15px;
+    box-shadow: 0 0 5px gray;
+    position: absolute;
     background-color: #FE7569;
     border-radius: 50%;
+    cursor: pointer;
+}
 
-    /* padding-bottom: 5vh; */
-    /* border: 2px solid black; */
-    /* padding-bottom: 25%; */
-    /* margin-left: 2%; */
-    /* z-index: 5; */
+.landing-add-player:hover{
+    background-color: rgb(11, 78, 40, .75);
+    box-shadow: 0 0 10px black;
+}
+
+button{
+    cursor: pointer;
 }
 
 .pro-picture{
+    position: absolute;
+    left: 0;
+    top: 0;
     box-shadow: 2px 0 10px black;
     margin-right: .5vw;
-    height:17.5vh;
+    height:19.5vh;
     width: 38vw;
 }

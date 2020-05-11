@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 import './Header.css'
 import { connect } from 'react-redux'
@@ -8,6 +8,8 @@ import { Link } from 'react-router-dom'
 const logo = 'https://pbs.twimg.com/profile_images/1148484652358746112/UdJALHjZ_400x400.png'
 
 function Header(props) {
+
+    const [menu, setMenu] = useState(false)
 
     useEffect((props) => {
         axios
@@ -23,7 +25,7 @@ function Header(props) {
             .then(() => props.logoutUser())
     }
 
-    
+
     return (
         <div className='header-main'>
             <Link to='/'>
@@ -32,18 +34,22 @@ function Header(props) {
                     src={logo} />
             </Link>
             <h1 className='header-h1'>Dota Pros</h1>
-            {props.isLoggedIn === true ? <div className='login-info'>
-                <Link to='/myProfile'>
-                    <img className='profile-header-pic'
-                        alt='prof'
-                        src={props.profile_pic} />
-                </Link>
-                <p className='header-username'>{props.username}</p>
-                <button className='logout-button'
-                    onClick={() => handleLogout()}>Logout</button>
-            </div> : <Link to='/login'>
-                    <button className='header-button'>Sign in!</button>
-                </Link>}
+            {props.isLoggedIn === true ? (
+                <div className='login-info'>
+                    <Link to='/myProfile'>
+                        <img className='profile-header-pic'
+                            alt='prof'
+                            src={props.profile_pic} />
+                    </Link>
+                    <p className='header-username'>{props.username}</p>
+                    <button className='logout-button'
+                        onClick={() => handleLogout()}>Logout</button>
+                </div>
+            ) : (
+                    <Link to='/login'>
+                        <button className='header-button'>Sign in!</button>
+                    </Link>
+                )}
         </div>
     )
 }
