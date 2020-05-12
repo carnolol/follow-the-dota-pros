@@ -18,10 +18,34 @@
     box-shadow: 0 0 9px white;
 }
 
+@media(min-width: 600px){
+    .header-logo{
+        height: 11vh;
+        width: 18vw;
+    }
+    .profile-header-pic{
+        height: 12vh;
+        width: 90px;
+    }
+}
+
+@media(min-width: 900px){
+    .header-logo{
+        width: 100px;
+    }
+    .header-h1{
+        font-size: 55px;
+    }
+    .profile-header-pic{
+        height: 15vh;
+    }
+}
+
+
 .header-h1{
     color: white;
     text-shadow: 4px 6px 6px black;
-    font-size: 2rem;
+    /* font-size: 2rem; */
 }
 
 .login-info{

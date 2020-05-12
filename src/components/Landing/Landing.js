@@ -9,9 +9,8 @@ import './Landing.css'
 const loadingImg = 'https://miro.medium.com/max/1600/1*CsJ05WEGfunYMLGfsT2sXA.gif'
 const glass = 'https://i.etsystatic.com/17857814/r/il/1e14b2/1578632427/il_570xN.1578632427_i01w.jpg'
 const add = 'https://cdn2.iconfinder.com/data/icons/everything-but-the-kitchen-sink-2/100/common-06-512.png'
-const checkmark = 'https://i.pinimg.com/originals/70/a5/52/70a552e8e955049c8587b2d7606cd6a6.gif'
+// const checkmark = 'https://i.pinimg.com/originals/70/a5/52/70a552e8e955049c8587b2d7606cd6a6.gif'
 
-//TODO: Need to make search function based on pros name
 //TODO: let user filter based on winnings?
 
 function Landing(props) {

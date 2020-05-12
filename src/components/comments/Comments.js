@@ -31,7 +31,6 @@ function Comments(props) {
         axios
             .post('/dota-pros/posts', body)
             .then(res => { 
-                console.log('DATA:', res.data)
                 setPosts(res.data) })
             .catch(err => console.log(err))
     }

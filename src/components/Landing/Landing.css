@@ -1,5 +1,6 @@
 .main-landing-div{
     padding-top: 18vh;
+    width: 100vw;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -76,13 +77,14 @@
     background-color: #F7F7FF;
 }
 
+
 h3{
     color: black;
 }
 
 .name-and-winnings{
     display: flex;
-
+    
     padding-left: 32vw;
     flex-direction: column;
     /* padding-left: 5%; */
@@ -102,7 +104,7 @@ h3{
     right: 15px;
     box-shadow: 0 0 5px gray;
     position: absolute;
-    background-color: #FE7569;
+    background-color: rgb(255, 160, 152);
     border-radius: 50%;
     cursor: pointer;
 }
@@ -125,3 +127,68 @@ button{
     height:19.5vh;
     width: 38vw;
 }
+
+@media(min-width: 900px){
+    .pro-container{
+        height: 35vh;
+    }
+    .pro-picture{
+        height: 36vh;
+        width: 45vw
+    }
+    .name-and-winnings{
+        font-size: 2rem;
+        margin-left: 10vw;
+        text-shadow: 3px 3px 10px rgb(150, 150, 150);
+    }
+    .winnings{
+        font-size: 3rem;
+    }
+    .landing-add-player{
+        height: 5vh;
+        width: 5vw;
+        box-shadow: 0 0 10px black;
+    }
+}
+
+@media(min-width: 1200px){
+    .pro-picture{
+        height: 45vh;
+        width: 35vw
+    }
+    .pro-container{
+        height: 44vh;
+        width: 75vw;
+        margin-top: 5vh;
+    }
+    .name-and-winnings{
+        margin-left: 1vw;
+    }
+    .search-and-img-container{
+        padding-top: 4vh;
+        padding-bottom: 4vh;
+    }
+    .search-reset{
+        width: 100px;
+        height: 60px;
+    }
+    .search-img{
+        margin-top: 5px;
+        width: 100px;
+        height: 55px;
+    }
+}
+
+/* .pro-container{
+    position: relative;
+    overflow: hidden;
+    margin-top: 2vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 20px;
+    box-shadow: 2px 3px 15px black;
+    height: 19vh;
+    /* padding-right: 6vw; */
+
+    

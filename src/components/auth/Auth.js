@@ -47,11 +47,11 @@ function Auth(props) {
                     src={logo} />
                 <p className='auth-text'>{`Email: (optional)`}</p>
                 <input className='auth-input'
-                    placeholder='email'
+                    placeholder='Get cool Emails!'    
                     onChange={(e) => setEmail(e.target.value)} />
                 <p className='auth-text'>Username:</p>
                 <input className='auth-input'
-                    placeholder='username'
+                    placeholder='Max length of 16'
                     onChange={e => setUsername(e.target.value)} />
                 <p className='auth-text'>Password:</p>
                 <input className='auth-input'
