@@ -304,6 +304,7 @@
     }
     .score-match-container-dire{
         height: 17vh;
+        overflow: hidden;
     }
     .hero-level{
         font-size: 2rem;
@@ -318,6 +319,7 @@
     }
     .score-match-container-rad{
         height: 17vh;
+        overflow: hidden;
     }
     .neut-item{
         position: static;
@@ -330,6 +332,12 @@
     .charts{
         margin-top: 35vh;
         margin-bottom: 35vh;
+    }
+    .score-match-container-dire{
+        overflow: hidden;
+    }
+    .score-match-container-rad{
+        overflow: hidden;
     }
 }
 
