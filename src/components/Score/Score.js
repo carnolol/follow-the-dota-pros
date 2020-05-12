@@ -17,6 +17,10 @@ const noItemImg = <div className='each-item-div'>
     <img className='no-img-pic' alt='N/A' src='https://748073e22e8db794416a-cc51ef6b37841580002827d4d94d19b6.ssl.cf3.rackcdn.com/not-found.png' />
 </div>
 
+const noItem = <img alt='no neut item'
+    src='https://748073e22e8db794416a-cc51ef6b37841580002827d4d94d19b6.ssl.cf3.rackcdn.com/not-found.png'
+    className='neut-item'    />
+
 
 function Score(props) {
 
@@ -577,7 +581,7 @@ function Score(props) {
                             <h4 className='player-name-game'>{player.name ? player.name : `Anon`}</h4>
                             <div>
                                 <br></br>
-                                <p className='match-stats-info'>Building Dmg</p>
+                                <p className='building-dmg'>Building Dmg</p>
                                 <p>{player.tower_damage}</p>
                             </div>
                         </div>
@@ -600,12 +604,15 @@ function Score(props) {
                             {getItem3()}
                             {getItem4()}
                             {getItem5()}
-                            {getNeutralItemPicture() ?
+                            {/* {getNeutralItemPicture() ?
                                 <img className='neut-item'
                                     alt='neut item pic'
-                                    src={getNeutralItemPicture()} /> : null}
+                                    src={getNeutralItemPicture()} /> : null} */}
                         </div>}
-
+                        {player.item_neutral === 0 ? noItem :
+                        <img className='neut-item'
+                        alt='neut item pic'
+                        src={getNeutralItemPicture()} />}
                     </div>
                 }
             })
@@ -995,7 +1002,7 @@ function Score(props) {
                             <h4 className='player-name-game'>{player.name ? player.name : `Anon`}</h4>
                             <div>
                                 <br></br>
-                                <p className='match-stats-info'>Building Dmg</p>
+                                <p className='building-dmg'>Building Dmg</p>
                                 <p>{player.tower_damage}</p>
                             </div>
                         </div>
@@ -1018,14 +1025,11 @@ function Score(props) {
                             {getItem3()}
                             {getItem4()}
                             {getItem5()}
-                            {/* {getNeutralItemPicture() ?
-                                <img className='neut-item'
-                                    alt='neut item pic'
-                                    src={getNeutralItemPicture()} /> : null} */}
                         </div>}
+                        {player.item_neutral === 0 ? noItem :
                         <img className='neut-item'
-                                    alt='neut item pic'
-                                    src={getNeutralItemPicture()} /> 
+                        alt='neut item pic'
+                        src={getNeutralItemPicture()} />}
                     </div>
                 }
             })
