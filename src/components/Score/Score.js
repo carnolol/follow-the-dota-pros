@@ -126,6 +126,9 @@ function Score(props) {
             .catch(err => console.log(err))
     }
 
+
+
+
     function chart() {
         let dmg = []
         let healing = []
@@ -181,7 +184,14 @@ function Score(props) {
             .catch(err => console.log(err))
     }
 
+
+
+
+
     //! !!!!!!!!!       RADIANT MAP STARTS HERE        !!!!!!!
+
+
+
 
     function displayRadiant() {
         if (match.players) {
@@ -969,7 +979,9 @@ function Score(props) {
                 //     return list
                 // }
 
-                // let item = getItemPicture()     //! DONT DELETE           
+                // let item = getItemPicture()     //! DONT DELETE       
+                
+                //!   !!!!!!!      DIRE RETURN     !! !!! ! ! ! ! 
 
                 if (player.player_slot >= 125) {
                     return <div className='score-match-container-dire'>
@@ -1006,11 +1018,14 @@ function Score(props) {
                             {getItem3()}
                             {getItem4()}
                             {getItem5()}
-                            {getNeutralItemPicture() ?
+                            {/* {getNeutralItemPicture() ?
                                 <img className='neut-item'
                                     alt='neut item pic'
-                                    src={getNeutralItemPicture()} /> : null}
+                                    src={getNeutralItemPicture()} /> : null} */}
                         </div>}
+                        <img className='neut-item'
+                                    alt='neut item pic'
+                                    src={getNeutralItemPicture()} /> 
                     </div>
                 }
             })
@@ -1031,7 +1046,7 @@ function Score(props) {
                 </div>
                 <p className='time'>{time(match.duration)}</p>
                 <br></br>
-                <p>{moment(convertEpochTime()).fromNow()}</p>
+                <p>Played: {moment(convertEpochTime()).fromNow()}</p>
             </div>
             <br></br>
             <div>

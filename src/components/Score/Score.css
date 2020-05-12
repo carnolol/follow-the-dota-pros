@@ -136,7 +136,8 @@
     height: 5vh;
     width: 10vw;
     background-color: black;
-    margin-left: 4vw;
+    margin-left: 2vw;
+    margin-right: 2vw;
     box-shadow: 0 0  8px rgb(212, 212, 212)
     ;
 
@@ -232,7 +233,53 @@
 
 .charts{
    width: 98vw;
-   height: 100vw; 
+   /* height: 100vw;  */
    margin-top: 10vh;
    /* margin-bottom: 5vh; */
 }
+
+@media(min-width: 900px){
+    .victory-container{
+        width: 40VW;
+        padding: 35px;
+    }
+    .radiant-h1{
+        font-size: 5rem;
+        text-shadow: 3px 3px 5px black;
+    }
+    .radiant-h2{
+        font-size: 5rem;
+        text-shadow: 3px 3px 5px black;
+    }
+    .score-match-container-dire{
+        height: 17vh;
+    }
+    .hero-level{
+        font-size: 2rem;
+        font-weight: bold;
+    }
+    .item-time{
+        font-size: 1.25rem;
+    }
+    p{
+        font-size: 1.5rem;
+    }
+    .score-match-container-rad{
+        height: 17vh;
+    }
+    .each-item-div{
+        /* position: static; */
+    }
+}
+
+/* height: 10vh;
+width: 95vw;
+background-color: rgb(214, 124, 118);
+display: flex;
+justify-content: space-between;
+align-content: space-between;
+align-items: center;
+box-shadow: 5px 5px 10px black;
+border: 1px solid rgb(110, 110, 110);
+position: relative;
+overflow: auto; */

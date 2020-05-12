@@ -61,7 +61,8 @@ function Auth(props) {
                     maxLength='16' />
                 <div>
                     <button className='auth-buttons'
-                        onClick={() => handleLoginUser()}>Login</button>
+                        onClick={() => handleLoginUser()}
+                        onSubmit={() => handleLoginUser()}>Login</button>
                     <button className='auth-buttons'
                         onClick={() => handleRegisterUser()}>Register</button>
                 </div>

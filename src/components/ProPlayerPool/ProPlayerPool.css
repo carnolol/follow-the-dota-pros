@@ -26,6 +26,8 @@
 .pro-return-main-div{
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
+    align-content: space-around;
 }
 
 .name-match-button{
@@ -63,3 +65,45 @@
     border-radius: 10px;
     box-shadow: 0 0 10px black;
 }
+
+@media(min-width: 900px){
+    .main-pro-div{
+        width: 25vw;
+        height: 35vh;
+    }
+    .proplayer-pic{
+        width: 100%;
+    }
+    .delete-pro{
+        height: 50px;
+        width: 50px;
+    }
+}
+
+@media(min-width: 1200px){
+    .main-pro-div{
+        width: 20vw;
+    }
+    .proplayer-pic{
+        height: 75%;
+    }
+    .pro-name{
+        margin-top: -50px;
+    }
+}
+
+/* .main-pro-div{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    align-content: center;
+    position: relative;
+    width: 45vw;
+    /* height: 15vh; */
+    /* border-radius: 15px;
+    overflow: hidden;
+    padding-bottom: 2vh;
+    margin-left: 3.3vw;
+    box-shadow: 0 0 10px black;
+    margin-bottom: 2vh; */

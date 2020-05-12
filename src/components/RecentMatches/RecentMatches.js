@@ -41,9 +41,6 @@ function RecentMatches(props) {
 
     function getPlayerName() {
         for (let i = 0; i < pros.length; i++) {
-            // console.log('inside loop steam ID:', pros[i].steam_account_id)
-            // console.log('NAME:', pros[i].name)
-            // console.log('params?:', props.match.params.proPlayerId)
             //? == because the url is considered a string. 
             if (pros[i].steam_account_id == props.match.params.proPlayerId) {
                 return pros[i].name
@@ -91,8 +88,7 @@ function RecentMatches(props) {
                         alt='hero'
                         src={matchUpId()} />
                     <div className='winner-and-fromnow'>
-                        {determineWhoWon()}
-                        {/* moment(post.created_at).add(12, 'hours').add(42, 'minutes').fromNow() */}
+                            {determineWhoWon()}
                         <p>{moment(convertEpochTime()).fromNow()}</p>
                     </div>
                     <div className='duration-container'>
@@ -109,7 +105,7 @@ function RecentMatches(props) {
     })
     return (
         <div className='main-recent-matches-div'>
-            <h2>{getPlayerName()}'s match history!</h2>
+            <h2 className='h2-player-name'>{getPlayerName()}'s match history!</h2>
             {loading ? loadingGif : <div>
                 {recentMatches}
                 <button className='more-btn'
