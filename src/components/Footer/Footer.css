@@ -7,5 +7,7 @@
     align-content: center;
     background-color: #BDD5EA;
     z-index: 3;
+    position: fixed;
+    bottom: 0;
     box-shadow: 5px 5px 15px black;
 }
