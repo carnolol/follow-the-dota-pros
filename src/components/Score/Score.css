@@ -13,7 +13,7 @@
     background-color: #C5D5DD;
     border-radius: 10px;
     box-shadow: 3px 3px 5px black;
-    width: 95vw;
+    width: 85vw;
 }
 
 .dire-victory{
@@ -168,8 +168,8 @@
     font-size: 1.1rem;
     text-shadow: 1px 1px 2px rgb(199, 199, 199);
     position: absolute;
-    top: 0;
-    left: 0;
+    top: 5px;
+    left: 10px;
 }
 
 .match-stats-info{
@@ -194,7 +194,8 @@
     font-weight: 700;
     font-size: .75rem;
     position: relative;
-    padding-right: 30px;
+    margin-right: 20px;
+    margin-top: 10px;
 }
 
 
