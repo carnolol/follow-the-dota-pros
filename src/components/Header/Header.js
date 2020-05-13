@@ -6,6 +6,7 @@ import { makeUser, logoutUser } from '../../ducks/userReducer'
 import { Link } from 'react-router-dom'
 
 const logo = 'https://pbs.twimg.com/profile_images/1148484652358746112/UdJALHjZ_400x400.png'
+const hamburger = 'https://www.stickpng.com/assets/images/588a6507d06f6719692a2d15.png'
 
 function Header(props) {
 
@@ -23,6 +24,7 @@ function Header(props) {
         axios
             .delete('/user/logout')
             .then(() => props.logoutUser())
+
     }
 
 
@@ -33,15 +35,18 @@ function Header(props) {
                     alt='dota-logo'
                     src={logo} />
             </Link>
+
             <h1 className='header-h1'>Dota Pros</h1>
+
             {props.isLoggedIn === true ? (
                 <div className='login-info'>
+                    <p className='header-username'>{props.username}</p>
                     <Link to='/myProfile'>
                         <img className='profile-header-pic'
                             alt='prof'
+                            onClick={() => setMenu(!menu)}
                             src={props.profile_pic} />
                     </Link>
-                    <p className='header-username'>{props.username}</p>
                     <button className='logout-button'
                         onClick={() => handleLogout()}>Logout</button>
                 </div>

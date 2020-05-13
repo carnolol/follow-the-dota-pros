@@ -1,7 +1,7 @@
 .header-main{
     position: fixed;
     top: 0; 
-    height: 15vh;
+    height: 16vh;
     width: 100vw;
     display: flex;
     background-color: #495867;
@@ -26,6 +26,9 @@
     /* font-size: 2rem; */
 }
 
+
+
+
 .login-info{
     display: flex;
     flex-direction: column;
@@ -35,6 +38,7 @@
 
 .header-username{
     color: white;
+    margin-bottom: 1vh;
     font-weight: 700;
 }
 
@@ -43,8 +47,10 @@
     box-shadow: 0 0 9px white;
     height: 6vh;
     width: 12vw;
-    /* margin-top: .6vh;
-    margin-bottom: .6vh; */
+}
+
+.logout-button{
+    /* margin-top: 1vh; */
 }
 
 .header-button{
