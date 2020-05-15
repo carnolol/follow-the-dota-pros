@@ -31,8 +31,10 @@ massive({
 
 //* User endpoints
 app.get('/user/me', userCtrl.getLoggedInUser)
+app.get('/user/me/friends', userCtrl.getUsersFriends)
 app.post('/user/login', userCtrl.login)
 app.post('/user/register', userCtrl.register)
+app.post('/user/friends', userCtrl.addFriend)
 app.put('/user/me/:dota_users_id', userCtrl.editUserInfo)
 app.delete('/user/logout', userCtrl.logout)
 

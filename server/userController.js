@@ -99,6 +99,21 @@ module.exports = {
         res.status(200).send(req.session.user)
         //working
     },
+    getUsersFriends: async (req, res) => {
+        const db = req.app.get('db')
+        const dota_users_id = req.session.user
+        const friends = await db.get_friends([dota_users_id])
+        res.status(200).send(friends)
+    },
+    addFriend: async (req, res) => {
+        const db = req.app.get('db')
+        const {dota_users_id} = req.session.user
+        const {name, picture, steam_account_id} = req.body
+        const newFriend = await db.add_friend([name, picture, steam_account_id, dota_users_id])
+        console.log(dota_users_id)
+        console.log(newFriend)
+        res.status(200).send(newFriend)
+    },
     logout: (req, res) => {
         req.session.destroy()
         res.sendStatus(200)

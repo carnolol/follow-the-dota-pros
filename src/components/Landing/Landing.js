@@ -41,9 +41,9 @@ function Landing(props) {
             .get('dota-pros/pros')
             .then( res => {
                 setPros(res.data)
+                setSearch('')
             })
             .catch(err => console.log(err))
-            setSearch('')
     }
 
     // function displayCheckmark(){
