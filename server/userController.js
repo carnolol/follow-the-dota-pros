@@ -51,7 +51,7 @@ module.exports = {
             delete existingUser[0].password
             req.session.user = existingUser[0]
             res.status(200).send(req.session.user)
-            console.log('login:', req.session.user)
+            // console.log('login:', req.session.user)
         } else {
             res.status(403).send('Username or Password is incorrect')
         }
@@ -101,8 +101,10 @@ module.exports = {
     },
     getUsersFriends: async (req, res) => {
         const db = req.app.get('db')
-        const dota_users_id = req.session.user
-        const friends = await db.get_friends([dota_users_id])
+        const {dota_users_account_id} = req.params
+        const friends = await db.get_friends([dota_users_account_id])
+        // console.log(req.session.user.dota_users_id)
+        console.log('users friends:',friends)
         res.status(200).send(friends)
     },
     addFriend: async (req, res) => {

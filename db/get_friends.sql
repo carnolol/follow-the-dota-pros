@@ -1,2 +1,2 @@
 Select * from dota_friends
-Where id = $1
+Where dota_users_account_id = $1

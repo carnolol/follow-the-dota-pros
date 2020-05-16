@@ -22,12 +22,12 @@ function Landing(props) {
         axios
             .get('/dota-pros/pros')
             .then(res => {
-            setPros(res.data)
-            setTimeout(() => setLoading(false), 1)
-        }).catch(err => console.log(err))
+                setPros(res.data)
+                setTimeout(() => setLoading(false), 1)
+            }).catch(err => console.log(err))
     }, [])
 
-    function handleSearch(){
+    function handleSearch() {
         axios
             .get(`/dota-pros/pros?search=${search}`)
             .then(res => {
@@ -36,10 +36,10 @@ function Landing(props) {
             .catch(err => console.log(err))
     }
 
-    function handleReset(){
+    function handleReset() {
         axios
             .get('dota-pros/pros')
-            .then( res => {
+            .then(res => {
                 setPros(res.data)
                 setSearch('')
             })
@@ -67,12 +67,12 @@ function Landing(props) {
                 .post(`/user/me/${pro.pro_player_id}`)
                 .then(
                     swal({
-                    title: 'Success!',
-                    text: `${pro.name} has successfully been added to your pool!`,
-                    icon: 'success',
-                    button: 'OK'
-                })
-                // displayCheckmark()
+                        title: 'Success!',
+                        text: `${pro.name} has successfully been added to your pool!`,
+                        icon: 'success',
+                        button: 'OK'
+                    })
+                    // displayCheckmark()
                 )
                 .catch(err => console.log(err))
         }
@@ -95,7 +95,7 @@ function Landing(props) {
             <img className='landing-add-player'
                 alt='add button'
                 src={add}
-                onClick={() => {handleAddPro()}} />
+                onClick={() => { handleAddPro() }} />
         </div>
     })
 
@@ -111,7 +111,7 @@ function Landing(props) {
                 <img className='search-img'
                     onClick={() => handleSearch()}
                     alt='mag glass'
-                    src={glass}/>
+                    src={glass} />
                 <button className='search-reset'
                     onClick={() => handleReset()}>Reset</button>
             </div>
@@ -120,7 +120,11 @@ function Landing(props) {
                 <img src={loadingImg}
                     alt='need new loading gif' />
             </div> : proPlayers}
-            {loading === true ? null : <Footer/>}
+            {loading === true ? null :
+                <Link to={'/about-us'} style={{textDecoration: 'none'}}>
+                    <h2>Learn more about us here!</h2>
+                </Link>}
+            {loading === true ? null : <Footer />}
         </div>
     )
 }

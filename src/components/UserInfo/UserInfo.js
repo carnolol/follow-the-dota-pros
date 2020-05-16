@@ -10,6 +10,7 @@ const pencil = 'https://cdn1.iconfinder.com/data/icons/editing/60/cell-2-0-480.p
 
 function UserInfo(props) {
     const [user, setUser] = useState({})
+    const [friends, setFriends] = useState([])
     const [bio, setBio] = useState('')
     const [editBio, setEditBio] = useState(false)
 
@@ -18,8 +19,15 @@ function UserInfo(props) {
         window.scrollTo(0, 0)
         axios
             .get('/user/me')
-            .then(res => setUser(res.data))
+            .then(res => {
+                setUser(res.data)
+                axios
+                    .get(`/user/me/friends/${props.dota_users_id}`)
+                    .then(res => setFriends(res.data))
+                    .catch(err => console.log(err))
+            })
             .catch(err => console.log(err))
+        
     }, [user.bio])
 
     const handleEditUser = () => {
