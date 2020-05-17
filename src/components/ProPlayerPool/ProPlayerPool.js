@@ -29,10 +29,14 @@ function ProPlayerPool(props) {
         //      !!!!! MAP STARTS HERE !!!!!!
 
     const myPros = pros.map(pro => {
+
+        
         const handleDeletePro = () => {
             axios
                 .delete(`/user/me/${pro.id}`)
         }
+
+
         return (
             
                 <div className='main-pro-div'>

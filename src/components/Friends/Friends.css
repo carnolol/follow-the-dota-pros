@@ -1,0 +1,21 @@
+.addFriend-form{
+    width: 80vw;
+    height: 35vh;
+    border-radius: 20px;
+    box-shadow: 4px 4px 9px black;
+    display: flex;
+    overflow: hidden;
+}
+
+.addfiend-inputs{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    align-content: center ;
+}
+
+.form-img{
+    height: 100%;
+    width: 45%;
+}

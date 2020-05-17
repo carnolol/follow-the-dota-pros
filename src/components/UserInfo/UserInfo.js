@@ -67,11 +67,12 @@ function UserInfo(props) {
                         
             </div>
             <div className='steam-id-box'>
-                <p>To add a friend to follow, you will need their steam ID. This can be tricky to find... But we are here to help! Click on the link bellow, enter the account name of the player your want to follow. Then simply copy the number in the steamID3 box. i will look something like this...</p>
+                <p>To add a friend to follow, you will need their steam ID. This can be tricky to find... But we are here to help! Click on the link bellow, enter the account name of the player your want to follow. Then simply copy the number in the steamID3 box. It will look something like this...</p>
                 <br></br>
                 <p>{`[U:1:Copy this Number]`}</p>
                 <br></br>
                 <a href='https://steamidfinder.com/'>Click here to get your steam ID!</a>
+                <br></br>
             </div>
             <Friends />
             <br></br>

@@ -12,17 +12,19 @@ const loadingGif = <img src='https://miro.medium.com/max/1600/1*CsJ05WEGfunYMLGf
 //* player slot for radiant players = 0,1,2,3,4
 //* player_slot for dire players = 128,129,130,131,132
 
-//TODO: make it so user can click a more button to change the amount of matches displayed based of the query. 
 
 function RecentMatches(props) {
     const [matches, setMatch] = useState([])
     const [heros, setHeros] = useState([])
     const [pros, setPros] = useState([])
+    const [friends, setFriends] = useState([])
     const [loading, setLoading] = useState(true)
     let [count, setCount] = useState(10)
 
+    //TODO: Fill out GetFriendsName => ()
+
     useEffect(() => {
-        // window.scrollTo(0, 0)
+        window.scrollTo(0, 0)
         axios
             .get(`https://api.opendota.com/api/players/${props.match.params.proPlayerId}/matches?limit=${count}`)
             .then(res => {
@@ -30,23 +32,38 @@ function RecentMatches(props) {
                 axios
                     .get('https://api.opendota.com/api/heroStats').then(res => {
                         setHeros(res.data)
-
-                        axios.get(`/user/me/pros/${props.dota_users_id}`).then(res => setPros(res.data))
-                        setLoading(false)
+                        axios
+                            .get(`/user/me/pros/${props.dota_users_id}`)
+                            .then(res => {
+                                setPros(res.data)
+                                axios
+                                    .get(`/user/me/friends/${props.dota_users_id}`)
+                                    .then(res => {
+                                        setFriends(res.data)
+                                    })
+                            })
                     })
             })
-
+        setLoading(false)
     }, [count])
 
 
     function getPlayerName() {
         for (let i = 0; i < pros.length; i++) {
             //? == because the url is considered a string. 
-            if (pros[i].steam_account_id == props.match.params.proPlayerId) {
-                return pros[i].name
+            for (let g = 0; g < friends.length; g++) {
+                if (pros[i].steam_account_id == props.match.params.proPlayerId) {
+                    return pros[i].name
+                } else if(friends[g].steam_account_id == props.match.params.proPlayerId){
+                    return friends[g].name
+                }
             }
         }
     }
+
+    // function getFriendsName() {
+    //     for()
+    // }
 
     const recentMatches = matches.map(match => {
 
@@ -88,7 +105,7 @@ function RecentMatches(props) {
                         alt='hero'
                         src={matchUpId()} />
                     <div className='winner-and-fromnow'>
-                            {determineWhoWon()}
+                        {determineWhoWon()}
                         <p>{moment(convertEpochTime()).fromNow()}</p>
                     </div>
                     <div className='duration-container'>
