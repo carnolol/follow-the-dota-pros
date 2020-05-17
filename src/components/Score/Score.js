@@ -578,7 +578,7 @@ function Score(props) {
                             <div className='hero-level'>{player.level}</div>
                         </div>
                         <div className='name-tower-dmg'>
-                            <h4 className='player-name-game'>{player.name ? player.name : `Anon`}</h4>
+                            <h4 className='player-name-game'>{player.name ? player.name : player.personaname ? player.personaname : `Anon`}</h4>
                             <div>
                                 <br></br>
                                 <p className='building-dmg'>Building Dmg</p>
@@ -999,7 +999,7 @@ function Score(props) {
                             <div className='hero-level'>{player.level}</div>
                         </div>
                         <div className='name-tower-dmg'>
-                            <h4 className='player-name-game'>{player.name ? player.name : `Anon`}</h4>
+                            <h4 className='player-name-game'>{player.name ? player.name : player.personaname ? player.personaname : `Anon`}</h4>
                             <div>
                                 <br></br>
                                 <p className='building-dmg'>Building Dmg</p>

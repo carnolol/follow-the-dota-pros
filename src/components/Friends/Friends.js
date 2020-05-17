@@ -93,16 +93,18 @@ function Friends(props) {
                 <div className='addFriend-form'>
                     <img className='form-img'
                         src={picture ? picture : noImg}
-                        alt='na' />
+                        alt="Link doesn't work" />
                     <div className='addfriend-inputs'>
-                        <button onClick={() => setAddingFriend(!addingFriend)}>X</button>
+                        <button className='form-button'
+                            onClick={() => setAddingFriend(!addingFriend)}>X</button>
                         <p>Name:</p>
                         <input onChange={(e) => setName(e.target.value)} />
-                        <p>Picture</p>
+                        <p>Picture:</p>
                         <input onChange={(e) => setPicture(e.target.value)} />
-                        <p>Steam Account ID</p>
+                        <p>Steam Account ID:</p>
                         <input type='number'
                             onChange={(e) => setId(+e.target.value)} />
+                            <br></br>
                         <div>
                             <button onClick={() => handleAddFriend()}>Add!</button>
                             <button onClick={() => reset()}>Reset</button>

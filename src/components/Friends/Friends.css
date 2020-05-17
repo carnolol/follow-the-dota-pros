@@ -5,17 +5,29 @@
     box-shadow: 4px 4px 9px black;
     display: flex;
     overflow: hidden;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
 }
 
-.addfiend-inputs{
+.addfriend-inputs{
     display: flex;
+    width: 55%;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     align-content: center ;
+    padding: 5px;
+}
+
+.form-button{
+    position: absolute;
+    top: 15px;
+    right: 15px;
 }
 
 .form-img{
+    box-shadow: 0 0 10px black;
     height: 100%;
     width: 45%;
 }
