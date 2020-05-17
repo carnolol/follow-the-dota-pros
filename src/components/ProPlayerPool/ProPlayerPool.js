@@ -23,6 +23,11 @@ function ProPlayerPool(props) {
             .catch(err => console.log(err))
     }, [pros])
 
+
+
+
+        //      !!!!! MAP STARTS HERE !!!!!!
+
     const myPros = pros.map(pro => {
         const handleDeletePro = () => {
             axios

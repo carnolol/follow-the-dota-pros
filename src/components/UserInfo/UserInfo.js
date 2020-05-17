@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import './Userinfo.css'
 import { connect } from 'react-redux'
 import axios from 'axios'
+import Friends from '../Friends/Friends'
 import ProPlayerPool from '../ProPlayerPool/ProPlayerPool'
 // import { Link } from 'react-router-dom'
 
@@ -10,7 +11,6 @@ const pencil = 'https://cdn1.iconfinder.com/data/icons/editing/60/cell-2-0-480.p
 
 function UserInfo(props) {
     const [user, setUser] = useState({})
-    const [friends, setFriends] = useState([])
     const [bio, setBio] = useState('')
     const [editBio, setEditBio] = useState(false)
 
@@ -21,13 +21,9 @@ function UserInfo(props) {
             .get('/user/me')
             .then(res => {
                 setUser(res.data)
-                axios
-                    .get(`/user/me/friends/${props.dota_users_id}`)
-                    .then(res => setFriends(res.data))
-                    .catch(err => console.log(err))
             })
             .catch(err => console.log(err))
-        
+
     }, [user.bio])
 
     const handleEditUser = () => {
@@ -68,7 +64,16 @@ function UserInfo(props) {
                                 src={pencil}
                                 onClick={() => setEditBio(!editBio)} />
                         </div>)}
+                        
             </div>
+            <div className='steam-id-box'>
+                <p>To add a friend to follow, you will need their steam ID. This can be tricky to find... But we are here to help! Click on the link bellow, enter the account name of the player your want to follow. Then simply copy the number in the steamID3 box. i will look something like this...</p>
+                <br></br>
+                <p>{`[U:1:Copy this Number]`}</p>
+                <br></br>
+                <a href='https://steamidfinder.com/'>Click here to get your steam ID!</a>
+            </div>
+            <Friends />
             <br></br>
             <ProPlayerPool />
         </div>

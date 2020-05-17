@@ -15,6 +15,17 @@
     padding-top: 3vh;
 }
 
+.steam-id-box{
+    width: 80vw;
+    border-radius: 20px;
+    box-shadow: 4px 4px 8px black;
+    margin-bottom: 8vh;
+    margin-top: 8vh;
+    padding: 15px;
+    padding-top: 25px;
+    padding-bottom: 25px;
+}
+
 .age-container{
     border: 2px solid black;
     height: 12vh;

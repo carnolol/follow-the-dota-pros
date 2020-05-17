@@ -79,8 +79,8 @@ module.exports = {
             text: 'Thank you for registering with us! Our goal is to simplify finding information about professional Dota players by keeping all the info you could want in one place!'
         };
 
-        transporter.sendMail(mailOptions, function(err, data){
-            if(err){
+        transporter.sendMail(mailOptions, function (err, data) {
+            if (err) {
                 console.log('error with Nodemailer')
             } else {
                 console.log('Email has been sent!!')
@@ -101,20 +101,38 @@ module.exports = {
     },
     getUsersFriends: async (req, res) => {
         const db = req.app.get('db')
-        const {dota_users_account_id} = req.params
+        const { dota_users_account_id } = req.params
         const friends = await db.get_friends([dota_users_account_id])
         // console.log(req.session.user.dota_users_id)
-        console.log('users friends:',friends)
+        console.log('users friends:', friends)
         res.status(200).send(friends)
+        //WORKING
     },
     addFriend: async (req, res) => {
         const db = req.app.get('db')
-        const {dota_users_id} = req.session.user
-        const {name, picture, steam_account_id} = req.body
+        const { dota_users_id } = req.session.user
+        const { name, picture, steam_account_id } = req.body
         const newFriend = await db.add_friend([name, picture, steam_account_id, dota_users_id])
         console.log(dota_users_id)
         console.log(newFriend)
         res.status(200).send(newFriend)
+        //WORKING
+    },
+    editFriend: async (req, res) => {
+        const db = req.app.get('db')
+        const {id} = req.params
+        const {name, picture, steam_account_id} = req.body
+        const updatedFriend = await db.edit_friend([name, picture, steam_account_id, id])
+        console.log(updatedFriend)
+        res.status(200).send(updatedFriend)
+        //WORKING
+    },
+    deleteFriend: async (req, res) => {
+        const db = req.app.get('db')
+        const { id } = req.params
+        const deletedFriend = db.delete_friend([id])
+        res.status(200).send(deletedFriend)
+        //WORKING
     },
     logout: (req, res) => {
         req.session.destroy()
@@ -124,7 +142,7 @@ module.exports = {
     getLoggedInUser: async (req, res) => {
         // console.log('GetLoggedInUser', req.session.user)
         if (req.session.user) {
-           return res.status(200).send(req.session.user)
+            return res.status(200).send(req.session.user)
         } else {
             res.sendStatus(409)
         }

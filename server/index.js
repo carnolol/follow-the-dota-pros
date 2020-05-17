@@ -35,8 +35,10 @@ app.get('/user/me/friends/:dota_users_account_id', userCtrl.getUsersFriends)
 app.post('/user/login', userCtrl.login)
 app.post('/user/register', userCtrl.register)
 app.post('/user/friends', userCtrl.addFriend)
+app.put('/user/me/friends/:id', userCtrl.editFriend)
 app.put('/user/me/:dota_users_id', userCtrl.editUserInfo)
 app.delete('/user/logout', userCtrl.logout)
+app.delete('/user/me/friends/:id', userCtrl.deleteFriend)
 
 
 //* Post Controllers
