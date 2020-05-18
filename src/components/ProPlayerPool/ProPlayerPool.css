@@ -14,13 +14,14 @@
     align-content: center;
     position: relative;
     width: 45vw;
+    /* flex-wrap: wrap; */
     /* height: 15vh; */
     border-radius: 15px;
     overflow: hidden;
     padding-bottom: 2vh;
-    margin-left: 3.3vw;
+    margin: 10px;
     box-shadow: 0 0 10px black;
-    margin-bottom: 2vh;
+
 }
 
 .pro-return-main-div{
@@ -35,6 +36,7 @@
     flex-direction: column;
 
 }
+
 
 .players-h2{
     margin-bottom: 3vh;

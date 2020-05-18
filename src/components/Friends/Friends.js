@@ -105,18 +105,21 @@ function Friends(props) {
                         <input type='number'
                             onChange={(e) => setId(+e.target.value)} />
                             <br></br>
-                        <div>
+                        <div className='form-btns'>
                             <button onClick={() => handleAddFriend()}>Add!</button>
                             <button onClick={() => reset()}>Reset</button>
                         </div>
                     </div>
                 </div>
             ) : (
-                    <button onClick={() => setAddingFriend(!addingFriend)}>Add Friend to follow!</button>
+                    <button className='addFriend-btn'
+                        onClick={() => setAddingFriend(!addingFriend)}>Add Friend to follow!</button>
                 )}
 
-            <h1>My Friends</h1>
-            {myFriends}
+            <h1 className='h1-friends'>My Friends</h1>
+            <div className='myFriends-parent'>
+                {myFriends}
+            </div>
         </div>
     )
 }
