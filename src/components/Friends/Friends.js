@@ -104,17 +104,23 @@ function Friends(props) {
                             onClick={() => setAddingFriend(!addingFriend)}>X</button>
                         <p>Name:</p>
                         <input className='form-inputs'
+                            value={name}
                             onChange={(e) => setName(e.target.value)} />
                         <p>Picture:</p>
                         <input className='form-inputs' 
+                            value={picture}
                             onChange={(e) => setPicture(e.target.value)} />
                         <p>Steam Account ID:</p>
                         <input className='form-inputs'
                             type='number'
+                            value={id}
                             onChange={(e) => setId(+e.target.value)} />
                             <br></br>
                         <div className='form-btns'>
-                            <button onClick={() => handleAddFriend()}>Add!</button>
+                            <button onClick={() => {
+                                handleAddFriend()
+                                reset()
+                                }}>Add!</button>
                             <button onClick={() => reset()}>Reset</button>
                         </div>
                     </div>
