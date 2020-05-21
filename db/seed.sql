@@ -11,10 +11,13 @@ match_id BIGINT,
 FOREIGN KEY (author_id) REFERENCES dota_users(dota_users_id)
 )
 
--- INSERT INTO dota_posts
--- (content, title, created_at, author_id, match_id)
--- values
--- ('linked to match id 5394145163','Title is 5394145163', now(), 21, 5394145163);
+CREAT TABLE dota_friends(
+    id serial primary key, 
+    name varchar(250), 
+    picture text,
+    steam_account_id int,
+    dota_users_account_id REFERENCES dota_users(dota_users_id)
+)
 
 CREATE TABLE dota_users(
 dota_users_id serial primary key,

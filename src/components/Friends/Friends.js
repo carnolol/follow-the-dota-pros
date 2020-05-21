@@ -27,7 +27,8 @@ function Friends(props) {
                 setFriends(res.data)
             })
             .catch(err => console.log(err))
-    }, [friends.length - 1])
+            console.log('fiends useEffect')
+    }, [])
 
     const reset = () => {
         setName('')
@@ -43,8 +44,10 @@ function Friends(props) {
         }
         axios
             .post('/user/friends', body)
-            .then(res => {
-                setFriends(res.data)
+            .then(() => {
+                axios
+                    .get(`/user/me/friends/${props.dota_users_id}`)
+                    .then(res => setFriends(res.data) )
             })
     }
 
@@ -57,8 +60,12 @@ function Friends(props) {
         const deleteFriend = () => {
             axios
                 .delete(`/user/me/friends/${friend.id}`)
-                .then(res => {
-                    setFriends(res.data)
+                .then(() => {
+                    axios
+                        .get(`/user/me/friends/${props.dota_users_id}`)
+                        .then(res => {
+                            setFriends(res.data)
+                        })
                 })
         }
 
@@ -84,8 +91,6 @@ function Friends(props) {
         )
     })
 
-
-    console.log(typeof (id))
     return (
         <div className='Friends-div'>
 
@@ -98,11 +103,14 @@ function Friends(props) {
                         <button className='form-button'
                             onClick={() => setAddingFriend(!addingFriend)}>X</button>
                         <p>Name:</p>
-                        <input onChange={(e) => setName(e.target.value)} />
+                        <input className='form-inputs'
+                            onChange={(e) => setName(e.target.value)} />
                         <p>Picture:</p>
-                        <input onChange={(e) => setPicture(e.target.value)} />
+                        <input className='form-inputs' 
+                            onChange={(e) => setPicture(e.target.value)} />
                         <p>Steam Account ID:</p>
-                        <input type='number'
+                        <input className='form-inputs'
+                            type='number'
                             onChange={(e) => setId(+e.target.value)} />
                             <br></br>
                         <div className='form-btns'>
@@ -111,6 +119,7 @@ function Friends(props) {
                         </div>
                     </div>
                 </div>
+
             ) : (
                     <button className='addFriend-btn'
                         onClick={() => setAddingFriend(!addingFriend)}>Add Friend to follow!</button>

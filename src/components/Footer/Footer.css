@@ -7,7 +7,20 @@
     align-content: center;
     background-color: #BDD5EA;
     z-index: 3;
-    /* position: fixed;
-    bottom: 0; */
     box-shadow: 5px 5px 15px black;
+    position: relative;
+}
+
+.linkin-logo{
+    height: 50%;
+    width: 100px;
+}
+
+.child-footer-div{
+    font-size: .75rem;
+    text-shadow: 1px 1px 3px rgb(130, 130, 130);
+    font-weight: bold;
+    position: absolute;
+    top: 15px;
+    right: 15px;
 }

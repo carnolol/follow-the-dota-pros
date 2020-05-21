@@ -122,7 +122,7 @@ function Landing(props) {
             </div> : proPlayers}
             {loading === true ? null :
                 <Link to={'/about-us'} style={{textDecoration: 'none'}}>
-                    <h2>Learn more about us here!</h2>
+                    <h2 className='h2-learn'>Learn more about us here!</h2>
                 </Link>}
             {loading === true ? null : <Footer />}
         </div>

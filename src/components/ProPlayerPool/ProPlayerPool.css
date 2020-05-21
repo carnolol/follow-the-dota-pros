@@ -14,7 +14,7 @@
     align-content: center;
     position: relative;
     width: 45vw;
-    /* flex-wrap: wrap; */
+    flex-wrap: wrap;
     /* height: 15vh; */
     border-radius: 15px;
     overflow: hidden;

@@ -21,6 +21,7 @@ function ProPlayerPool(props) {
                 setTimeout(() => setLoading(false), 1)
             })
             .catch(err => console.log(err))
+            
     }, [pros])
 
 
