@@ -55,6 +55,14 @@
     padding: 20px;
 }
 
+.addFriend-btn:hover{
+    /* padding: 25px; */
+    transition: all .21s;
+    background-color: rgba(0, 148, 154, 0.589);
+    font-size: 1.1rem;
+    box-shadow: 5px 5px 10px black;
+}
+
 .form-button{
     position: absolute;
     top: 10px;

@@ -18,8 +18,11 @@ function RecentMatches(props) {
     const [heros, setHeros] = useState([])
     const [pros, setPros] = useState([])
     const [friends, setFriends] = useState([])
+    const [topHeroes, setTopHeroes] = useState([])
     const [loading, setLoading] = useState(true)
     let [count, setCount] = useState(10)
+
+    const top = [topHeroes[0], topHeroes[1], topHeroes[2], topHeroes[3], topHeroes[4], topHeroes[5], topHeroes[6], topHeroes[7], topHeroes[8], topHeroes[9]]
 
     //TODO: Fill out GetFriendsName => ()
 
@@ -30,7 +33,8 @@ function RecentMatches(props) {
             .then(res => {
                 setMatch(res.data)
                 axios
-                    .get('https://api.opendota.com/api/heroStats').then(res => {
+                    .get('https://api.opendota.com/api/heroStats')
+                    .then(res => {
                         setHeros(res.data)
                         axios
                             .get(`/user/me/pros/${props.dota_users_id}`)
@@ -40,6 +44,11 @@ function RecentMatches(props) {
                                     .get(`/user/me/friends/${props.dota_users_id}`)
                                     .then(res => {
                                         setFriends(res.data)
+                                        axios
+                                            .get(`https://api.opendota.com/api/players/${props.match.params.proPlayerId}/heroes`)
+                                            .then(res => {
+                                                setTopHeroes(res.data)
+                                            })
                                     })
                             })
                     })
@@ -48,22 +57,49 @@ function RecentMatches(props) {
     }, [count])
 
 
+
     function getPlayerName() {
         for (let i = 0; i < pros.length; i++) {
             //? == because the url is considered a string. 
             for (let g = 0; g < friends.length; g++) {
                 if (pros[i].steam_account_id == props.match.params.proPlayerId) {
                     return pros[i].name
-                } else if(friends[g].steam_account_id == props.match.params.proPlayerId){
+                } else if (friends[g].steam_account_id == props.match.params.proPlayerId) {
                     return friends[g].name
                 }
             }
         }
     }
 
-    // function getFriendsName() {
-    //     for()
-    // }
+    const playedHeroes = top.map(topHero => {
+
+
+        function getHeroPicture(){
+            for(let i = 0; i < heros.length; i++){
+                for(let g = 0; g < top.length; g++){
+                    for(let key in top[i]){
+                        parseInt(top[g].hero_id)
+                        console.log(typeof(top[g].hero_id))
+                        if(heros[i].id === top[g].hero_id ){
+                            return `${baseURL}${heros[i].img}`
+                        }
+                    }
+                }
+            }
+        }
+
+        return (
+            <div>
+                <img className=''
+                    alt='hero picture'
+                    src={getHeroPicture()} />
+                <p>EPOCH TIME HERE</p>
+                {/* <p>{top[i].games}</p> */}
+            </div>
+        )
+    })
+
+    //        !!!!!         RECENT MATCHES MAP HERE          !!!!!
 
     const recentMatches = matches.map(match => {
 
@@ -120,9 +156,12 @@ function RecentMatches(props) {
             </Link>
         )
     })
+
+
     return (
         <div className='main-recent-matches-div'>
-            <h2 className='h2-player-name'>{getPlayerName()}'s match history!</h2>
+            {loading ? loadingGif : <div >{playedHeroes}</div>}
+            {loading ? loadingGif : <h2 className='h2-player-name'>{getPlayerName()}'s match history!</h2>}
             {loading ? loadingGif : <div>
                 {recentMatches}
                 <button className='more-btn'
