@@ -78,15 +78,15 @@ function RecentMatches(props) {
             if (topHero) {
                 for (let i = 0; i < heros.length; i++) {
                     console.log(topHero.hero_id)
-                    if(heros[i].id == topHero.hero_id){
+                    if (heros[i].id == topHero.hero_id) {
                         return `${baseURL}${heros[i].img}`
                     }
                 }
             }
         }
 
-        function getTopGames(){
-            if(topHero){
+        function getTopGames() {
+            if (topHero) {
                 return topHero.games
             }
         }
@@ -99,6 +99,7 @@ function RecentMatches(props) {
                     src={getHeroPicture()} />
                 <p>EPOCH TIME HERE</p>
                 <p>Games played : {getTopGames()}</p>
+                <p>win %: </p>
             </div>
         )
     })
@@ -165,7 +166,12 @@ function RecentMatches(props) {
     return (
         <div className='main-recent-matches-div'>
             {loading ? loadingGif : <h1>{getPlayerName()}'s favorite heroes!</h1>}
-            {loading ? loadingGif : <div className='playedHeroes-and-peers'>{playedHeroes}</div>}
+
+            {loading ? loadingGif : <div className='playedHeroes-and-peers'>
+                <p className='playedHeroes-info'> Most Played Heroes All Time!</p> 
+                {playedHeroes}
+            </div>}
+
             {loading ? loadingGif : <h2 className='h2-player-name'>{getPlayerName()}'s match history!</h2>}
             {loading ? loadingGif : <div>
                 {recentMatches}

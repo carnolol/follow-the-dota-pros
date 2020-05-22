@@ -44,6 +44,19 @@
 .playedHeroes-and-peers{
     width: 95vw;
     border: 2px solid black;
+    position: relative;
+}
+
+.playedHeroes-info{
+    /* position: absolute; */
+    top: 0;
+    left: 10px;
+    font-size: .75rem;
+    font-weight: bold;
+    width: 50%;
+    background-color: rgb(121, 121, 121, .8);
+    color: white;
+    padding: 5px;
 }
 
 .h2-player-name{
