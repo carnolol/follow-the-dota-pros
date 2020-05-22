@@ -9,6 +9,19 @@
     
 }
 
+.tophero-container{
+    width: 46vw;
+    height: 7vh;
+    font-size: .5rem;
+    display: flex;
+    border: 2px solid crimson;
+}
+
+.tophero-img{
+    height: 100%;
+    width: 16vw;
+}
+
 .match-container{
     margin-top: 3vh;
     width: 90vw;
@@ -26,6 +39,11 @@
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.playedHeroes-and-peers{
+    width: 95vw;
+    border: 2px solid black;
 }
 
 .h2-player-name{

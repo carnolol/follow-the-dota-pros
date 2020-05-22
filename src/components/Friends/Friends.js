@@ -57,6 +57,8 @@ function Friends(props) {
 
     const myFriends = friends.map(friend => {
 
+        console.log(friend)
+
         const deleteFriend = () => {
             axios
                 .delete(`/user/me/friends/${friend.id}`)

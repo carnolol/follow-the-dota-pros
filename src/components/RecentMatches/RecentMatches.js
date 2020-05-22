@@ -74,27 +74,31 @@ function RecentMatches(props) {
     const playedHeroes = top.map(topHero => {
 
 
-        function getHeroPicture(){
-            for(let i = 0; i < heros.length; i++){
-                for(let g = 0; g < top.length; g++){
-                    for(let key in top[i]){
-                        parseInt(top[g].hero_id)
-                        console.log(typeof(top[g].hero_id))
-                        if(heros[i].id === top[g].hero_id ){
-                            return `${baseURL}${heros[i].img}`
-                        }
+        function getHeroPicture() {
+            if (topHero) {
+                for (let i = 0; i < heros.length; i++) {
+                    console.log(topHero.hero_id)
+                    if(heros[i].id == topHero.hero_id){
+                        return `${baseURL}${heros[i].img}`
                     }
                 }
             }
         }
 
+        function getTopGames(){
+            if(topHero){
+                return topHero.games
+            }
+        }
+
+
         return (
-            <div>
-                <img className=''
+            <div className='tophero-container'>
+                <img className='tophero-img'
                     alt='hero picture'
                     src={getHeroPicture()} />
                 <p>EPOCH TIME HERE</p>
-                {/* <p>{top[i].games}</p> */}
+                <p>Games played : {getTopGames()}</p>
             </div>
         )
     })
@@ -160,7 +164,8 @@ function RecentMatches(props) {
 
     return (
         <div className='main-recent-matches-div'>
-            {loading ? loadingGif : <div >{playedHeroes}</div>}
+            {loading ? loadingGif : <h1>{getPlayerName()}'s favorite heroes!</h1>}
+            {loading ? loadingGif : <div className='playedHeroes-and-peers'>{playedHeroes}</div>}
             {loading ? loadingGif : <h2 className='h2-player-name'>{getPlayerName()}'s match history!</h2>}
             {loading ? loadingGif : <div>
                 {recentMatches}
