@@ -13,7 +13,13 @@
 
 .linkin-logo{
     height: 50%;
-    width: 100px;
+    width: 50px;
+}
+
+.github-logo{
+    height: 50%;
+    width: 50px;
+    margin-left: 20px;
 }
 
 .child-footer-div{
@@ -22,5 +28,5 @@
     font-weight: bold;
     position: absolute;
     top: 15px;
-    right: 15px;
+    right: 35px;
 }
