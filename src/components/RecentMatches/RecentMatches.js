@@ -71,8 +71,18 @@ function RecentMatches(props) {
         }
     }
 
+
+
+
     const playedHeroes = top.map(topHero => {
 
+
+        function convertEpochTime() {
+            if (topHero) {
+                let date = new Date(topHero.last_played * 1000)
+                return date
+            }
+        }
 
         function getHeroPicture() {
             if (topHero) {
@@ -91,15 +101,32 @@ function RecentMatches(props) {
             }
         }
 
+        function handleWinPercent() {
+            if (topHero) {
+                    // let win = 0
+                   let win = topHero.win / topHero.games * 100
+                   console.log(win)
+                   return win.toFixed(2)
+            }
+        }
 
         return (
             <div className='tophero-container'>
                 <img className='tophero-img'
                     alt='hero picture'
                     src={getHeroPicture()} />
-                <p>EPOCH TIME HERE</p>
-                <p>Games played : {getTopGames()}</p>
-                <p>win %: </p>
+                <div>
+                    <p>Last Played</p>
+                    <p>{moment(convertEpochTime()).fromNow()}</p>
+                </div>
+                <div>
+                    <p>{getTopGames()}</p>
+                    <p>Games Played</p>
+                </div>
+                <div>
+                    <p>{handleWinPercent()}</p>
+                    <p>Win %</p>
+                </div>
             </div>
         )
     })
@@ -168,7 +195,7 @@ function RecentMatches(props) {
             {loading ? loadingGif : <h1>{getPlayerName()}'s favorite heroes!</h1>}
 
             {loading ? loadingGif : <div className='playedHeroes-and-peers'>
-                <p className='playedHeroes-info'> Most Played Heroes All Time!</p> 
+                <p className='playedHeroes-info'> Most Played Heroes All Time!</p>
                 {playedHeroes}
             </div>}
 

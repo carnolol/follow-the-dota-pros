@@ -10,7 +10,7 @@
 }
 
 .tophero-container{
-    width: 46vw;
+    width: 50%;
     height: 7vh;
     font-size: .5rem;
     display: flex;
@@ -42,7 +42,7 @@
 }
 
 .playedHeroes-and-peers{
-    width: 95vw;
+    width: 98vw;
     border: 2px solid black;
     position: relative;
 }
