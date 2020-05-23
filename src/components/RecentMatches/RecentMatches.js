@@ -63,7 +63,6 @@ function RecentMatches(props) {
         setLoading(false)
     }, [count])
 
-    console.log(amigos)
 
     function getPlayerName() {
         for (let i = 0; i < pros.length; i++) {
@@ -82,17 +81,17 @@ function RecentMatches(props) {
     //          !!!!!!! Top 10 friends map here !!!!!!!!
 
     const favoriteFriends = amigos.map(friend => {
-       
-        
-        
-        return(
+
+
+
+        return (
             <div>
 
             </div>
         )
     })
 
-        //          !!!!!!    Top 10 Heroes map     !!!!!!!
+    //          !!!!!!    Top 10 Heroes map     !!!!!!!
 
     const playedHeroes = top.map(topHero => {
 
@@ -104,7 +103,7 @@ function RecentMatches(props) {
             }
         }
 
-      
+
 
         function getHeroPicture() {
             if (topHero) {
@@ -216,10 +215,14 @@ function RecentMatches(props) {
             {loading ? loadingGif : (
 
                 <div className='playedHeroes-and-peers'>
-                    <p className='playedHeroes-info'> Most Played Heroes All Time!</p>
-                    {playedHeroes}
-                    <p className='p-peers'>Favorite People</p>
-                    {favoriteFriends}
+                    <div className='heros-peers'>
+                        <p className='playedHeroes-info'> Most Played Heroes All Time!</p>
+                        {playedHeroes}
+                    </div>
+                    <div className='heros-peers'>
+                        <p className='p-peers'>Favorite People</p>
+                        {favoriteFriends}
+                    </div>
                 </div>)}
 
             {loading ? loadingGif : <h2 className='h2-player-name'>{getPlayerName()}'s match history!</h2>}
