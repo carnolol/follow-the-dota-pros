@@ -9,14 +9,30 @@
     
 }
 
+.top-friends-container{
+    display: flex;
+    overflow: scroll;
+    align-items: center;
+}
+
 .tophero-container{
     width: 100%;
     height: 8vh;
     font-size: .5rem;
     display: flex;
     align-items: center;
+    justify-content: space-evenly;
     border-right: 2px solid black;
+    border-bottom: 1px solid black;
     /* border-left: 2px solid gray; */
+}
+
+.tophero-div{
+    border-right: 1px solid black;
+}
+
+.tophero-div3{
+    padding: 6px;
 }
 
 
@@ -24,6 +40,7 @@
 .tophero-img{
     height: 100%;
     width: 16vw;
+    box-shadow: 0 0 5px black;
 }
 
 .match-container{
@@ -69,12 +86,13 @@
 }
 
 .playedHeroes-info{
-    /* position: absolute; */
-    top: 0;
+    border-right: 1px solid black;
     left: 10px;
     font-size: .75rem;
     font-weight: bold;
     width: 100%;
+    border-bottom: 1px solid black;
+
     background-color: rgb(121, 121, 121, .8);
     color: white;
     padding: 5px;
@@ -84,7 +102,8 @@
     font-size: .75rem;
     font-weight: bold;
     width: 100%;
-    /* margin-left: 50%; */
+    border-left: 1px solid black;
+    border-bottom: 1px solid black;
     background-color: rgb(121, 121, 121, .8);
     color: white;
     padding: 5px;

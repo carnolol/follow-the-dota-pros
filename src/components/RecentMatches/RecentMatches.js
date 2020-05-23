@@ -79,14 +79,45 @@ function RecentMatches(props) {
 
 
     //          !!!!!!! Top 10 friends map here !!!!!!!!
-
+    console.log(amigos)
     const favoriteFriends = amigos.map(friend => {
 
+        function getFriendAvatar() {
+            if (friend) {
+                return friend.avatarfull
+            }
+        }
 
+        function getFriendName() {
+            if (friend) {
+                return friend.personaname
+            }
+        }
+
+        function getFriendGames() {
+            if (friend) {
+                return friend.games
+            }
+        }
+
+        function getFriendWinPercent(){
+            if(friend){
+                let winStats = friend.with_win / friend.with_games * 100
+                return winStats.toFixed(2)
+            }
+        }
 
         return (
-            <div>
-
+            <div className='top-friends-container'>
+                <img className='friend-img'
+                    alt='No Avatar'
+                    src={getFriendAvatar()} />
+                <p>{getFriendName()}</p>
+                <p>{getFriendGames()}</p>
+        <div>
+            <p>Win %</p>
+            <p>%{getFriendWinPercent()}</p>
+        </div>
             </div>
         )
     })
@@ -133,15 +164,15 @@ function RecentMatches(props) {
                 <img className='tophero-img'
                     alt='hero picture'
                     src={getHeroPicture()} />
-                <div>
+                <div className='tophero-div'>
                     <p>Last Played</p>
                     <p>{moment(convertEpochTime()).fromNow()}</p>
                 </div>
-                <div>
+                <div className='tophero-div'>
                     <p>{getTopGames()}</p>
                     <p>Games Played</p>
                 </div>
-                <div>
+                <div className='tophero-div3'>
                     <p>{handleWinPercent()}</p>
                     <p>Win %</p>
                 </div>
