@@ -11,9 +11,10 @@
 
 .tophero-container{
     width: 50%;
-    height: 7vh;
+    height: 8vh;
     font-size: .5rem;
     display: flex;
+    align-items: center;
     border: 2px solid crimson;
 }
 
@@ -54,6 +55,16 @@
     font-size: .75rem;
     font-weight: bold;
     width: 50%;
+    background-color: rgb(121, 121, 121, .8);
+    color: white;
+    padding: 5px;
+}
+
+.p-peers{
+    font-size: .75rem;
+    font-weight: bold;
+    width: 50%;
+    margin-left: 50%;
     background-color: rgb(121, 121, 121, .8);
     color: white;
     padding: 5px;

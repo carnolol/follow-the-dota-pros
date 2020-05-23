@@ -19,12 +19,14 @@ function RecentMatches(props) {
     const [pros, setPros] = useState([])
     const [friends, setFriends] = useState([])
     const [topHeroes, setTopHeroes] = useState([])
+    const [peers, setPeers] = useState([])
     const [loading, setLoading] = useState(true)
     let [count, setCount] = useState(10)
 
+    const amigos = [peers[0], peers[1], peers[2], peers[3], peers[4], peers[5], peers[6], peers[7], peers[8], peers[9]]
+
     const top = [topHeroes[0], topHeroes[1], topHeroes[2], topHeroes[3], topHeroes[4], topHeroes[5], topHeroes[6], topHeroes[7], topHeroes[8], topHeroes[9]]
 
-    //TODO: Fill out GetFriendsName => ()
 
     useEffect(() => {
         window.scrollTo(0, 0)
@@ -48,6 +50,11 @@ function RecentMatches(props) {
                                             .get(`https://api.opendota.com/api/players/${props.match.params.proPlayerId}/heroes`)
                                             .then(res => {
                                                 setTopHeroes(res.data)
+                                                axios
+                                                    .get(`https://api.opendota.com/api/players/${props.match.params.proPlayerId}/peers`)
+                                                    .then(res => {
+                                                        setPeers(res.data)
+                                                    })
                                             })
                                     })
                             })
@@ -56,7 +63,7 @@ function RecentMatches(props) {
         setLoading(false)
     }, [count])
 
-
+    console.log(amigos)
 
     function getPlayerName() {
         for (let i = 0; i < pros.length; i++) {
@@ -72,7 +79,20 @@ function RecentMatches(props) {
     }
 
 
+    //          !!!!!!! Top 10 friends map here !!!!!!!!
 
+    const favoriteFriends = amigos.map(friend => {
+       
+        
+        
+        return(
+            <div>
+
+            </div>
+        )
+    })
+
+        //          !!!!!!    Top 10 Heroes map     !!!!!!!
 
     const playedHeroes = top.map(topHero => {
 
@@ -84,10 +104,11 @@ function RecentMatches(props) {
             }
         }
 
+      
+
         function getHeroPicture() {
             if (topHero) {
                 for (let i = 0; i < heros.length; i++) {
-                    console.log(topHero.hero_id)
                     if (heros[i].id == topHero.hero_id) {
                         return `${baseURL}${heros[i].img}`
                     }
@@ -103,10 +124,8 @@ function RecentMatches(props) {
 
         function handleWinPercent() {
             if (topHero) {
-                    // let win = 0
-                   let win = topHero.win / topHero.games * 100
-                   console.log(win)
-                   return win.toFixed(2)
+                let win = topHero.win / topHero.games * 100
+                return win.toFixed(2)
             }
         }
 
@@ -192,12 +211,16 @@ function RecentMatches(props) {
 
     return (
         <div className='main-recent-matches-div'>
-            {loading ? loadingGif : <h1>{getPlayerName()}'s favorite heroes!</h1>}
+            {loading ? loadingGif : <h1>{getPlayerName()}'s TOP 10</h1>}
 
-            {loading ? loadingGif : <div className='playedHeroes-and-peers'>
-                <p className='playedHeroes-info'> Most Played Heroes All Time!</p>
-                {playedHeroes}
-            </div>}
+            {loading ? loadingGif : (
+
+                <div className='playedHeroes-and-peers'>
+                    <p className='playedHeroes-info'> Most Played Heroes All Time!</p>
+                    {playedHeroes}
+                    <p className='p-peers'>Favorite People</p>
+                    {favoriteFriends}
+                </div>)}
 
             {loading ? loadingGif : <h2 className='h2-player-name'>{getPlayerName()}'s match history!</h2>}
             {loading ? loadingGif : <div>
