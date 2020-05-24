@@ -62,8 +62,6 @@ function ProPlayerPool(props) {
                             src={trash}
                             onClick={() => handleDeletePro()}
                         />
-                    {/* <div className='name-match-button'> */}
-                    {/* </div> */}
 
                 </div>
         )

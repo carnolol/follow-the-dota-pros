@@ -140,12 +140,12 @@ function RecentMatches(props) {
                     onDoubleClick={() => handleAddFriend()} />
                 <u><h4 className='h4-tophero-div'>{getFriendName()}</h4></u>
                 <div className='tophero-div'>
-                    <p className='tophero-p'>{getFriendGames()}</p>
+                    <h1 className='tophero-p'>{getFriendGames()}</h1>
                     <p className='tophero-p'>Matches</p>
                 </div>
                 <div className='tophero-div3'>
-                    <p className='tophero-p'>{getFriendWinPercent()} %</p>
-                    <p className='tophero-p'>Win</p>
+                    <h2 className='tophero-p'>{getFriendWinPercent()}%</h2>
+                    <p className='tophero-p'>Win Rate</p>
                 </div>
             </div>
         )
