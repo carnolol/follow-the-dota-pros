@@ -22,8 +22,7 @@ function ProPlayerPool(props) {
                 setTimeout(() => setLoading(false), 1)
             })
             .catch(err => console.log(err))
-            
-    }, [pros])
+    }, [])
 
 
 
@@ -36,6 +35,13 @@ function ProPlayerPool(props) {
         const handleDeletePro = () => {
             axios
                 .delete(`/user/me/${pro.id}`)
+                .then(() => {
+                    axios
+                    .get(`/user/me/pros/${props.dota_users_id}`)
+                    .then(res => {
+                        setPros(res.data)
+                    })
+                })
         }
 
 

@@ -28,6 +28,7 @@ function Friends(props) {
                 setFriends(res.data)
             })
             .catch(err => console.log(err))
+            console.log('friends effect')
     }, [])
 
     const reset = () => {

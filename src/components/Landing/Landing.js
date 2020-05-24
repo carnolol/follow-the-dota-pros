@@ -103,8 +103,9 @@ function Landing(props) {
 
     return (
         <div className='main-landing-div'>
-            <h2 className='landing-h2'>Select your players to follow!</h2>
-            <div className='search-and-img-container'>
+            { loading ? null : <h2 className='landing-h2'>Select your players to follow!</h2>}
+
+           { loading ? null : <div className='search-and-img-container'>
                 <input className='search-input'
                     onChange={(e) => setSearch(e.target.value)}
                     placeholder='Search by Name' />
@@ -114,16 +115,19 @@ function Landing(props) {
                     src={glass} />
                 <button className='search-reset'
                     onClick={() => handleReset()}>Reset</button>
-            </div>
+            </div>}
+
             {loading === true ? <div>
                 <h1>Getting Pros...</h1>
                 <img src={loadingImg}
                     alt='need new loading gif' />
             </div> : proPlayers}
+
             {loading === true ? null :
                 <Link to={'/about-us'} style={{textDecoration: 'none'}}>
                     <h2 className='h2-learn'>Learn more about us here!</h2>
                 </Link>}
+                
             {loading === true ? null : <Footer />}
         </div>
     )

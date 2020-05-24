@@ -8,11 +8,21 @@ import ProPlayerPool from '../ProPlayerPool/ProPlayerPool'
 
 const pencil = 'https://cdn1.iconfinder.com/data/icons/editing/60/cell-2-0-480.png'
 
+const loadingGif = <div>
+    <h1>One moment please...</h1>
+    <img className='loading'
+        src='https://miro.medium.com/max/1600/1*CsJ05WEGfunYMLGfsT2sXA.gif'
+        alt='loading' />
+</div>
+
+
 
 function UserInfo(props) {
+
     const [user, setUser] = useState({})
     const [bio, setBio] = useState('')
     const [editBio, setEditBio] = useState(false)
+    const [loading, setLoading] = useState(true)
 
 
     useEffect(() => {
@@ -24,6 +34,7 @@ function UserInfo(props) {
             })
             .catch(err => console.log(err))
 
+      setLoading(false)
     }, [user.bio])
 
     const handleEditUser = () => {
