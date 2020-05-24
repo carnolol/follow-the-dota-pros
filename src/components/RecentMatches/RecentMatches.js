@@ -3,6 +3,7 @@ import axios from 'axios'
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
 import moment from 'moment'
+import swal from 'sweetalert'
 import './RecentMatches.css'
 
 const baseURL = 'https://api.opendota.com'
@@ -79,6 +80,7 @@ function RecentMatches(props) {
 
 
     //          !!!!!!! Top 10 friends map here !!!!!!!!
+
     console.log(amigos)
     const favoriteFriends = amigos.map(friend => {
 
@@ -86,6 +88,24 @@ function RecentMatches(props) {
             if (friend) {
                 return friend.avatarfull
             }
+        }
+
+        const handleAddFriend = () => {
+            const body = {
+                name: friend.personaname,
+                picture: friend.avatarfull,
+                steam_account_id: friend.account_id
+            }
+            axios
+                .post('/user/friends', body)
+                .then(() => {
+                    swal({
+                        title: 'Success!',
+                        text: `${friend.personaname} has been added to your friends!`,
+                        icon: 'success',
+                        button: 'OK'
+                    })
+                })
         }
 
         function getFriendName() {
@@ -100,24 +120,28 @@ function RecentMatches(props) {
             }
         }
 
-        function getFriendWinPercent(){
-            if(friend){
+        function getFriendWinPercent() {
+            if (friend) {
                 let winStats = friend.with_win / friend.with_games * 100
                 return winStats.toFixed(2)
             }
         }
 
         return (
-            <div className='top-friends-container'>
-                <img className='friend-img'
+            <div className='top-friends-container' onDoubleClick={() => handleAddFriend()}>
+                <img className='tophero-img'
                     alt='No Avatar'
-                    src={getFriendAvatar()} />
-                <p>{getFriendName()}</p>
-                <p>{getFriendGames()}</p>
-        <div>
-            <p>Win %</p>
-            <p>%{getFriendWinPercent()}</p>
-        </div>
+                    src={getFriendAvatar()} 
+                    onDoubleClick={() => handleAddFriend()}/>
+                <h4 className='h4-tophero-div'>{getFriendName()}</h4>
+                <div className='tophero-div'>
+                    <p>{getFriendGames()}</p>
+                    <p>Matches</p>
+                </div>
+                <div className='tophero-div3'>
+                    <p>{getFriendWinPercent()} %</p>
+                    <p>Win %</p>
+                </div>
             </div>
         )
     })
@@ -163,17 +187,21 @@ function RecentMatches(props) {
             <div className='tophero-container'>
                 <img className='tophero-img'
                     alt='hero picture'
-                    src={getHeroPicture()} />
+                    src={getHeroPicture()} 
+                    />
                 <div className='tophero-div'>
-                    <p>Last Played</p>
+                    <p>Played</p>
+                    <br></br>
                     <p>{moment(convertEpochTime()).fromNow()}</p>
                 </div>
                 <div className='tophero-div'>
                     <p>{getTopGames()}</p>
+                    <br></br>
                     <p>Games Played</p>
                 </div>
                 <div className='tophero-div3'>
-                    <p>{handleWinPercent()}</p>
+                    <p>{handleWinPercent()}%</p>
+                    <br></br>
                     <p>Win %</p>
                 </div>
             </div>
@@ -241,7 +269,11 @@ function RecentMatches(props) {
 
     return (
         <div className='main-recent-matches-div'>
-            {loading ? loadingGif : <h1>{getPlayerName()}'s TOP 10</h1>}
+            {loading ? loadingGif : (
+                <div className='top-10'>
+                    <h1 >{getPlayerName()}'s TOP 10</h1>
+                    <p>{'(double click a friend to add to your friends!)'}</p>
+                </div>)}
 
             {loading ? loadingGif : (
 
