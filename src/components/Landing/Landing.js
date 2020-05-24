@@ -23,7 +23,7 @@ function Landing(props) {
             .get('/dota-pros/pros')
             .then(res => {
                 setPros(res.data)
-                setTimeout(() => setLoading(false), 1)
+                setTimeout(() => setLoading(false), 500)
             }).catch(err => console.log(err))
     }, [])
 

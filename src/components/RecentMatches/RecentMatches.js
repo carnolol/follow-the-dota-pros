@@ -4,11 +4,16 @@ import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
 import moment from 'moment'
 import swal from 'sweetalert'
+import Footer from '../Footer/Footer'
 import './RecentMatches.css'
 
 const baseURL = 'https://api.opendota.com'
-const loadingGif = <img src='https://miro.medium.com/max/1600/1*CsJ05WEGfunYMLGfsT2sXA.gif'
-    alt='loading' />
+const loadingGif = <div>
+    <h1>One moment please...</h1>
+    <img className='loading'
+        src='https://miro.medium.com/max/1600/1*CsJ05WEGfunYMLGfsT2sXA.gif'
+        alt='loading' />
+</div>
 
 //* player slot for radiant players = 0,1,2,3,4
 //* player_slot for dire players = 128,129,130,131,132
@@ -61,7 +66,7 @@ function RecentMatches(props) {
                             })
                     })
             })
-        setLoading(false)
+        setTimeout(() => setLoading(false), 1750)
     }, [count])
 
 
@@ -81,7 +86,6 @@ function RecentMatches(props) {
 
     //          !!!!!!! Top 10 friends map here !!!!!!!!
 
-    console.log(amigos)
     const favoriteFriends = amigos.map(friend => {
 
         function getFriendAvatar() {
@@ -96,6 +100,7 @@ function RecentMatches(props) {
                 picture: friend.avatarfull,
                 steam_account_id: friend.account_id
             }
+            console.log(body)
             axios
                 .post('/user/friends', body)
                 .then(() => {
@@ -128,19 +133,19 @@ function RecentMatches(props) {
         }
 
         return (
-            <div className='top-friends-container' onDoubleClick={() => handleAddFriend()}>
+            <div className='top-friends-container' onDoubleClick={() => handleAddFriend()} onClick={() => handleAddFriend()}>
                 <img className='tophero-img'
                     alt='No Avatar'
-                    src={getFriendAvatar()} 
-                    onDoubleClick={() => handleAddFriend()}/>
-                <h4 className='h4-tophero-div'>{getFriendName()}</h4>
+                    src={getFriendAvatar()}
+                    onDoubleClick={() => handleAddFriend()} />
+                <u><h4 className='h4-tophero-div'>{getFriendName()}</h4></u>
                 <div className='tophero-div'>
-                    <p>{getFriendGames()}</p>
-                    <p>Matches</p>
+                    <p className='tophero-p'>{getFriendGames()}</p>
+                    <p className='tophero-p'>Matches</p>
                 </div>
                 <div className='tophero-div3'>
-                    <p>{getFriendWinPercent()} %</p>
-                    <p>Win %</p>
+                    <p className='tophero-p'>{getFriendWinPercent()} %</p>
+                    <p className='tophero-p'>Win</p>
                 </div>
             </div>
         )
@@ -187,20 +192,20 @@ function RecentMatches(props) {
             <div className='tophero-container'>
                 <img className='tophero-img'
                     alt='hero picture'
-                    src={getHeroPicture()} 
-                    />
+                    src={getHeroPicture()}
+                />
                 <div className='tophero-div'>
                     <p>Played</p>
                     <br></br>
                     <p>{moment(convertEpochTime()).fromNow()}</p>
                 </div>
                 <div className='tophero-div'>
-                    <p>{getTopGames()}</p>
+                    <h1>{getTopGames()}</h1>
                     <br></br>
                     <p>Games Played</p>
                 </div>
                 <div className='tophero-div3'>
-                    <p>{handleWinPercent()}%</p>
+                    <h2>{handleWinPercent()}%</h2>
                     <br></br>
                     <p>Win %</p>
                 </div>
@@ -275,7 +280,7 @@ function RecentMatches(props) {
                     <p>{'(double click a friend to add to your friends!)'}</p>
                 </div>)}
 
-            {loading ? loadingGif : (
+            {loading ? null : (
 
                 <div className='playedHeroes-and-peers'>
                     <div className='heros-peers'>
@@ -288,12 +293,15 @@ function RecentMatches(props) {
                     </div>
                 </div>)}
 
-            {loading ? loadingGif : <h2 className='h2-player-name'>{getPlayerName()}'s match history!</h2>}
-            {loading ? loadingGif : <div>
-                {recentMatches}
-                <button className='more-btn'
-                    onClick={() => setCount(count += 10)}>See 10 more recent matches!</button>
-            </div>}
+            {loading ? null : <h2 className='h2-player-name'>{getPlayerName()}'s match history!</h2>}
+
+            {loading ? null : (
+                <div>
+                    {recentMatches}
+                    <button className='more-btn'
+                        onClick={() => setCount(count += 10)}>See 10 more recent matches!</button>
+                </div>)}
+            {loading ? null : <Footer />}
         </div>
     )
 }

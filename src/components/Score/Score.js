@@ -3,6 +3,7 @@ import { Bar } from 'react-chartjs-2'
 import axios from 'axios'
 import './Score.css'
 import Comments from '../comments/Comments'
+import Footer from '../Footer/Footer'
 import moment from 'moment'
 
 // const loadingGif = <div className='loading-gif'>
@@ -1115,6 +1116,7 @@ function Score(props) {
                     }} />
             </div>
             {loading === true ? null : <Comments props={props} />}
+            {loading ? null : <Footer/>}
         </div>
     )
 }

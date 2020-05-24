@@ -103,8 +103,6 @@ module.exports = {
         const db = req.app.get('db')
         const { dota_users_account_id } = req.params
         const friends = await db.get_friends([dota_users_account_id])
-        // console.log(req.session.user.dota_users_id)
-        console.log('users friends:', friends)
         res.status(200).send(friends)
         //WORKING
     },

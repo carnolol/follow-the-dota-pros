@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
+
 import axios from 'axios'
 import './Friends.css'
 
@@ -27,7 +28,6 @@ function Friends(props) {
                 setFriends(res.data)
             })
             .catch(err => console.log(err))
-            console.log('fiends useEffect')
     }, [])
 
     const reset = () => {
@@ -57,7 +57,6 @@ function Friends(props) {
 
     const myFriends = friends.map(friend => {
 
-        console.log(friend)
 
         const deleteFriend = () => {
             axios

@@ -5,7 +5,6 @@ function Footer() {
     return (
         <div className='main-footer-div'>
             <div className='child-footer-div'>
-                <p>Mike Chadwick</p>
                 <a href='https://www.linkedin.com/in/michael-chadwick91/'>
                     <img className='linkin-logo'
                         alt='linkedin logo'

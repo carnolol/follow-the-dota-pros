@@ -2,6 +2,7 @@
     width: 100vw;
     height: 10vh;
     margin-top: 5vh;
+    margin-bottom: -3vh;
     display: flex;
     justify-content: center;
     align-content: center;
@@ -12,13 +13,13 @@
 }
 
 .linkin-logo{
-    height: 50%;
-    width: 50px;
+    height: 40%;
+    width: 35px;
 }
 
 .github-logo{
-    height: 50%;
-    width: 50px;
+    height: 40%;
+    width: 35px;
     margin-left: 20px;
 }
 
@@ -27,6 +28,6 @@
     text-shadow: 1px 1px 3px rgb(130, 130, 130);
     font-weight: bold;
     position: absolute;
-    top: 15px;
+    top: 20px;
     right: 35px;
 }
