@@ -29,7 +29,7 @@ function Landing(props) {
 
     function handleSearch() {
         axios
-            .get(`/dota-pros/pros?search=${search}`)
+            .get(`/dota-pros/pros?search=${search.toLowerCase()}`)
             .then(res => {
                 setPros(res.data)
             })
@@ -127,7 +127,7 @@ function Landing(props) {
                 <Link to={'/about-us'} style={{textDecoration: 'none'}}>
                     <h2 className='h2-learn'>Learn more about us here!</h2>
                 </Link>}
-                
+
             {loading === true ? null : <Footer />}
         </div>
     )

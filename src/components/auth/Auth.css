@@ -4,7 +4,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background-image: url(https://steamuserimages-a.akamaihd.net/ugc/927058790430181945/5A2C2B4ED23570B5877B7717221F962D918242CD//);
+    background-image: url('https://steamuserimages-a.akamaihd.net/ugc/927058790430181945/5A2C2B4ED23570B5877B7717221F962D918242CD//');
     background-position: center;
     background-size: cover;
 }
