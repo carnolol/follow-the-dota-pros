@@ -11,7 +11,7 @@ const glass = 'https://i.etsystatic.com/17857814/r/il/1e14b2/1578632427/il_570xN
 const add = 'https://cdn2.iconfinder.com/data/icons/everything-but-the-kitchen-sink-2/100/common-06-512.png'
 // const checkmark = 'https://i.pinimg.com/originals/70/a5/52/70a552e8e955049c8587b2d7606cd6a6.gif'
 
-//TODO: let user filter based on winnings?
+//TODO: Add a <> tag about the websites MVP. Write ternary based off islogged in from redux to display a different h1. dont allow users to add players to pool unless props.isloggedIn == true
 
 function Landing(props) {
     const [pros, setPros] = useState([])
