@@ -17,13 +17,14 @@ function Header(props) {
 
     const [menu, setMenu] = useState(false)
 
-    useEffect((props) => {
+    useEffect(() => {
+        console.log('header effect')
         axios
             .get('/user/me')
             .then(res => {
                 props.makeUser(res.data)
             }).catch(err => console.log(err))
-    }, [props.isLoggedIn])
+    }, [])
 
     const handleLogout = () => {
         axios

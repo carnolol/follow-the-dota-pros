@@ -106,10 +106,10 @@ function Landing(props) {
     })
 
     //!    !!!!!!!!!!!       MAIN RETURN HERE     !!!!!!!!!!!!!!!
-
+    console.log('landing props:', props)
     return (
         <div className='main-landing-div'>
-            {loading ? null : props.isloggedIn ? <h2 className='landing-h2'>Select your players to follow!</h2> : <h2 className='landing-h2'>Login to Start following players!</h2>}
+            {loading ? null : props.isLoggedIn ? <h2 className='landing-h2'>Select your players to follow!</h2> : <h2 className='landing-h2'>Login to Start following players!</h2>}
 
             {loading ? null : <div className='search-and-img-container'>
                 <input className='search-input'
