@@ -6,7 +6,7 @@ import swal from 'sweetalert'
 import Footer from '../Footer/Footer'
 import './Landing.css'
 
-const loadingImg = 'https://miro.medium.com/max/1600/1*CsJ05WEGfunYMLGfsT2sXA.gif'
+const loadingImg = 'https://nerdylifeofmine.files.wordpress.com/2017/11/loading.gif'
 const glass = 'https://i.etsystatic.com/17857814/r/il/1e14b2/1578632427/il_570xN.1578632427_i01w.jpg'
 const add = 'https://cdn2.iconfinder.com/data/icons/everything-but-the-kitchen-sink-2/100/common-06-512.png'
 // const checkmark = 'https://i.pinimg.com/originals/70/a5/52/70a552e8e955049c8587b2d7606cd6a6.gif'
@@ -17,6 +17,7 @@ function Landing(props) {
     const [pros, setPros] = useState([])
     const [loading, setLoading] = useState(true)
     const [search, setSearch] = useState('')
+
 
     useEffect(() => {
         axios
@@ -63,18 +64,22 @@ function Landing(props) {
 
 
         const handleAddPro = () => {
-            axios
-                .post(`/user/me/${pro.pro_player_id}`)
-                .then(
-                    swal({
-                        title: 'Success!',
-                        text: `${pro.name} has successfully been added to your pool!`,
-                        icon: 'success',
-                        button: 'OK'
-                    })
-                    // displayCheckmark()
-                )
-                .catch(err => console.log(err))
+            if (props.isloggedIn === true) {
+                axios
+                    .post(`/user/me/${pro.pro_player_id}`)
+                    .then(
+                        swal({
+                            title: 'Success!',
+                            text: `${pro.name} has successfully been added to your pool!`,
+                            icon: 'success',
+                            button: 'OK'
+                        })
+                        // displayCheckmark()
+                    )
+                    .catch(err => console.log(err))
+            } else {
+                swal('Must Login to use that feature', 'Please login first', 'error')
+            }
         }
 
 
@@ -96,6 +101,7 @@ function Landing(props) {
                 alt='add button'
                 src={add}
                 onClick={() => { handleAddPro() }} />
+
         </div>
     })
 
@@ -103,9 +109,9 @@ function Landing(props) {
 
     return (
         <div className='main-landing-div'>
-            { loading ? null : <h2 className='landing-h2'>Select your players to follow!</h2>}
+            {loading ? null : props.isloggedIn ? <h2 className='landing-h2'>Select your players to follow!</h2> : <h2 className='landing-h2'>Login to Start following players!</h2>}
 
-           { loading ? null : <div className='search-and-img-container'>
+            {loading ? null : <div className='search-and-img-container'>
                 <input className='search-input'
                     onChange={(e) => setSearch(e.target.value)}
                     placeholder='Search by Name' />
@@ -117,14 +123,18 @@ function Landing(props) {
                     onClick={() => handleReset()}>Reset</button>
             </div>}
 
-            {loading === true ? <div>
-                <h1>Getting Pros...</h1>
-                <img src={loadingImg}
-                    alt='need new loading gif' />
-            </div> : proPlayers}
+            {loading ? (
+                <div>
+                    <h1>Getting Pros...</h1>
+                    <img src={loadingImg}
+                        className='loading'
+                        alt='need new loading gif' />
+                </div>
+            ) : (
+                    proPlayers)}
 
             {loading === true ? null :
-                <Link to={'/about-us'} style={{textDecoration: 'none'}}>
+                <Link to={'/about-us'} style={{ textDecoration: 'none' }}>
                     <h2 className='h2-learn'>Learn more about us here!</h2>
                 </Link>}
 

@@ -1,5 +1,5 @@
 .main-landing-div{
-    padding-top: 20vh;
+    padding-top: 12vh;
     width: 100vw;
     display: flex;
     min-height: 100vh;
@@ -16,6 +16,12 @@
     width: 65vw;
     border-radius: 5px;
     box-shadow: 2px 2px 4px black;
+}
+
+.loading{
+    margin-top: 50px;
+    height: 100px;
+    width: 150px;
 }
 
 .search-and-img-container{

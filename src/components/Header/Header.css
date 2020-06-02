@@ -1,7 +1,7 @@
 .header-main{
     position: fixed;
     top: 0; 
-    height: 16vh;
+    height: 8vh;
     width: 100vw;
     display: flex;
     background-color: #495867;
@@ -12,9 +12,8 @@
 }
 
 .header-logo{
-    height: 10vh;
-    width: 20vw;
-    border-radius: 20px;
+    height: 5.5vh;
+    border-radius: 10px;
     box-shadow: 0 0 9px white;
 }
 
@@ -31,9 +30,12 @@
 
 .login-info{
     display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-content: space-between;
+    justify-content: space-between;
+    align-items: center;
+    width: 100px;
+    height: 100%;
+    position: relative;
+    /* align-content: space-between; */
 }
 
 .header-username{
@@ -45,8 +47,86 @@
 .profile-header-pic{
     border-radius: 50%;
     box-shadow: 0 0 9px white;
-    height: 6vh;
-    width: 12vw;
+    height: 40px;
+    width: 40px;
+}
+
+.hamburger{
+    height: 4vh;
+    position: relative;
+}
+
+.nav-item-container{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.nav-item{
+    color: white;
+    font-size: 150%;
+    font-weight: bold;
+}
+
+.mobile-nav-open{
+     height: 250px;
+     position: absolute;
+    top: 7.6vh;
+    width: 90vw;
+    background-color: rgb(199, 199, 199); 
+    right: -25px;
+    box-shadow: -3px 3px 8px black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly; 
+}
+
+
+
+.mobile-nav-closed{
+    position: absolute;
+    top: 7.6vh;
+    right:-20px;
+    height: 0; 
+    width: 90vw;
+    padding: 0;
+    box-shadow: -2px 2px 10px black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    transition: all .15s ease-in-out;
+    border-bottom-left-radius: 15px;
+    border-top-left-radius: 15px;
+    overflow-y: hidden;
+}
+
+.nav-item-container{
+    border-bottom: 4px solid white;
+    display: flex;
+    height: 33%;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-item-container:nth-child(2){
+    background-color: rgba(78,104,141,1);
+
+}
+
+.nav-item-pic{
+    margin-left: 20px;
+    height: 70%;
+}
+
+.nav-item{
+    list-style: none;
+    cursor: pointer;
+    font-size: 200%;
+    text-shadow: 3px 3px 8px black;
+    padding-right: 20px;
 }
 
 .logout-button{
