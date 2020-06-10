@@ -4,7 +4,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background-image: url(https://steamuserimages-a.akamaihd.net/ugc/927058790430181945/5A2C2B4ED23570B5877B7717221F962D918242CD///);
+    background-image: url(https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/65c4be19-9517-440b-84c6-cd44b964e89f/d7z49ib-5e782a18-0037-4699-b305-81969397a32f.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOiIsImlzcyI6InVybjphcHA6Iiwib2JqIjpbW3sicGF0aCI6IlwvZlwvNjVjNGJlMTktOTUxNy00NDBiLTg0YzYtY2Q0NGI5NjRlODlmXC9kN3o0OWliLTVlNzgyYTE4LTAwMzctNDY5OS1iMzA1LTgxOTY5Mzk3YTMyZi5qcGcifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6ZmlsZS5kb3dubG9hZCJdfQ.G8XON-HZu3Fyem9IH68Ueh3P4kjgtyOiGAOYEQY7_7Q);
     background-position: center;
     background-size: cover;
 }
@@ -21,14 +21,14 @@
     align-content: center;
     border-radius: 15px;
     box-shadow: 0 0 10px black;
-    background-color: rgba(66, 66, 66, 0.45);
+    background-color: rgba(66, 66, 66, 0.35);
 }
 
 .auth-logo{
-    height: 10vh;
-    width: 20vw;
-    border-radius: 20px;
+    height: 65px;
+    width: 65px;
     margin-bottom: 3vh;
+    border-radius: 10px;
     box-shadow: 0 0 9px white;
 }
 
@@ -37,9 +37,16 @@
 }
 
 .auth-input{
-    padding: 3px;
-    border-radius: 5px;
+    padding: 6px;
+    border: none;
+    color: white;
+    border-bottom: 3px solid white;
+    background: transparent;
     margin-bottom: 10px;
+}
+
+.auth-input::placeholder{
+    color: white;
 }
 
 .auth-buttons{

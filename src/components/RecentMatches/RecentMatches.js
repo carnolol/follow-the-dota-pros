@@ -26,6 +26,7 @@ function RecentMatches(props) {
     const [friends, setFriends] = useState([])
     const [topHeroes, setTopHeroes] = useState([])
     const [peers, setPeers] = useState([])
+    const [gamer, setGamer] = useState([])
     const [loading, setLoading] = useState(true)
     let [count, setCount] = useState(10)
 
@@ -35,7 +36,7 @@ function RecentMatches(props) {
 
 
     useEffect(() => {
-        //  window.scrollTo(0, 0) 
+        window.scrollTo(0, 0)
         axios
             .get(`https://api.opendota.com/api/players/${props.match.params.proPlayerId}/matches?limit=${count}`)
             .then(res => {
@@ -66,23 +67,30 @@ function RecentMatches(props) {
                             })
                     })
             })
+        axios
+            .get(`https://api.opendota.com/api/players/${props.match.params.proPlayerId}`)
+            .then(res => {
+                setGamer(res.data)
+            })
         setTimeout(() => setLoading(false), 1750)
     }, [count])
 
 
     function getPlayerName() {
-        for (let i = 0; i < pros.length; i++) {
-            //? == because the url is considered a string. 
-            for (let g = 0; g < friends.length; g++) {
-                if (pros[i].steam_account_id == props.match.params.proPlayerId) {
-                    return pros[i].name
-                } else if (friends[g].steam_account_id == props.match.params.proPlayerId) {
-                    return friends[g].name
+        if (gamer.profile) {
+            for (let i = 0; i < pros.length; i++) {
+                for (let g = 0; g < friends.length; g++) {
+                    //* == because the url is considered a string. 
+                    if (pros[i].steam_account_id == props.match.params.proPlayerId) {
+                        return pros[i].name
+                    } else if (friends[g].steam_account_id == props.match.params.proPlayerId) {
+                        return friends[g].name
+                    }
                 }
             }
         }
+        return gamer.profile.name
     }
-
 
     //          !!!!!!! Top 10 friends map here !!!!!!!!
 
@@ -274,6 +282,7 @@ function RecentMatches(props) {
 
     return (
         <div className='main-recent-matches-div'>
+            {/* <h1>{gamer.profile.name}</h1> */}
             {loading ? loadingGif : (
                 <div className='top-10'>
                     <h1 >{getPlayerName()}'s TOP 10</h1>
